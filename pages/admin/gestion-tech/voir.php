@@ -20,7 +20,7 @@
             <a href="modifier-le-profil.php">modifier ce profil</a>
         </div>
         <div class="col-12">
-            <button class="btn btn-primary" type="submit">supprimer ce profil</button>
+            <button class="btn btn-primary" type="submit">supprimer profil</button>
         </div>
     </body>    
 </html>    
