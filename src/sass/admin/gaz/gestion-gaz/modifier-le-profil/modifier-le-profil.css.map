@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AACA,AAAA,QAAQ,CAAC;EACL,aAAa,EAAE,CAAC;EAChB,aAAa,EAAE,mBAAmB;EAClC,OAAO,EAAE,CAAC;EACV,UAAU,EAAE,MAAM;CACnB;;AACD,AAAA,QAAQ,CAAC;EACP,aAAa,EAAE,CAAC;EAChB,OAAO,EAAE,CAAC;EACV,UAAU,EAAE,MAAM;CACnB;;AACD,AAAA,sBAAsB,CAAA;EAClB,QAAQ,EAAE,QAAQ;EAClB,GAAG,EAAE,KAAK;CACb",
-    "sources": [
-        "modifier-le-profil.scss"
-    ],
-    "names": [],
-    "file": "modifier-le-profil.css"
-}
