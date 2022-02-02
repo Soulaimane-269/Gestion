@@ -3,7 +3,7 @@
   margin: 0 auto;
 }
 
-body div div img{
+body div div img {
   height: 80%;
   width: 70%;
   display: block;
@@ -32,7 +32,7 @@ body div form img {
   margin-top: 55px;
 }
 
-#input1 {
+input {
   font-size: 20px;
   color: white;
   border: none;
@@ -41,23 +41,23 @@ body div form img {
   border-bottom: solid white 1px;
 }
 
-#input1::-webkit-input-placeholder {
+input::-webkit-input-placeholder {
   color: white;
 }
 
-#input1:-ms-input-placeholder {
+input:-ms-input-placeholder {
   color: white;
 }
 
-#input1::-ms-input-placeholder {
+input::-ms-input-placeholder {
   color: white;
 }
 
-#input1::placeholder {
+input::placeholder {
   color: white;
 }
 
-#input2 {
+.styled-input {
   font-size: 20px;
   color: white;
   border: none;
@@ -65,20 +65,24 @@ body div form img {
   background-color: transparent;
   border-bottom: solid white 1px;
 }
+.styled-input:focus{
+  background-color: transparent;
+  color: white;
 
-#input2::-webkit-input-placeholder {
+}
+.styled-input::-webkit-input-placeholder {
   color: white;
 }
 
-#input2:-ms-input-placeholder {
+.styled-input:-ms-input-placeholder {
   color: white;
 }
 
-#input2::-ms-input-placeholder {
+.styled-input::-ms-input-placeholder {
   color: white;
 }
 
-#input2::placeholder {
+.styled-input::placeholder {
   color: white;
 }
 
