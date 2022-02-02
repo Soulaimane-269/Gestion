@@ -1,0 +1,42 @@
+body {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.button-holder {
+  display: block;
+  margin: auto;
+}
+
+.button-gaz {
+  font-size: 15px;
+  background-color: red;
+  border: none;
+  border-radius: 100%;
+  text-decoration: none;
+  width: 70px;
+  height: 70px;
+  text-align: center;
+  padding: 0;
+}
+
+.button-elec {
+  font-size: 15px;
+  background-color: green;
+  border: none;
+  border-radius: 100%;
+  text-decoration: none;
+  width: 70px;
+  height: 70px;
+  text-align: center;
+  padding: 0;
+}
+
+.button-accueil {
+  font-size: 20px;
+  background-color: #04ff19;
+  color: white;
+  border: none;
+  border-radius: 50px;
+}
+/*# sourceMappingURL=accueil.css.map */

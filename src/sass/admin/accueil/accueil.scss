@@ -1,0 +1,40 @@
+body {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  .button-holder{
+    display: block;
+    margin: auto;
+  }
+  @mixin button-style($color) {
+      font-size: 15px;
+        background-color:$color;
+        border: none;
+        border-radius: 100%;
+        text-decoration : none;
+        width: 70px;
+        height:70px;
+        text-align: center;
+        padding: 0;
+}
+.button-gaz{
+    @include button-style(red)
+
+}
+.button-elec{
+    @include button-style(green)
+
+}
+
+.button-accueil{
+    font-size: 20px;
+    background-color: rgb(4, 255, 25);
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 50px;
+}
+
+ 
+    
+
+  
