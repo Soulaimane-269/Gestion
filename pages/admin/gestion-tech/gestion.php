@@ -8,19 +8,23 @@
         <title>Document</title>
         <link href="<?php echo "$srcGestionChiffres"?>css/bootstrap.min.css" rel="stylesheet">
         <link href="<?php echo "$srcGestionChiffres"?>css/gestion/gestion.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="<?php echo "$srcGestionChiffres"?>js/toggle-page.js" ></script>
         
     </head>
     <body>
       <div>
-          <div>
-              <nav class="navbar navbar-light bg-light">
-              <form class="container-fluid justify-content-start">
-                  <button class=" button1 btn me-2 col-md-5" type="button">list des profils</button>
-                  <button class="button2 btn me-2 col-md-5 " type="button">Créer un profil</button>
-              </form>
-              </nav>
-          </div>
+        <!--nav bar-->
         <div>
+            <nav class="navbar navbar-light bg-light">
+            <form class="container-fluid justify-content-start">
+                <button class=" button1 btn me-2 col-md-5" type="button">list des profils</button>
+                <button class="button2 btn me-2 col-md-5 " type="button">Créer un profil</button>
+            </form>
+            </nav>
+        </div>
+        <!--premiere page-->
+        <div class="page1">
           <table class="table table-striped">
             <tbody>
               <tr>
@@ -39,8 +43,9 @@
             </tbody>
           </table> 
         </div> 
-        <div>
-          <form class="row g-3 needs-validation" novalidate>
+        <!--deuzieme page-->
+        <div class="page2 hidden">
+          <form class=" row g-3 needs-validation" novalidate>
                 <div class="">
                     <label for="validationCustom01" class="form-label">Nom</label>
                     <input type="text" class="form-control" id="validationCustom01" value="" required>
@@ -68,7 +73,6 @@
                     <label for="validationCustom02" class="form-label">mot de passe</label>
                     <input type="text" class="form-control" id="validationCustom02" value="" required>
                 </div>
-
                 <div class="col-12">
                     <button class="btn btn-primary" type="submit">Enregister</button>
                 </div>

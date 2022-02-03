@@ -1,0 +1,16 @@
+form{
+    margin: 15px;
+    div{
+        input{
+            float: right;
+            border: solid 1px;
+            border-radius: 60PX ;
+            width:60px;
+        }
+    }
+}
+.submit> button{
+    display: block;
+    margin: auto;
+    border-radius: 50px;
+}
