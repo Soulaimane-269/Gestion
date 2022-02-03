@@ -1,0 +1,41 @@
+.head{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.body-wrapper{
+    .container{
+        margin-top: 4rem;
+        min-height:300px;
+        position: relative;
+        .oval{
+            position: absolute;
+            bottom: 0;
+            left:20%;
+            div{
+                border-radius: 50%;
+                font-size: large;
+                text-align: center;
+                line-height: 120px;
+            }
+        }
+        .oval-1{
+            top: 10%;
+            right: 20%;
+            left: 60%;
+            div{
+                background-color:#96F3C1 ;
+                width: 120px;
+                height: 120px;
+            }
+        }
+        .oval-2{
+            div{
+                background-color:#E395FF ;
+                width: 70px;
+                height: 70px; 
+                line-height: 70px;
+            }
+        }
+    }
+}

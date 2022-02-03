@@ -1,0 +1,45 @@
+.head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.table {
+  text-align: center;
+}
+
+.table tbody button {
+  min-width: 100%;
+  font-weight: bold;
+  text-align: left;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.flex button {
+  position: relative;
+  border: none;
+}
+
+.flex button::after {
+  content: '';
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  height: 2px;
+  width: 110%;
+  background-color: rgba(0, 0, 255, 0.623);
+}
+/*# sourceMappingURL=chiffres.css.map */

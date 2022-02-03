@@ -1,0 +1,32 @@
+.head{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.table{
+    text-align: center;
+    tbody{
+        button{
+            min-width: 100%;
+            font-weight: bold;
+            text-align: left;
+        }
+    }
+} 
+.flex{
+    display: flex;
+    justify-content:space-evenly;
+    button{
+        position: relative;
+        border: none;
+       &::after{
+            content: '';
+            bottom: 0;
+            left: 0;
+            position: absolute;
+            height: 2px;
+            width: 110%;
+            background-color: rgba(0, 0, 255, 0.623);
+       }
+    }
+}

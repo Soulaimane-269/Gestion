@@ -1,0 +1,49 @@
+.head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.body-wrapper .container {
+  margin-top: 4rem;
+  min-height: 300px;
+  position: relative;
+}
+
+.body-wrapper .container .oval {
+  position: absolute;
+  bottom: 0;
+  left: 20%;
+}
+
+.body-wrapper .container .oval div {
+  border-radius: 50%;
+  font-size: large;
+  text-align: center;
+  line-height: 120px;
+}
+
+.body-wrapper .container .oval-1 {
+  top: 10%;
+  right: 20%;
+  left: 60%;
+}
+
+.body-wrapper .container .oval-1 div {
+  background-color: #96F3C1;
+  width: 120px;
+  height: 120px;
+}
+
+.body-wrapper .container .oval-2 div {
+  background-color: #E395FF;
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+}
+/*# sourceMappingURL=chiffres-details.css.map */
