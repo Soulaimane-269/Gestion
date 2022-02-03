@@ -1,0 +1,24 @@
+h4 {
+  margin: 0 auto;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+}
+
+form {
+  margin: 15px;
+}
+
+form div input {
+  float: right;
+  border: solid 1px;
+  border-radius: 60PX;
+  width: 60px;
+}
+
+.submit > button {
+  display: block;
+  margin: auto;
+  border-radius: 50px;
+}
+/*# sourceMappingURL=tech-shift.css.map */

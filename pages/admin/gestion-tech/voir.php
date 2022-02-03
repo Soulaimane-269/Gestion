@@ -7,20 +7,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
         <link href="<?php echo "$srcGestionChiffres"?>css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="<?php echo"$srcGestionChiffres"?>css/main.css">
         <link href="<?php echo "$srcGestionChiffres"?>css/voir/voir.css" rel="stylesheet">
         
     </head>
     <body>
-        <div class="voir-le-profil">
-            <h1>Nom: <span>XXX</span></h1>
-            <h1>Secteur: <span>XXX</span></h1>
-            <h1>identifiant: <span>XXX</span></h1>
-        </div>
-        <div>
-            <a href="modifier-le-profil.php">modifier ce profil</a>
-        </div>
-        <div class="col-12">
-            <button class="btn btn-primary" type="submit">supprimer ce profil</button>
+        <div class="container">
+            <div class="voir-le-profil">
+                <h1>Nom: <span>XXX</span></h1>
+                <h1>Secteur: <span>XXX</span></h1>
+                <h1>identifiant: <span>XXX</span></h1>
+            </div>
+            <div>
+                <a href="modifier.php">modifier ce profil</a>
+            </div>
+            <div class="col-12">
+                <button class="btn btn-primary" type="submit">supprimer ce profil</button>
+            </div>
         </div>
     </body>    
 </html>    

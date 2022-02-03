@@ -7,11 +7,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
         <link href="<?php echo"$srcAdminTech"?>css/bootstrap.min.css" rel="stylesheet">
-        <link href="<?php echo"$srcAdminTech"?>css/tech-elec-overview/tech-elec-overview.css" rel="stylesheet">
+        <link rel="stylesheet" href="<?php echo"$srcAdminTech"?>css/main.css">
+        <link href="<?php echo"$srcAdminTech"?>css/tech-shift/tech-shift.css" rel="stylesheet">
         
     </head>
     <body>
+        <div class="container">
         <div>
+            <h4>Aujourd'hui</h4>
+        </div>
             <form action="">
                 <div class="compteur">
                     <label for="">compteur</label>

@@ -1,6 +1,10 @@
-<<<<<<< Updated upstream
-/* No CSS *//*# sourceMappingURL=tech-elec-overview.css.map */
-=======
+.container > div:first-child {
+  margin: 0 auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
 form {
   margin: 15px;
 }
@@ -17,5 +21,4 @@ form div input {
   margin: auto;
   border-radius: 50px;
 }
-/*# sourceMappingURL=tech-elec-overview.css.map */
->>>>>>> Stashed changes
+/*# sourceMappingURL=tech-journal.css.map */

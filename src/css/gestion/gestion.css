@@ -4,11 +4,32 @@
   padding: 0;
   text-align: center;
 }
-<<<<<<< Updated upstream
-=======
 
 .hidden {
   display: none;
 }
->>>>>>> Stashed changes
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.flex button {
+  position: relative;
+  border: none;
+}
+
+.flex button::after {
+  content: '';
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  height: 2px;
+  width: 110%;
+  background-color: rgba(0, 0, 255, 0.623);
+}
 /*# sourceMappingURL=gestion.css.map */

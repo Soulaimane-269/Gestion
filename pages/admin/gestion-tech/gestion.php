@@ -7,38 +7,34 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
         <link href="<?php echo "$srcGestionChiffres"?>css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="<?php echo"$srcGestionChiffres"?>css/main.css">
         <link href="<?php echo "$srcGestionChiffres"?>css/gestion/gestion.css" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script type="text/javascript" src="<?php echo "$srcGestionChiffres"?>js/toggle-page.js" ></script>
         
     </head>
     <body>
-      <div>
-        <!--nav bar-->
-        <div>
-            <nav class="navbar navbar-light bg-light">
-            <form class="container-fluid justify-content-start">
-                <button class=" button1 btn me-2 col-md-5" type="button">list des profils</button>
-                <button class="button2 btn me-2 col-md-5 " type="button">Créer un profil</button>
-            </form>
-            </nav>
-        </div>
+      <div class="container">
         <!--premiere page-->
         <div class="page1">
           <table class="table table-striped">
+          <div class="flex">
+        <button class="btn btn-lg col-5">Tous</button>
+        <button class="btn btn-lg col-5">Chiffre par technicien</button>
+        </div>
             <tbody>
               <tr>
                 <td>utilisateur1</td>
-                <td><a href="voir-le-profil.php">voir le profil</a></td>
+                <td><a href="voir.php">voir le profil</a></td>
 
               </tr>
               <tr>
                 <td>utilisateur2</td>
-                <td><a href="voir-le-profil.php">voir le profil</a></td>
+                <td><a href="voir.php">voir le profil</a></td>
               </tr>
               <tr>
                 <td>utilisateur3</td>
-                <td ><a href="voir-le-profil.php">voir le profil</a></td>
+                <td ><a href="voir.php">voir le profil</a></td>
               </tr>
             </tbody>
           </table> 
