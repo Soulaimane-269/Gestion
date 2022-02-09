@@ -1,4 +1,14 @@
-<?php require"../init.php" ?>
+<?php
+    require"../init.php";
+    require "../header.php"
+?>
+<!-- recuperation des données -->
+<?php  
+    $idUser = 1;
+    $dbTable = "comptelec";
+     // mysql query to get columns name
+     $req = "SHOW COLUMNS FROM " . $dbTable;
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -12,31 +22,33 @@
         
     </head>
     <body>
-        <div class="container">
         <div>
-            <h4>Aujourd'hui</h4>
-        </div>
-            <form action="">
-                <div class="compteur">
-                    <label for="">compteur</label>
-                    <input type="number">
+            <form action="formexec.php" method="post">
+                <div>
+                    <h4>Aujourd'hui le <?php echo date("Y-m-d")?></h4> 
                 </div>
-                <hr>
-                <div class="rendez-vous">
-                    <label for="">rendez-vous</label>
-                    <input type="number">
-                </div>
-                <hr>
-                <div class="accesible">
-                    <label for="">accesible</label>
-                    <input type="number">
-                </div>
-                <hr>
-                <div class="Grip">
-                    <label for="">Grip</label>
-                    <input type="number">
-                </div>
-                <hr>
+            <?php
+                // query execution
+                $results = mysqli_query($conn,$req);
+                
+                // array to store columns names
+                $columnName = array();
+
+                while( $row = mysqli_fetch_array($results) ){
+                    $columnName[] = $row['Field'] ;
+                };
+                // Condition to check if there is data for the date
+
+                // $x for columns name index and $y for columns values index
+                for($x = 2 ; $x < count($columnName) ; $x++){
+
+                echo    "<div>
+                            <label for=''> ". $columnName[$x] ."</label>
+                            <input type='number' min='0' max='100' value='0' name = " .$columnName[$x].">
+                        </div>
+                        <hr>" ;
+                }
+                ?>
                 <div class="submit">
                     <button class="btn btn-primary" type="submit">Submit form</button>
                 </div>

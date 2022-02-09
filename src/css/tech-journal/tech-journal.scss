@@ -4,11 +4,20 @@
 form{
     margin: 15px;
     div{
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[type=number] {
+            -moz-appearance: textfield;
+          }
         input{
             float: right;
             border: solid 1px;
             border-radius: 60PX ;
             width:60px;
+            text-align: center;          
         }
     }
 }
