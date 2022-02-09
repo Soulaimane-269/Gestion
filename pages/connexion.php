@@ -1,4 +1,45 @@
-<?php require"init.php" ?>
+<?php
+//requiered files
+ require"init.php" ;
+ require"connectionbd.php";
+ //
+ session_start(); 
+
+ if (!empty($_POST['userName']) && !empty($_POST['passWord'])){
+    //les variables
+    $userName=$_POST['userName'];
+    $passWord=$_POST['passWord'];
+    //crypter le password
+    $passWord="123".sha1($passWord);
+    //type
+    $type = $id->query("SELECT type FROM users WHERE userName='".$userName . "'");
+    if (mysqli_num_rows($type) > 0) {
+        while($rowData = mysqli_fetch_array($type)){
+              $typeStr=$rowData["type"];
+              echo $typeStr;
+        }
+
+    }
+    //connection
+    $req = "select * from users where userName = '".$userName."' and passWord ='".$passWord."'";
+    $res = mysqli_query($id, $req);
+     if(mysqli_num_rows($res)>0){
+         if($typeStr=='Admin'){
+            //  $_SESSION["admin"] = $userName;
+             header("location:admin/index.php");
+           }
+        }else{
+         $erreur = "Erreur de pseudo ou de mot de passe.";
+        }
+
+
+
+} 
+ 
+
+    
+
+?>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -15,19 +56,19 @@
 <body>
     <div class="test">
         <div class="container">
+            <!--image1-->  
             <div class="container"  >
                 <img  src="<?php echo"$srcPages"?>images/logowebsite.png" alt="">
             </div>
             <div calss="container">
-                <form > 
-                
+                <form method='post' action='connexion.php' > 
+                <!--image2-->    
                 <img  src="<?php echo"$srcPages"?>images/User_icon.png"> 
-                
+                <!--le formulaire-->
                 <div class="mb-3">
-                    <input  type="email" class=" styled-input form-control " placeholder="Identifiant" >
-                    
+                    <input name="userName"  type="text" class=" styled-input form-control " placeholder="Identifiant" >     
                 <div class="mb-3">
-                    <input type="password" class="styled-input form-control" placeholder="Mot de pass" >
+                    <input name="passWord" type="password" class="styled-input form-control" placeholder="Mot de pass" >
                 </div>
                 <div class="mb-3 form-check" id="input3">
                     <input id="input3" type="checkbox" class="form-check-input" id="exampleCheck1">

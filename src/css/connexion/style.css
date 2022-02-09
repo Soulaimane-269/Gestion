@@ -4,7 +4,6 @@
 }
 
 body div div img {
-  height: 80%;
   width: 70%;
   display: block;
   margin: auto;
@@ -32,7 +31,7 @@ body div form img {
   margin-top: 55px;
 }
 
-input {
+.styled-input {
   font-size: 20px;
   color: white;
   border: none;
@@ -41,19 +40,19 @@ input {
   border-bottom: solid white 1px;
 }
 
-input::-webkit-input-placeholder {
+.styled-input::-webkit-input-placeholder {
   color: white;
 }
 
-input:-ms-input-placeholder {
+.styled-input:-ms-input-placeholder {
   color: white;
 }
 
-input::-ms-input-placeholder {
+.styled-input::-ms-input-placeholder {
   color: white;
 }
 
-input::placeholder {
+.styled-input::placeholder {
   color: white;
 }
 
@@ -65,11 +64,7 @@ input::placeholder {
   background-color: transparent;
   border-bottom: solid white 1px;
 }
-.styled-input:focus{
-  background-color: transparent;
-  color: white;
 
-}
 .styled-input::-webkit-input-placeholder {
   color: white;
 }
@@ -97,7 +92,6 @@ input::placeholder {
 }
 
 .test {
-  height: 100vh;
   width: 500px;
   background: -webkit-gradient(linear, left top, left bottom, from(#b0b300), to(#006411));
   background: linear-gradient(#b0b300, #006411);
