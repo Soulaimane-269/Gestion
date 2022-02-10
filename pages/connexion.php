@@ -1,7 +1,10 @@
 <?php
+
+
 //requiered files
+ require"header.php"; 
  require"init.php" ;
- require"connectionbd.php";
+ require"connexiondb.php";
  //
  session_start(); 
 
@@ -13,7 +16,7 @@
     //crypter le password
     // $passWord="123".sha1($passWord);
     //type
-    $type = $id->query("SELECT type FROM users WHERE userName='".$userName . "'");
+    $type = $conn->query("SELECT type FROM users WHERE userName='".$userName . "'");
     if (mysqli_num_rows($type) > 0) {
         while($rowData = mysqli_fetch_array($type)){
               $typeStr=$rowData["type"];
@@ -23,7 +26,7 @@
 
     //connection
     $req = "select * from users where userName = '".$userName."' and passWord ='".$passWord."'";
-    $res = mysqli_query($id, $req);
+    $res = mysqli_query($conn, $req);
      if(mysqli_num_rows($res)>0){
          if($typeStr=='admin'){
              //admin
@@ -32,6 +35,8 @@
            }
            //tech
            elseif($typeStr=='gaz' or $typeStr=='electricite'){
+            $_SESSION["userName"] = $userName;
+
             header("location:tech/index.php");
            }
         }else{

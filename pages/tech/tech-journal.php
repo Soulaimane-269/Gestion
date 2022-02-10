@@ -2,6 +2,7 @@
       require"../header.php";
       require"../connexiondb.php";
 ?>
+
 <!-- recuperation des données -->
 <?php  
      $idUser = 1;

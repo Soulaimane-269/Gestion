@@ -2,9 +2,10 @@
 
 //init
  require"../../init.php";
+ require"../../header.php";
 
 //connection de la base de données 
- require"../../connectionbd.php";
+ require"../../connexiondb.php";
 
 //conditionn
  if(!empty($_POST['name']) && !empty($_POST['firstName']) && !empty($_POST['secteur']) && !empty($_POST['userName']) && !empty($_POST['passWord']) ){
@@ -16,13 +17,13 @@
  $passWord= $_POST['passWord'];
  $secret= "123".sha1($userName);
 
- //crypter le password
+ //crypter le password                                
 $passWord="123".sha1($passWord);
 
 //requete insert
 $req ="INSERT INTO users (id,name,firstName,type,userName, passWord ,secret) VALUES (id,'$name','$firstName' ,'$secteur','$userName','$passWord','$secret')";
 echo $name . $firstName . $secret .$secteur;
-$id = mysqli_query($id,$req);
+$conn = mysqli_query($conn,$req);
 }
 
 

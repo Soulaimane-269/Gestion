@@ -2,13 +2,34 @@
     require"../init.php";
     require "../header.php";
     require"../connexiondb.php";
+    session_start();
+    //session
+
+    if (!isset($_SESSION["userName"])){
+        header("location:../connexion.php");
+    }
+    else{$userName=$_SESSION["userName"];
+        echo $userName;}
+    //les variable
+    //id
+    $id = $conn->query("SELECT id FROM users WHERE userName='".$userName . "'");
+    if (mysqli_num_rows($id) > 0) {
+        while($rowData = mysqli_fetch_array($id)){
+              $idInt= (int)$rowData["id"];
+              echo $idInt;
+              
+        }
+
+    } 
+
+
 ?>
 <!-- recuperation des données -->
 <?php  
-    $idUser = 1;
+    $idUser = $idInt;
     $dbTable = "comptelec";
      // mysql query to get columns name
-     $req = "SHOW COLUMNS FROM " . $dbTable;
+    $req = "SHOW COLUMNS FROM " . $dbTable;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,6 +70,9 @@
                         </div>
                         <hr>" ;
                 }
+
+                
+
                 ?>
                 <div class="submit">
                     <button class="btn btn-primary" type="submit">Submit form</button>

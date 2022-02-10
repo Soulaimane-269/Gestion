@@ -1,6 +1,7 @@
 <?php 
+require "../header.php";
 require"../init.php";
-require"../connectionbd.php";
+require"../connexiondb.php";
 session_start();
 if(!isset($_SESSION["userName"]))
 {
