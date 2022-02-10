@@ -22,7 +22,7 @@ $passWord="123".sha1($passWord);
 //requete insert
 $req ="INSERT INTO users (id,name,firstName,type,userName, passWord ,secret) VALUES (id,'$name','$firstName' ,'$secteur','$userName','$passWord','$secret')";
 echo $name . $firstName . $secret .$secteur;
-$db ->exec($req);
+$id = mysqli_query($id,$req);
 }
 
 
@@ -104,6 +104,10 @@ $db ->exec($req);
                     <input class="btn btn-primary" type="submit" value="Enregister">
                 </div>
           </form>
+        </div>
+        <!--bouton de deconnexion-->
+        <div>
+          
         </div>
       </div>   
     </body>

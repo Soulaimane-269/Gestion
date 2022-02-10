@@ -6,30 +6,37 @@
  session_start(); 
 
  if (!empty($_POST['userName']) && !empty($_POST['passWord'])){
+
     //les variables
     $userName=$_POST['userName'];
     $passWord=$_POST['passWord'];
     //crypter le password
-    $passWord="123".sha1($passWord);
+    // $passWord="123".sha1($passWord);
     //type
     $type = $id->query("SELECT type FROM users WHERE userName='".$userName . "'");
     if (mysqli_num_rows($type) > 0) {
         while($rowData = mysqli_fetch_array($type)){
               $typeStr=$rowData["type"];
-              echo $typeStr;
         }
 
     }
+
     //connection
     $req = "select * from users where userName = '".$userName."' and passWord ='".$passWord."'";
     $res = mysqli_query($id, $req);
      if(mysqli_num_rows($res)>0){
-         if($typeStr=='Admin'){
-            //  $_SESSION["admin"] = $userName;
+         if($typeStr=='admin'){
+             //admin
+             $_SESSION["userName"] = $userName;
              header("location:admin/index.php");
            }
+           //tech
+           elseif($typeStr=='gaz' or $typeStr=='electricite'){
+            header("location:tech/index.php");
+           }
         }else{
-         $erreur = "Erreur de pseudo ou de mot de passe.";
+            echo "Erreur de pseudo ou de mot de passe.";
+          
         }
 
 
