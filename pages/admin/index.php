@@ -1,5 +1,15 @@
 <?php 
 require"../init.php";
+require"../connectionbd.php";
+session_start();
+if(!isset($_SESSION["userName"]))
+{
+    header("location:connexion.php");
+}
+
+$userName=$_SESSION["userName"];
+echo $userName;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,6 +25,7 @@ require"../init.php";
     </head>
     <body>
         <div class="container">
+            <!--premier boutton-->
             <div class="button-holder1">
                 <div>
                     <a href="gestion-tech/gestion.php" type="button" class="button-gaz boutton-gaz-getion btn btn-primary btn-lg">gaz</a>
@@ -24,6 +35,7 @@ require"../init.php";
                     <button type="button" class="button-accueil btn btn-primary btn-lg">Gestion des profils</button>
                 </div>
             </div>
+            <!--2eme boutton-->
             <div class="button-holder2">
                 <div>
                     <a type="button" class="button-gaz button-gaz-chiffres btn btn-primary btn-lg" href="chiffres-tech/chiffres-elec.php">gaz</a>
@@ -32,6 +44,10 @@ require"../init.php";
                 <div>
                     <button type="button" class="button-accueil btn btn-primary btn-lg" >Chiffres et statistiques</button>
                 </div>
+            </div>
+            <!--boutton deconnection-->
+            <div>
+            <a href="../deconnexion.php">Déconnexion</a>
             </div>
         </div>        
     </body>

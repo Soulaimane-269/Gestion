@@ -5,10 +5,6 @@
   text-align: center;
 }
 
-.hidden {
-  display: none;
-}
-
 .flex {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -28,8 +24,9 @@
   bottom: 0;
   left: 0;
   position: absolute;
-  height: 2px;
+  height: 5px;
   width: 110%;
   background-color: rgba(0, 0, 255, 0.623);
+  z-index: 10;
 }
 /*# sourceMappingURL=gestion.css.map */

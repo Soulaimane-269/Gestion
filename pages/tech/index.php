@@ -1,5 +1,6 @@
 <?php require"../init.php" ?>
 <?php require"../init.php" ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,4 +17,7 @@
        <a class="btn btn-primary" href="tech-shift.php">mon shift</a>
        <a class="btn btn-primary" href="tech-journal.php">mon journal</a>
    </div> 
+   <div>
+   <a href="../deconnexion.php">Déconnexion</a>
+   </div>
 </body>
