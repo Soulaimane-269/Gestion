@@ -1,5 +1,6 @@
 <?php require"../init.php" ;
       require"../header.php";
+      require"../connexiondb.php";
 ?>
 <!-- recuperation des données -->
 <?php  
