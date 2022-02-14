@@ -22,7 +22,7 @@ $passWord="123".sha1($passWord);
 
 //requete insert
 $req ="INSERT INTO users (id,name,firstName,type,userName, passWord ,secret) VALUES (id,'$name','$firstName' ,'$secteur','$userName','$passWord','$secret')";
-echo $name . $firstName . $secret .$secteur;
+echo $passWord.' '. $secret;
 $res = mysqli_query($conn,$req);
 }
 
@@ -49,24 +49,39 @@ $res = mysqli_query($conn,$req);
         <div class="page1">
           <table class="table table-striped">
           <div class="flex">
-        <button class="btn btn-lg col-5">Tous</button>
-        <button class="btn btn-lg col-5">créer un profil</button>
-        </div>
+            <button class="btn btn-lg col-5">Tous</button>
+            <button class="btn btn-lg col-5">créer un profil</button>
+          </div>
         <!--premiere page-->
             <tbody>
-              <tr>
-                <td>utilisateur1</td>
-                <td><a href="voir.php">voir le profil</a></td>
+              <?php
+              //la table
+               $dbTable = "users";
+               // tghe req to select the ids and the usernames
+               $req = "SELECT id , userName FROM ".$dbTable;
 
-              </tr>
+               // query execution
+               $results = mysqli_query($conn,$req);
+               
+               // array to store usersName
+               $usersName = array();
+
+               while( $row = mysqli_fetch_array($results) ){
+                 //storing the username
+                $usersName[] = $row['userName'];
+                //sroring the id
+                $id[]= $row['id'];
+               };
+                  
+               // the loop
+               for($x = 0 ; $x < count($usersName) ; $x++){
+                 echo"
               <tr>
-                <td>utilisateur2</td>
-                <td><a href="voir.php">voir le profil</a></td>
-              </tr>
-              <tr>
-                <td>utilisateur3</td>
-                <td ><a href="voir.php">voir le profil</a></td>
-              </tr>
+                <td>".$usersName[$x]."</td>
+                <td><a href='voir.php?id=".$id[$x]."'>voir le profil</a></td>
+              </tr>";
+              }
+              ?>
             </tbody>
           </table> 
         </div> 
@@ -86,7 +101,7 @@ $res = mysqli_query($conn,$req);
                     <label for="validationCustom04" class="form-label">Secteur</label>
                     <select name="secteur" class="form-select" id="validationCustom04" required>
                         <option  value="Gaz">Gaz</option>
-                        <option value="Eletricite">Electricite</option>
+                        <option value="Electricite">Electricite</option>
                     </select>
 
                 </div>

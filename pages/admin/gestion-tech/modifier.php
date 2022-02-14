@@ -1,4 +1,32 @@
-<?php require"../../init.php" ?>
+<?php require"../../init.php" ;
+      require"../../header.php";
+      //connection de la base de données 
+      require"../../connexiondb.php";
+    //id 
+    $id=$_GET["id"];
+    //conditionn
+    if(!empty($_POST['name']) && !empty($_POST['firstName']) && !empty($_POST['secteur']) && !empty($_POST['userName']) && !empty($_POST['passWord']) ){
+    //les variable
+     $name= $_POST['name'];
+     $firstName= $_POST['firstName'];
+     $secteur = $_POST['secteur'];
+     $userName= $_POST['userName'];
+     $passWord= $_POST['passWord'];
+     $secret= "123".sha1($userName);
+    
+    //crypter le password                                
+    $passWord="123".sha1($passWord);
+    
+    //requete modify
+    $req ="UPDATE users SET name = '".$name."',firstName='".$firstName."',type='".$secteur."',userName='".userName."', passWord='".$passWord."' ,secret='".$secret."' WHERE id =".$id." ";   
+    $res = mysqli_query($conn,$req);
+    echo $secteur.' '. $secret;
+    }
+    
+    
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -13,39 +41,70 @@
     </head>
     <body>
         <div class="container">
-            <form class="row g-3 needs-validation" novalidate>
-                <div class="">
-                    <label for="validationCustom01" class="form-label">Nom</label>
-                    <input type="text" class="form-control" id="validationCustom01" value="" required>
-                </div>
-                <div class="">
-                    <label for="validationCustom02" class="form-label">prenom</label>
-                    <input type="text" class="form-control" id="validationCustom02" value="" required>
-                </div>
-                <div class="">
-                    <label for="validationCustom04" class="form-label">Secteur</label>
-                    <select class="form-select" id="validationCustom04" required>
-                        <option selected disabled value="">Gaz</option>
-                        <option>Electricite</option>
-                    </select>
+            <?php
+            //the id
+                $id=$_GET["id"];
+            //type
+                $type = $conn->query("SELECT type FROM users WHERE id=".$id."");
+                if (mysqli_num_rows($type) > 0) {
+                    while($rowData = mysqli_fetch_array($type)){
+                    $typeStr=$rowData["type"];
+                    }
+                }
 
-                </div>
-                <div class="">
-                    <label for="validationCustomUsername" class="form-label">Identifiant</label>
-                    <div class="input-group has-validation">
-                    <span class="input-group-text" id="inputGroupPrepend">@</span>
-                    <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
-                    </div>
-                </div>
-                <div class="">
-                    <label for="validationCustom02" class="form-label">mot de passe</label>
-                    <input type="text" class="form-control" id="validationCustom02" value="" required>
-                </div>
+                
+                //the req
+                $req="SELECT * FROM users WHERE id= ".$id." ";
+                //exec
+                $exec = mysqli_query($conn,$req);
+                $res = mysqli_fetch_assoc($exec);
+                echo $res["type"];
+            
+                ?>
+                <!--the form-->
+                    <form method="post" action="<?php echo" voir.php?id=".$id.""?>"class="row g-3 needs-validation" novalidate>
+                        <div class="">
+                            <label for="validationCustom01" class="form-label">Nom</label>
+                            <input type="text" class="form-control" id="validationCustom01" value="<?php echo $res["name"]?>" required>
+                        </div>
+                        <div class="">
+                            <label for="validationCustom02" class="form-label">prenom</label>
+                            <input type="text" class="form-control" id="validationCustom02" value="<?php echo $res["firstName"]?>" required>
+                        </div>
+                        <div class="">
+                            <label for="validationCustom04" class="form-label">Secteur</label>
+                            <select name="secteur" class="form-select" id="validationCustom04" required>
+                                <?php
+                                    if($typeStr=='electricite')echo"{
+                                        <option  value='gaz'>Gaz</option>
+                                        <option selected value='electricite' >Electricite</option>
+                                    }";
+                                    elseif($typeStr=='gaz') echo"{
+                                        <option selected value='gaz'>Gaz</option>
+                                        <option value='electricite' >Electricite</option>
+                                    }";
+                                ?>
+                            </select>
 
-                <div class="col-12">
-                    <button class="btn btn-primary" type="submit">Enregister</button>
-                </div>
-            </form>
+                        </div>
+                        <div class="">
+                            <label for="validationCustomUsername" class="form-label">Identifiant</label>
+                            <div class="input-group has-validation">
+                            <span class="input-group-text" id="inputGroupPrepend">@</span>
+                            <input value ="<?php echo $res["userName"]?>" type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+                            </div>
+                        </div>
+                        <div class="">
+                            <label for="validationCustom02" class="form-label">mot de passe</label>
+                            <input value ="<?php echo $res["passWord"]?>" type="text" class="form-control" id="validationCustom02" value="" required>
+                        </div>
+
+                        <div class="col-12">
+                            <button class="btn btn-primary" type="submit">Enregister</button>
+                        </div>
+                    </form>
+                    
+            
         </div>
     </body>    
 </html>    

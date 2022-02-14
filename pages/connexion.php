@@ -12,8 +12,9 @@
 
     //les variables
     $userName=$_POST['userName'];
-    $passWord=$_POST['passWord'];
-    //crypter le password
+    $passWord= $_POST['passWord'];
+    //crypter le password                               
+    $passWord="123".sha1($passWord);
     // $passWord="123".sha1($passWord);
     //type
     $type = $conn->query("SELECT type FROM users WHERE userName='".$userName . "'");

@@ -34,7 +34,7 @@
 <!-- recuperation des données -->
 <?php  
     $idUser = $idInt;
-    $dbTable = "comptelec";
+    $dbTable = "comptele";
 
 ?>
 <!DOCTYPE html>

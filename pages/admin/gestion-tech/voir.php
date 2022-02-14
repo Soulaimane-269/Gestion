@@ -1,4 +1,11 @@
-<?php require"../../init.php" ?>
+<?php require"../../init.php";
+  require"../../header.php";
+
+ //connection de la base de données 
+   require"../../connexiondb.php"; 
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -14,12 +21,28 @@
     <body>
         <div class="container">
             <div class="voir-le-profil">
-                <h1>Nom: <span>XXX</span></h1>
-                <h1>Secteur: <span>XXX</span></h1>
-                <h1>identifiant: <span>XXX</span></h1>
+                <?php
+                    //the id
+                    $id=$_GET["id"];
+                    $req="SELECT * FROM users WHERE id= ".$id."";
+                    //the req
+                    $exec = mysqli_query($conn,$req);
+                    //the res
+                    $res = mysqli_fetch_assoc($exec);
+
+                    echo '
+                        <h1>Nom: <span>'.$res["name"].'</span></h1>
+                        <h1>Secteur: <span>'.$res["type"].'</span></h1>
+                        <h1>identifiant: <span>'.$res["userName"].'</span></h1>
+                    ';
+                ?>
             </div>
             <div>
-                <a href="modifier.php">modifier ce profil</a>
+                <?php
+                //modify boutton
+                    echo
+                    "<a href='modifier.php?id=".$id."'>modifier ce profil</a> ";
+                ?>
             </div>
             <div class="col-12">
                 <button class="btn btn-primary" type="submit">supprimer ce profil</button>
