@@ -20,7 +20,14 @@
               
         }
 
-    } 
+    }
+    //le type
+    $type = $conn->query("SELECT type FROM users WHERE userName='".$userName . "'");
+    if (mysqli_num_rows($type) > 0) {
+        while($rowData = mysqli_fetch_array($type)){
+              $typeStr=$rowData["type"];
+        } 
+    }
 
 
 ?>
@@ -28,8 +35,7 @@
 <?php  
     $idUser = $idInt;
     $dbTable = "comptelec";
-     // mysql query to get columns name
-    $req = "SHOW COLUMNS FROM " . $dbTable;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,26 +56,35 @@
                     <h4>Aujourd'hui le <?php echo date("Y-m-d")?></h4> 
                 </div>
             <?php
-                // query execution
-                $results = mysqli_query($conn,$req);
-                
-                // array to store columns names
-                $columnName = array();
-
-                while( $row = mysqli_fetch_array($results) ){
-                    $columnName[] = $row['Field'] ;
-                };
-                // Condition to check if there is data for the date
-
-                // $x for columns name index and $y for columns values index
-                for($x = 2 ; $x < count($columnName) ; $x++){
-
-                echo    "<div>
-                            <label for=''> ". $columnName[$x] ."</label>
-                            <input type='number' min='0' max='100' value='0' name = " .$columnName[$x].">
-                        </div>
-                        <hr>" ;
+                    //si c'est pour gaz
+                    if($typeStr=='gaz'){
+                    $dbTable = "comptegaz";
+                    
                 }
+
+
+                     // mysql query to get columns name
+                    $req = "SHOW COLUMNS FROM " . $dbTable;
+
+                    // query execution
+                    $results = mysqli_query($conn,$req);
+                    
+                    // array to store columns names
+                    $columnName = array();
+
+                    while( $row = mysqli_fetch_array($results) ){
+                        $columnName[] = $row['Field'] ;
+                    };
+                    // Condition to check if there is data for the date    
+                    // $x for columns name index and $y for columns values index
+                    for($x = 2 ; $x < count($columnName) ; $x++){
+
+                    echo    "<div>
+                                <label for=''> ". $columnName[$x] ."</label>
+                                <input type='number' min='0' max='100' value='0' name = " .$columnName[$x].">
+                            </div>
+                            <hr>" ;
+                    }
 
                 
 

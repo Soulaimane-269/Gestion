@@ -23,7 +23,7 @@ $passWord="123".sha1($passWord);
 //requete insert
 $req ="INSERT INTO users (id,name,firstName,type,userName, passWord ,secret) VALUES (id,'$name','$firstName' ,'$secteur','$userName','$passWord','$secret')";
 echo $name . $firstName . $secret .$secteur;
-$conn = mysqli_query($conn,$req);
+$res = mysqli_query($conn,$req);
 }
 
 
