@@ -1,15 +1,15 @@
 <?php require"../init.php" ;
       require"../header.php";
       require"../connexiondb.php";
-      
-     //la session
+      //la session
       session_start();
 
-    if (!isset($_SESSION["userName"])){
+      if (!isset($_SESSION["userName"])){
         header("location:../connexion.php");
-    }
-    else{$userName=$_SESSION["userName"];
-        echo $userName;}
+      }
+      else{$userName=$_SESSION["userName"];
+        echo $userName;
+      }
 ?>
 
 <!-- recuperation des données -->
@@ -32,12 +32,10 @@
     //table        
     $dbTable = "comptelec";
     //date
-    $date= date("Y-m-d");
-    if(isset($_POST["submit"])){
-        $date=$_POST["date"];
-        
-    }
+    $date = $_GET['date'];
     $dateInter= $date;
+    echo $dateInter;
+
     // mysql query to get columns name
     $req = "SHOW COLUMNS FROM " . $dbTable;
     // mysql query to get columns values
@@ -46,9 +44,20 @@
     if($typeStr=='gaz'){
         echo 1;
         $dbTable = "comptegaz";
-        $req1 ="select Rendez_vous, sans_rendez_vous , Module , Detendeur FROM " . $dbTable . " WHERE dateInter ='".$dateInter."' AND idUser= " . $idUser;
+        $req1 ="select Rendez_vous, Sans_rendez_vous , Module , Detendeur FROM " . $dbTable . " WHERE dateInter ='".$dateInter."' AND idUser= " . $idUser;
         $req = "SHOW COLUMNS FROM " . $dbTable;
     }
+    if(!empty($_POST['Rendez_vous']) && !empty($_POST['Sans_rendez_vous']) && !empty($_POST['Module']) && !empty($_POST['Detendeur']) ){
+        //storing in variables
+        $rendezVous = $_POST['Rendez_vous'];
+        $sansRendezVous = $_POST['Sans_rendez_vous'];
+        $module = $_POST['Module'];
+        $detendeur= $_POST['Detendeur'];
+        echo 'het';
+
+        echo $rendezVous . $sansRendezVous . $module . $detendeur;
+
+    };
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -64,12 +73,7 @@
     </head>
     <body>
         <div class="container">
-            <!-- Form de recherche -->
-            <form action="" method="post">
-                <input type="date" name="date" value="<?php echo $dateInter?>" id="">
-                <input type="submit" name="submit" class="btn btn-primary" value="Rechercher">
-            </form>
-            <form action="formexec.php" method="post">               
+            <form action="" method="post">               
                 <?php          
                 // queries execution
                 $results1 = mysqli_query($conn,$req1);
@@ -98,7 +102,7 @@
                 }
                 echo"
                 <div >
-                    <a href='tech-modifier.php?date=".$date."' class='btn btn-primary' type='submit'>modifier</a>
+                    <button name 'submit' class='btn btn-primary' type='submit'>enregister les modifications</button>
                 </div>
                 ";
                 }
@@ -109,4 +113,4 @@
             </form>
         </div>
     </body>
-</html>        
+</html>   

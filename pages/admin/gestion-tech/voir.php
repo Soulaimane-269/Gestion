@@ -45,7 +45,7 @@
                 ?>
             </div>
             <div class="col-12">
-                <button class="btn btn-primary" type="submit">supprimer ce profil</button>
+                <a class="btn btn-primary" href="<?php echo"supprimer.php?id=".$id.""?>">supprimer ce profil</a>
             </div>
         </div>
     </body>    

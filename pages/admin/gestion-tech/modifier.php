@@ -13,15 +13,20 @@
      $userName= $_POST['userName'];
      $passWord= $_POST['passWord'];
      $secret= "123".sha1($userName);
+    //  echo $secteur.' '. $secret .''.$name.$firstName.$userName.$passWord;
+     
     
     //crypter le password                                
     $passWord="123".sha1($passWord);
     
+    
     //requete modify
-    $req ="UPDATE users SET name = '".$name."',firstName='".$firstName."',type='".$secteur."',userName='".userName."', passWord='".$passWord."' ,secret='".$secret."' WHERE id =".$id." ";   
+    $req ="UPDATE users SET name = '".$name."',firstName='".$firstName."',type='".$secteur."',userName='".$userName."', passWord='".$passWord."' ,secret='".$secret."' WHERE id =".$id." ";   
     $res = mysqli_query($conn,$req);
-    echo $secteur.' '. $secret;
+    
+    
     }
+    
     
     
 
@@ -42,6 +47,7 @@
     <body>
         <div class="container">
             <?php
+            
             //the id
                 $id=$_GET["id"];
             //type
@@ -50,26 +56,25 @@
                     while($rowData = mysqli_fetch_array($type)){
                     $typeStr=$rowData["type"];
                     }
-                }
 
                 
+                    };
                 //the req
                 $req="SELECT * FROM users WHERE id= ".$id." ";
                 //exec
                 $exec = mysqli_query($conn,$req);
                 $res = mysqli_fetch_assoc($exec);
                 echo $res["type"];
-            
                 ?>
                 <!--the form-->
-                    <form method="post" action="<?php echo" voir.php?id=".$id.""?>"class="row g-3 needs-validation" novalidate>
+                    <form method="post" action="<?php echo"modifier.php?id=".$id.""?>"class="row g-3 needs-validation" novalidate>
                         <div class="">
                             <label for="validationCustom01" class="form-label">Nom</label>
-                            <input type="text" class="form-control" id="validationCustom01" value="<?php echo $res["name"]?>" required>
+                            <input name="name" type="text" class="form-control" id="validationCustom01" value="<?php echo $res["name"]?>" required>
                         </div>
                         <div class="">
                             <label for="validationCustom02" class="form-label">prenom</label>
-                            <input type="text" class="form-control" id="validationCustom02" value="<?php echo $res["firstName"]?>" required>
+                            <input name="firstName" type="text" class="form-control" id="validationCustom02" value="<?php echo $res["firstName"]?>" required>
                         </div>
                         <div class="">
                             <label for="validationCustom04" class="form-label">Secteur</label>
@@ -91,12 +96,12 @@
                             <label for="validationCustomUsername" class="form-label">Identifiant</label>
                             <div class="input-group has-validation">
                             <span class="input-group-text" id="inputGroupPrepend">@</span>
-                            <input value ="<?php echo $res["userName"]?>" type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+                            <input name="userName" value ="<?php echo $res["userName"]?>" type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
                             </div>
                         </div>
                         <div class="">
                             <label for="validationCustom02" class="form-label">mot de passe</label>
-                            <input value ="<?php echo $res["passWord"]?>" type="text" class="form-control" id="validationCustom02" value="" required>
+                            <input name='passWord' value ="<?php echo $res["passWord"]?>" type="text" class="form-control" id="validationCustom02" required>
                         </div>
 
                         <div class="col-12">

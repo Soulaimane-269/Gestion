@@ -29,11 +29,7 @@ echo $userName;
             <!--premier boutton-->
             <div class="button-holder1">
                 <div>
-                    <a href="gestion-tech/gestion.php" type="button" class="button-gaz boutton-gaz-getion btn btn-primary btn-lg">gaz</a>
-                    <a type="button" class="button-elec boutton-elec-gestion btn btn-secondary btn-lg" href="gestion-tech/gestion.php">electicité</a>
-                </div>
-                <div>
-                    <button type="button" class="button-accueil btn btn-primary btn-lg">Gestion des profils</button>
+                    <a href="gestion-tech/gestion.php" type="button" class="button-accueil btn btn-primary btn-lg">Gestion des profils</a>
                 </div>
             </div>
             <!--2eme boutton-->
