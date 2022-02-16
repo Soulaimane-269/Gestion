@@ -32,11 +32,19 @@
     //table        
     $dbTable = "comptelec";
     //date
+  
     $date= date("Y-m-d");
+    
     if(isset($_POST["submit"])){
         $date=$_POST["date"];
-        
     }
+    if(isset($_GET["date"])){
+        $date =$_GET["date"];
+        if(isset($_POST["submit"])){
+            $date=$_POST["date"];
+        }
+    }
+    
     $dateInter= $date;
     // mysql query to get columns name
     $req = "SHOW COLUMNS FROM " . $dbTable;

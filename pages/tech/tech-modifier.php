@@ -40,24 +40,14 @@
     $req = "SHOW COLUMNS FROM " . $dbTable;
     // mysql query to get columns values
     $req1 ="select Rendezvous, Accesible , Grip FROM " . $dbTable . " WHERE dateInter ='".$dateInter."' AND idUser= " . $idUser;
-    //if gaz
+    //if it's gaz
     if($typeStr=='gaz'){
         echo 1;
         $dbTable = "comptegaz";
         $req1 ="select Rendez_vous, Sans_rendez_vous , Module , Detendeur FROM " . $dbTable . " WHERE dateInter ='".$dateInter."' AND idUser= " . $idUser;
         $req = "SHOW COLUMNS FROM " . $dbTable;
     }
-    if(!empty($_POST['Rendez_vous']) && !empty($_POST['Sans_rendez_vous']) && !empty($_POST['Module']) && !empty($_POST['Detendeur']) ){
-        //storing in variables
-        $rendezVous = $_POST['Rendez_vous'];
-        $sansRendezVous = $_POST['Sans_rendez_vous'];
-        $module = $_POST['Module'];
-        $detendeur= $_POST['Detendeur'];
-        echo 'het';
-
-        echo $rendezVous . $sansRendezVous . $module . $detendeur;
-
-    };
+;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -73,7 +63,7 @@
     </head>
     <body>
         <div class="container">
-            <form action="" method="post">               
+            <form action=<?php echo"form-modifier-exec.php?date=".$date.""?> method="post">               
                 <?php          
                 // queries execution
                 $results1 = mysqli_query($conn,$req1);
@@ -108,7 +98,7 @@
                 }
                 // if there is no data print an empty form
                 else echo"il n'existe pas de chiffre pour ce jour" ;
-                        
+                echo"<a href='tech-journal.php?date=".$date."'>retour au journale</a>";        
                 ?> 
             </form>
         </div>
