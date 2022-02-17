@@ -1,5 +1,5 @@
 <?php
-require"tech-modifier.php";
+require"journal-modifier.php";
     if($typeStr=='gaz'){
         if(isset($_POST['Rendez_vous']) && isset($_POST['Sans_rendez_vous']) && isset($_POST['Module']) && isset($_POST['Detendeur']) ){
             //storing in variables
@@ -14,7 +14,7 @@ require"tech-modifier.php";
             //requete modify
             $req ="UPDATE " . $dbTable . " SET Rendez_vous = ".$rendezVous.", Sans_rendez_vous=".$sansRendezVous.", Module=".$module.",Detendeur=".$detendeur." WHERE idUser =".$idUser." AND dateInter='".$dateInter."' ";          
             $res = mysqli_query($conn,$req);
-            header('Refresh:0 ; URL=tech-modifier.php?date='.$date.'');
+            header('Refresh:0 ; URL=rederiger-journal-modifier.php?date='.$date.'');
             
 
         }
@@ -30,7 +30,7 @@ require"tech-modifier.php";
             //requete modify
             $req ="UPDATE comptelec SET Rendezvous = ".$rendezVous.", Accesible=".$accesible.", Grip=".$grip." WHERE idUser =".$idUser." AND dateInter='".$dateInter."' ";          
             $res = mysqli_query($conn,$req);
-            header('Refresh:0 ; URL=tech-modifier.php?date='.$date.'');
+            header('Refresh:0 ; URL=rederiger-journal-modifier.php?date='.$date.'');
     
 
     } 

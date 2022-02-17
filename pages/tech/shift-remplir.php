@@ -1,5 +1,5 @@
 <?php
-require"tech-shift.php";
+require"shift.php";
                 // form submition
 
                 if($typeStr=='gaz'){
@@ -13,7 +13,7 @@ require"tech-shift.php";
                             $req2= "insert into ". $dbTable. " values ( ".$idUser.", '" . $date . "', '" . $rdv . "', '" . $sansRdv . "', '" . $module . "', '" . $detendeur . "')";
                             $results = mysqli_query($conn,$req2);
                             echo"Succès";   
-                            header('Refresh:2 ; URL=index.php')     ;                         
+                            header('Refresh:0 ; URL=rederiger-shift.php')     ;                         
                         } 
 
                     }
@@ -28,7 +28,7 @@ require"tech-shift.php";
                             $req2= "insert into ". $dbTable. " values ( ".$idUser.", '" . $date . "', '" . $rdv . "', '" . $accSans . "', '" . $gripMod . "')";
                             $results = mysqli_query($conn,$req2);
                             echo"Succès";   
-                            header('Refresh:2 ; URL=index.php')     ;                         
+                            header('Refresh:0 ;URL=rederiger-shift.php')     ;                         
                         } 
                     }
 

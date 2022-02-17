@@ -14,8 +14,8 @@
 </head>
 <body>
    <div class="container">
-       <a class="btn btn-primary" href="tech-shift.php">mon shift</a>
-       <a class="btn btn-primary" href="tech-journal.php">mon journal</a>
+       <a class="btn btn-primary" href="shift.php">mon shift</a>
+       <a class="btn btn-primary" href="journal.php">mon journal</a>
    </div> 
    <div>
    <a href="../deconnexion.php">Déconnexion</a>

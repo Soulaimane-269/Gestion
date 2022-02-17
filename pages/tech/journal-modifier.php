@@ -1,15 +1,15 @@
 <?php require"../init.php" ;
       require"../header.php";
       require"../connexiondb.php";
-      
-     //la session
+      //la session
       session_start();
 
-    if (!isset($_SESSION["userName"])){
+      if (!isset($_SESSION["userName"])){
         header("location:../connexion.php");
-    }
-    else{$userName=$_SESSION["userName"];
-        echo $userName;}
+      }
+      else{$userName=$_SESSION["userName"];
+        echo $userName;
+      }
 ?>
 
 <!-- recuperation des données -->
@@ -32,31 +32,22 @@
     //table        
     $dbTable = "comptelec";
     //date
-  
-    $date= date("Y-m-d");
-    
-    if(isset($_POST["submit"])){
-        $date=$_POST["date"];
-    }
-    if(isset($_GET["date"])){
-        $date =$_GET["date"];
-        if(isset($_POST["submit"])){
-            $date=$_POST["date"];
-        }
-    }
-    
+    $date = $_GET['date'];
     $dateInter= $date;
+    echo $dateInter;
+
     // mysql query to get columns name
     $req = "SHOW COLUMNS FROM " . $dbTable;
     // mysql query to get columns values
     $req1 ="select Rendezvous, Accesible , Grip FROM " . $dbTable . " WHERE dateInter ='".$dateInter."' AND idUser= " . $idUser;
-    //if gaz
+    //if it's gaz
     if($typeStr=='gaz'){
         echo 1;
         $dbTable = "comptegaz";
-        $req1 ="select Rendez_vous, sans_rendez_vous , Module , Detendeur FROM " . $dbTable . " WHERE dateInter ='".$dateInter."' AND idUser= " . $idUser;
+        $req1 ="select Rendez_vous, Sans_rendez_vous , Module , Detendeur FROM " . $dbTable . " WHERE dateInter ='".$dateInter."' AND idUser= " . $idUser;
         $req = "SHOW COLUMNS FROM " . $dbTable;
     }
+;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -72,12 +63,7 @@
     </head>
     <body>
         <div class="container">
-            <!-- Form de recherche -->
-            <form action="" method="post">
-                <input type="date" name="date" value="<?php echo $dateInter?>" id="">
-                <input type="submit" name="submit" class="btn btn-primary" value="Rechercher">
-            </form>
-            <form action="formexec.php" method="post">               
+            <form action=<?php echo"journal-modifier-exec.php?date=".$date.""?> method="post">               
                 <?php          
                 // queries execution
                 $results1 = mysqli_query($conn,$req1);
@@ -94,7 +80,7 @@
                 };
                 // Condition to check if there is data for the date
                 if( isset($results1Row) ){
-                    echo "<input type='date' name='date' value='".$date."' >";
+                    echo "le ".$date;
                 // $x for columns name index and $y for columns values index
                 for($x = 2 AND $y=0 ; $x < count($columnName) AND $y < count($results1Row); $x++ AND $y++){
 
@@ -106,15 +92,15 @@
                 }
                 echo"
                 <div >
-                    <a href='tech-modifier.php?date=".$date."' class='btn btn-primary' type='submit'>modifier</a>
+                    <button name 'submit' class='btn btn-primary' type='submit'>enregister les modifications</button>
                 </div>
                 ";
                 }
                 // if there is no data print an empty form
                 else echo"il n'existe pas de chiffre pour ce jour" ;
-                        
+                echo"<a href='tech-journal.php?date=".$date."'>retour au journale</a>";        
                 ?> 
             </form>
         </div>
     </body>
-</html>        
+</html>   

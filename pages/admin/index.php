@@ -35,7 +35,7 @@ echo $userName;
             <!--2eme boutton-->
             <div class="button-holder2">
                 <div>
-                    <a type="button" class="button-gaz button-gaz-chiffres btn btn-primary btn-lg" href="chiffres-tech/chiffres-elec.php">gaz</a>
+                    <a type="button" class="button-gaz button-gaz-chiffres btn btn-primary btn-lg" href="chiffres-tech/chiffres-gaz.php">gaz</a>
                     <a type="button" class="button-elec button-gaz-elec btn btn-secondary btn-lg" href="chiffres-tech/chiffres-elec.php">electicité</a>
                 </div>
                 <div>

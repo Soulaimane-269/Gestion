@@ -9,7 +9,7 @@
         header("location:../connexion.php");
     }
     else{$userName=$_SESSION["userName"];
-        echo $userName;}
+    }
     //les variable
     //date
     $date= date("Y-m-d");
@@ -18,7 +18,6 @@
     if (mysqli_num_rows($id) > 0) {
         while($rowData = mysqli_fetch_array($id)){
               $idInt= (int)$rowData["id"];
-              echo $idInt;
               
         }
 
@@ -55,9 +54,11 @@
             $verifier= 1;
         }
     }
-    $destination='formexec.php';
+    $destination='shift-remplir.php';
+    $button='enregister';
     if($verifier==1){
         $destination='shift-modifier.php';
+        $button='enregister les modification';
     }
    
    
@@ -101,7 +102,6 @@
                  }
 
                  if($verifier==1){
-                     echo'hey';
                      //requete pour aficher les chiffres du jour 
                      $req1="SELECT RendezVous, Accesible, Grip FROM `".$dbTable."` WHERE idUser=".$idUser." AND dateInter='".$date."'";
                      $exec = mysqli_query($conn,$req1);
@@ -112,7 +112,6 @@
                              3 => $res1['Accesible'],
                              4 => $res1['Grip'],
                              );
-                             echo $values[2];
 
                  }else{
                      $values= array (
@@ -120,7 +119,6 @@
                          3 => 0,
                          4 => 0,
                          );
-                         echo $values[2];
 
                  }
                     
@@ -202,13 +200,16 @@
                             <hr>" ;
                                         }
                                 
-                    }    
+                    }
+                    if($verifier==1){
+                        echo"Votre shift est bien remplis pour aujourd'hui.<br>vous pouvez toujour le modifier";
+                    }  
 
                 
 
                 ?>
                 <div class="submit">
-                    <button class="btn btn-primary" type="submit">Submit form</button>
+                    <button class="btn btn-primary" type="submit"><?php echo $button?></button>
                 </div>
             </form>
         </div>
