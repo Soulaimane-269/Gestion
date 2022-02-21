@@ -111,8 +111,15 @@
                 ";
                 }
                 // if there is no data print an empty form
-                else echo"il n'existe pas de chiffre pour ce jour" ;
-                        
+                elseif(!isset($results1Row)){
+
+                 echo"il n'existe pas de chiffre pour ce jour" ;
+                    echo"
+                    <div ><span>voulez vous le </span>
+                        <a href='journal-modifier.php?date=".$date."' type='submit'>modifier</a>
+                    </div>
+                    "; 
+                }     
                 ?> 
             </form>
         </div>

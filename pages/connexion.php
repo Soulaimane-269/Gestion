@@ -14,8 +14,7 @@
     $userName=$_POST['userName'];
     $passWord= $_POST['passWord'];
     //crypter le password                               
-    $passWord="123".sha1($passWord);
-    // $passWord="123".sha1($passWord);
+     $passWord="123".sha1($passWord);
     //type
     $type = $conn->query("SELECT type FROM users WHERE userName='".$userName . "'");
     if (mysqli_num_rows($type) > 0) {
@@ -32,11 +31,13 @@
          if($typeStr=='admin'){
              //admin
              $_SESSION["userName"] = $userName;
+             $_SESSION["type"] = $typeStr;
              header("location:admin/index.php");
            }
            //tech
            elseif($typeStr=='gaz' or $typeStr=='electricite'){
             $_SESSION["userName"] = $userName;
+            $_SESSION["type"] = $typeStr;
 
             header("location:tech/index.php");
            }

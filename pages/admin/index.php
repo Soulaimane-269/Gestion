@@ -3,14 +3,12 @@ require "../header.php";
 require"../init.php";
 require"../connexiondb.php";
 session_start();
-if(!isset($_SESSION["userName"]))
+if(!isset($_SESSION["userName"]) )
 {
-    header("location:connexion.php");
+    header("location:../connexion.php");
+    echo "testetes";
 }
-
 $userName=$_SESSION["userName"];
-echo $userName;
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

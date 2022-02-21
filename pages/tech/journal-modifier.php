@@ -97,8 +97,23 @@
                 ";
                 }
                 // if there is no data print an empty form
-                else echo"il n'existe pas de chiffre pour ce jour" ;
-                echo"<a href='tech-journal.php?date=".$date."'>retour au journale</a>";        
+                else {echo"il n'existe pas de chiffre pour ce jour" ;
+                for($x = 2 ; $x < count($columnName) ; $x++ ){
+
+                    echo    "<div>
+                                <label for=''> ". $columnName[$x] ."</label>
+                                <input type='number' min='0' max='100' value='0' name = " .$columnName[$x].">
+                            </div>
+                            <hr>" ;
+                    
+                        }
+                        echo"
+                        <div >
+                            <button name 'submit' class='btn btn-primary' type='submit'>enregister les modifications</button>
+                        </div>
+                        ";
+                    }
+                echo"<a href='journal.php?date=".$date."'>retour au journale</a>";        
                 ?> 
             </form>
         </div>

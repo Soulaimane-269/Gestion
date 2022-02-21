@@ -202,7 +202,9 @@
                                 
                     }
                     if($verifier==1){
-                        echo"Votre shift est bien remplis pour aujourd'hui.<br>vous pouvez toujour le modifier";
+                        echo"<div ><span>voulez vous le </span>
+                        <a href='journal-modifier.php?date=".$date."' type='submit'>modifier</a>
+                    </div>";
                     }  
 
                 

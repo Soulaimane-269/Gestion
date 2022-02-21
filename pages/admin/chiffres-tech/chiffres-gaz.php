@@ -3,16 +3,22 @@
 require"../../init.php";
 require"../../header.php";
 
-//connection de la base de données 
+//connexion to db
 require"../../connexiondb.php";
-$month = date("Y-m");
+$month = 3;
 if (isset($_POST['month'])){
-$month = ($_POST['month']);
-echo $month;
-echo 'hey';
+    $month = ($_POST['month']);
 };
-echo $month;
-
+//queries
+$req= "SELECT sum(Rendez_vous), sum(Sans_rendez_vous), sum(Module) , sum(Detendeur) from comptegaz where month(dateInter)=".$month."";
+$exec = mysqli_query($conn,$req);
+$res=mysqli_fetch_assoc($exec);
+// output Variables
+$Rendez_vous = $res['sum(Rendez_vous)'];
+$Sans_rendez_vous = $res['sum(Sans_rendez_vous)'];
+$Module = $res['sum(Module)'];
+$Detendeur = $res['sum(Detendeur)'];
+$TotalCmpt = $Rendez_vous + $Sans_rendez_vous + $Module + $Detendeur ;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,8 +38,25 @@ echo $month;
         <div class="head">
          <div>
             <form method="post" action="">
-                <input  type="month" name="month">
-                <button type="submit" name="submit">submit</button>
+                <?php
+                $monthName = array(0,'Janvier','Février','Mars','Avril' ,'Mai' ,'Juin','Juillet','Aôut','Septembre','Octbre','Novembre','Décembre');
+                $monthOut=1;
+                if(isset($month)){ 
+                    echo'<select name="month" >';
+                    for($monthOut=1 ; $monthOut<= 12 ; $monthOut++){
+                    echo'
+                    <option ';
+                    if ($monthOut == $month)
+                    {
+                        print"selected ";
+                    };
+                    echo 'value="'.$monthOut.'" >'.$monthName[$monthOut].'</option>';                   
+                };
+                echo'</select>';
+                echo '<button class="btn btn-primary" type="submit" name="submit">submit</button>';
+                };
+                echo"<br> Pour le mois de ".$monthName[$month]."" 
+                ?>
             </form>    
             </div>
             
@@ -47,22 +70,26 @@ echo $month;
             <tbody>
                 <tr>
                 <th scope="row">Totale des Compteures</th>
-                <td>451</td>
+                <td><?php echo $TotalCmpt?></td>
                 </tr>
                 <tr>
                 <th scope="row">Avec rendez-vous</th>
-                <td>319</td>
+                <td><?php echo $Rendez_vous?></td>
+                </tr>
+                <tr>
+                <th scope="row">Sans rendez-vous</th>
+                <td><?php echo $Sans_rendez_vous?></td>
+                </tr>
+                <tr>
+                <th scope="row">Module</th>
+                <td ><?php echo $Module?></td>
                 </tr>
                 <tr>
                 <th scope="row">Grip</th>
-                <td >23</td>
-                </tr>
-                <tr>
-                <th scope="row">Accessible</th>
-                <td >20</td>
+                <td ><?php echo $Detendeur?></td>
                 </tr>
             </tbody>
-            <!-- Tbody Tech -->
+            <!-- Tbody Tech page 2-->
             <tbody>
               <?php
 

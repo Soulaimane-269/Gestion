@@ -1,5 +1,14 @@
 <?php require"../init.php" ?>
-<?php require"../init.php" ?>
+<?php require"../init.php"; 
+
+session_start();
+
+if(!isset($_SESSION["userName"]))
+{
+    header("location:../connexion.php");
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
