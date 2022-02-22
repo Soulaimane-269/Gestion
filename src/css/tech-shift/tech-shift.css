@@ -1,5 +1,44 @@
-h4 {
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.container {
+  max-width: 500px;
   margin: 0 auto;
+  min-height: 100vh;
+}
+
+.button-green {
+  background-color: #0DA443;
+  color: white;
+  border: none;
+  min-width: 200px;
+  border-radius: 20px;
+  display: block;
+  margin: 0 auto;
+}
+
+.button-green:hover {
+  background-color: #0DA443;
+}
+
+.button-white {
+  color: #0DA443;
+  background: white;
+  border: none;
+  min-width: 200px;
+  border-radius: 20px;
+}
+
+.button-white:hover {
+  background-color: white;
+}
+
+h5 {
+  margin: 50px auto;
   max-width: -webkit-fit-content;
   max-width: -moz-fit-content;
   max-width: fit-content;
@@ -11,14 +50,49 @@ form {
 
 form div input {
   float: right;
-  border: solid 1px;
-  border-radius: 60PX;
-  width: 60px;
+  border: solid 1px rgba(0, 0, 0, 0.2);
+  border-radius: 50PX;
+  width: 50px;
+  text-align: center;
 }
 
-.submit > button {
-  display: block;
-  margin: auto;
-  border-radius: 50px;
+form div input::-webkit-outer-spin-button, form div input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+form div input:focus-visible {
+  outline-color: #0DA443;
+}
+
+form .modifier {
+  margin: 10px auto;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+}
+
+form .modal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.383);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+form .modal .modal-dialog .modal-content {
+  padding: 5px 10px;
+}
+
+form .modal .modal-dialog .modal-content .btn-close {
+  position: relative;
+  left: 90%;
+}
+
+form .modal .modal-dialog .modal-content .btn-close:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 /*# sourceMappingURL=tech-shift.css.map */

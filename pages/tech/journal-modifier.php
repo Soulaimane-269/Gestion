@@ -57,7 +57,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
         <link href="<?php echo"$srcAdminTech"?>css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="<?php echo"$srcAdminTech"?>css/main.css">
+        <link rel="stylesheet" href="<?php echo"$srcAdminTech"?>css/main/main.css">
         <link href="<?php echo"$srcAdminTech"?>css/tech-journal/tech-journal.css" rel="stylesheet">
         
     </head>

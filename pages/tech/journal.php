@@ -8,8 +8,7 @@
     if (!isset($_SESSION["userName"])){
         header("location:../connexion.php");
     }
-    else{$userName=$_SESSION["userName"];
-        echo $userName;}
+    else{$userName=$_SESSION["userName"];}
 ?>
 
 <!-- recuperation des données -->
@@ -19,7 +18,7 @@
     if (mysqli_num_rows($id) > 0) {
         while($rowData = mysqli_fetch_array($id)){
             $idInt= (int)$rowData["id"];
-            echo $idInt;}
+        }
     }
     $idUser = $idInt;
     //le type
@@ -52,7 +51,6 @@
     $req1 ="select Rendezvous, Accesible , Grip FROM " . $dbTable . " WHERE dateInter ='".$dateInter."' AND idUser= " . $idUser;
     //if gaz
     if($typeStr=='gaz'){
-        echo 1;
         $dbTable = "comptegaz";
         $req1 ="select Rendez_vous, sans_rendez_vous , Module , Detendeur FROM " . $dbTable . " WHERE dateInter ='".$dateInter."' AND idUser= " . $idUser;
         $req = "SHOW COLUMNS FROM " . $dbTable;
@@ -66,16 +64,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
         <link href="<?php echo"$srcAdminTech"?>css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="<?php echo"$srcAdminTech"?>css/main.css">
+        <link rel="stylesheet" href="<?php echo"$srcAdminTech"?>css/main/main.css">
         <link href="<?php echo"$srcAdminTech"?>css/tech-journal/tech-journal.css" rel="stylesheet">
         
     </head>
     <body>
         <div class="container">
             <!-- Form de recherche -->
-            <form action="" method="post">
-                <input type="date" name="date" value="<?php echo $dateInter?>" id="">
-                <input type="submit" name="submit" class="btn btn-primary" value="Rechercher">
+            <form action="" method="post" class="search">
+                <input type="date" name="date" value="<?php echo $dateInter?>">
+                <input type="submit" name="submit" class="btn btn-primary button-green" value="Rechercher">
             </form>
             <form action="formexec.php" method="post">               
                 <?php          
@@ -94,7 +92,7 @@
                 };
                 // Condition to check if there is data for the date
                 if( isset($results1Row) ){
-                    echo 'resultats pour le ' .$date ;
+                    echo '<h5>Résultats pour le ' .$date.'</h5>' ;
                 // $x for columns name index and $y for columns values index
                 for($x = 2 AND $y=0 ; $x < count($columnName) AND $y < count($results1Row); $x++ AND $y++){
 

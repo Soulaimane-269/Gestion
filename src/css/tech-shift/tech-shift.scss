@@ -1,17 +1,43 @@
-h4{margin: 0 auto; max-width: fit-content;}
+@import'../main/main.scss';
+h5{margin: 50px auto; max-width: fit-content;}
 form{
     margin: 15px;
     div{
         input{
             float: right;
-            border: solid 1px;
-            border-radius: 60PX ;
-            width:60px;
+            border: solid 1px rgba(0, 0, 0, 0.2);
+            border-radius: 50PX;
+            width: 50px;
+            text-align: center;
+            &::-webkit-outer-spin-button,
+            &::-webkit-inner-spin-button {
+                -webkit-appearance:none;
+                margin: 0;
+                }
+            &:focus-visible{
+                outline-color:  $green;
+            }
         }
     }
-}
-.submit> button{
-    display: block;
-    margin: auto;
-    border-radius: 50px;
+    .modifier{
+        margin: 10px auto;
+        max-width: fit-content;
+    }
+    .modal{
+        display: flex;
+        background-color: rgba(0, 0, 0, 0.383);
+        align-items: center;
+        .modal-dialog{
+            .modal-content{
+               padding: 5px 10px;
+               .btn-close{
+                position: relative;
+                left: 90%;
+                &:focus{
+                    box-shadow: none;
+                }
+               }
+            }
+        }
+    }
 }

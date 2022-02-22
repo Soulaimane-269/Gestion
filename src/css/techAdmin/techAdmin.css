@@ -1,0 +1,85 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.button-green {
+  background-color: #0DA443;
+  color: white;
+  border: none;
+  min-width: 200px;
+  border-radius: 20px;
+  display: block;
+  margin: 0 auto;
+}
+
+.button-green:hover {
+  background-color: #0DA443;
+}
+
+.button-white {
+  color: #0DA443;
+  background: white;
+  border: none;
+  min-width: 200px;
+  border-radius: 20px;
+}
+
+.button-white:hover {
+  background-color: white;
+}
+
+.container {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.container .logoContainer {
+  text-align: center;
+}
+
+.container .logoContainer img {
+  max-width: 80%;
+}
+
+.container .linksContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container .linksContainer a.btn {
+  margin: 10px 0;
+}
+
+.container div:last-child {
+  text-align: center;
+}
+
+.container div:last-child a {
+  color: rgba(0, 0, 0, 0.4);
+}
+/*# sourceMappingURL=techAdmin.css.map */

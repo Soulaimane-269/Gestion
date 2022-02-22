@@ -63,7 +63,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="<?php echo"$srcPages"?>css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="<?php echo"$srcPages"?>css/main.css">
+    <link rel="stylesheet" href="<?php echo"$srcPages"?>css/main/main.css">
     <link href="<?php echo"$srcPages"?>css/connexion/style.css" rel="stylesheet">
     
 </head>
@@ -72,7 +72,7 @@
         <div class="container">
             <!--image1-->  
             <div class="container"  >
-                <img  src="<?php echo"$srcPages"?>images/logowebsite.png" alt="">
+                <img  src="<?php echo"$srcPages"?>images/logo.svg" alt="">
             </div>
             <div calss="container">
                 <form method='post' action='connexion.php' > 

@@ -36,7 +36,7 @@ $res = mysqli_query($conn,$req);
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
         <link href="<?php echo "$srcGestionChiffres"?>css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="<?php echo"$srcGestionChiffres"?>css/main.css">
+        <link rel="stylesheet" href="<?php echo"$srcGestionChiffres"?>css/main/main.css">
         <link href="<?php echo "$srcGestionChiffres"?>css/gestion/gestion.css" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script type="text/javascript" src="<?php echo "$srcGestionChiffres"?>js/toggle-page.js" ></script>

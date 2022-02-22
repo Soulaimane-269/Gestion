@@ -14,7 +14,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
         <link href="<?php echo "$srcGestionChiffres"?>css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="<?php echo"$srcGestionChiffres"?>css/main.css">
+        <link rel="stylesheet" href="<?php echo"$srcGestionChiffres"?>css/main/main.css">
         <link href="<?php echo "$srcGestionChiffres"?>css/voir/voir.css" rel="stylesheet">
         
     </head>

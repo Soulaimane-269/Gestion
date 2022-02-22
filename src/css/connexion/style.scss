@@ -1,11 +1,11 @@
 
 
 *{
-    max-width:300px;
     margin: 0 auto
 }
 body{
-        div{
+    background-color: beige;
+    div{
             div{
                 img{
 
@@ -48,6 +48,13 @@ body{
     border-radius: 0%;
     background-color: transparent;
     border-bottom: solid rgb(255, 255, 255) 1px;
+    &:focus{
+        background-color: transparent;
+        color: white;
+        box-shadow: none;
+    border-bottom: solid rgb(255, 255, 255) 1px;
+
+    }
     &::placeholder {
         color: rgb(255, 255, 255);
       }
@@ -80,6 +87,7 @@ body{
      padding-top: 20px;
      padding-right: 20px;
      padding-left: 20px;
+     min-height: 100vh;  
  }
 
 

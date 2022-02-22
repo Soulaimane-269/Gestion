@@ -18,16 +18,23 @@ $userName=$_SESSION["userName"];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS files -->
     <link rel="stylesheet" href="<?php echo"$srcAdminTech"?>css/bootstrap.min.css">
-    <link rel="stylesheet" href="<?php echo"$srcAdminTech"?>css/main.css">
+    <link rel="stylesheet" href="<?php echo"$srcAdminTech"?>css/main/main.css">
+    <link rel="stylesheet" href="<?php echo"$srcAdminTech"?>css/techAdmin/techAdmin.css">
+
     <title>Chiffres en détails</title>
 </head>
 <body>
    <div class="container">
-       <a class="btn btn-primary" href="shift.php">Mon shift</a>
-       <a class="btn btn-primary" href="journal.php">Mon journal</a>
-       <a class="btn btn-primary" href="chiffres-mois.php" > Mes chiffres</a>
+       <div class="logoContainer">
+           <img src="<?php echo"$srcAdminTech" ?>images/logo.svg" alt="">
+       </div>
+       <div class="linksContainer">
+       <a class="btn btn-primary button-green" href="shift.php">Mon shift</a>
+       <a class="btn btn-primary button-green" href="journal.php">Mon journal</a>
+       <a class="btn btn-primary button-green" href="chiffres-mois.php" > Mes chiffres</a>
+       </div>
+       <div>
+       <a href="../deconnexion.php">Déconnexion</a>
+       </div>
    </div> 
-   <div>
-   <a href="../deconnexion.php">Déconnexion</a>
-   </div>
 </body>

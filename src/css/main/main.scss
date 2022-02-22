@@ -1,0 +1,42 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.container{
+    max-width: 500px;
+    margin: 0 auto;
+    min-height: 100vh;
+}
+$green:#0DA443;
+
+.button-green{
+    background-color: $green;
+    color: white;
+    border: none;
+    min-width: 200px;
+    border-radius: 20px;
+    display: block;
+    margin: 0 auto;
+    &:hover{
+        background-color: $green;
+    }
+    transition: all .6s;
+    transform: translateY(0%);
+    &:active{
+        transform: translateY(20%);
+    }
+    &:focus{
+        box-shadow: none;
+    }
+}
+.button-white{
+    color: $green;
+    background: white;
+    border: none;
+    min-width: 200px;
+    border-radius: 20px;  
+    &:hover{
+        background-color: white;
+    }
+}

@@ -1,0 +1,27 @@
+@import '../main/main.scss';
+.container{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    .logoContainer{
+        text-align: center;
+        img{
+            max-width: 80%;
+        }
+    }
+    .linksContainer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        a.btn{
+            margin: 10px 0;
+        }
+    }
+    div:last-child {
+        text-align: center;
+        a{
+            color: rgba(0, 0, 0, .40);
+        }
+    }
+}

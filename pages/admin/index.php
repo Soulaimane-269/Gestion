@@ -17,7 +17,7 @@ $userName=$_SESSION["userName"];
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
         <link href="<?php echo"$srcAdminTech"?>css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="<?php echo"$srcPages"?>css/main.css">
+        <link rel="stylesheet" href="<?php echo"$srcPages"?>css/main/main.css">
         <link href="<?php echo"$srcAdminTech"?>css/accueil/accueil.css" rel="stylesheet">
         
     </head>

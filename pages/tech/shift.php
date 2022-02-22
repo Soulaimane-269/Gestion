@@ -55,10 +55,10 @@
         }
     }
     $destination='shift-remplir.php';
-    $button='enregister';
+    $button='Enregister';
     if($verifier==1){
         $destination='shift-modifier.php';
-        $button='enregister les modification';
+        $button='Enregistre les modification';
     }
    
    
@@ -73,15 +73,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
         <link href="<?php echo"$srcAdminTech"?>css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="<?php echo"$srcAdminTech"?>css/main.css">
+        <link rel="stylesheet" href="<?php echo"$srcAdminTech"?>css/main/main.css">
         <link href="<?php echo"$srcAdminTech"?>css/tech-shift/tech-shift.css" rel="stylesheet">
         
     </head>
     <body>
-        <div>
+        <div class="container">
             <form action="<?php echo $destination?>" method="post">
                 <div>
-                    <h4>Aujourd'hui le <?php echo date("Y-m-d")?></h4> 
+                    <h5>Aujourd'hui le <?php echo date("Y-m-d")?></h5> 
                 </div>
             <?php
             //si c'est elec
@@ -157,7 +157,6 @@
                     }
 
                     if($verifier==1){
-                        echo'hey';
                         //requete pour aficher les chiffres du jour 
                         $req1="SELECT Rendez_vous, Sans_rendez_vous, Module , Detendeur FROM `".$dbTable."` WHERE idUser=".$idUser." AND dateInter='".$date."'";
                         $exec = mysqli_query($conn,$req1);
@@ -169,7 +168,6 @@
                                 4 => $res1['Module'],
                                 5 => $res1['Detendeur'],
                                 );
-                                echo $values[2];
 
                     }else{
                         $values= array (
@@ -202,18 +200,31 @@
                                 
                     }
                     if($verifier==1){
-                        echo"<div ><span>voulez vous le </span>
-                        <a href='journal-modifier.php?date=".$date."' type='submit'>modifier</a>
-                    </div>";
+                        echo'
+                    <div class="modal">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <div class="modal-body">
+                              <p>Vous avez déja enregistrer vos chiffres pour aujourd\'hui. Mais vous pouvez toujours les modifier.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>';
                     }  
 
                 
 
                 ?>
                 <div class="submit">
-                    <button class="btn btn-primary" type="submit"><?php echo $button?></button>
+                    <button class="btn btn-primary button-green" type="submit"><?php echo $button?></button>
                 </div>
             </form>
         </div>
     </body>
+    <script  defer>
+    closeBtn = document.querySelector('.btn-close');
+    modal = document.querySelector('.modal');
+    closeBtn.addEventListener("click", function(){modal.style.display='none';});
+    </script>
 </html>        

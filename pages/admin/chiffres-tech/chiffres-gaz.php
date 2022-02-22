@@ -29,7 +29,7 @@ $TotalCmpt = $Rendez_vous + $Sans_rendez_vous + $Module + $Detendeur ;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS files -->
     <link rel="stylesheet" href="<?php echo"$srcGestionChiffres"?>css/bootstrap.min.css">
-    <link rel="stylesheet" href="<?php echo"$srcGestionChiffres"?>css/main.css">
+    <link rel="stylesheet" href="<?php echo"$srcGestionChiffres"?>css/main/main.css">
     <link rel="stylesheet" href="<?php echo"$srcGestionChiffres"?>css/chiffres/chiffres.css">
     <title>Chiffres Gaz</title>
 </head>

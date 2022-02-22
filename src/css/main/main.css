@@ -1,0 +1,53 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.button-green {
+  background-color: #0DA443;
+  color: white;
+  border: none;
+  min-width: 200px;
+  border-radius: 20px;
+  display: block;
+  margin: 0 auto;
+  -webkit-transition: all .6s;
+  transition: all .6s;
+  -webkit-transform: translateY(0%);
+          transform: translateY(0%);
+}
+
+.button-green:hover {
+  background-color: #0DA443;
+}
+
+.button-green:active {
+  -webkit-transform: translateY(20%);
+          transform: translateY(20%);
+}
+
+.button-green:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.button-white {
+  color: #0DA443;
+  background: white;
+  border: none;
+  min-width: 200px;
+  border-radius: 20px;
+}
+
+.button-white:hover {
+  background-color: white;
+}
+/*# sourceMappingURL=main.css.map */
