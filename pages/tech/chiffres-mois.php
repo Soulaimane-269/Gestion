@@ -1,34 +1,64 @@
 <?php 
 //init
-require"../../init.php";
-require"../../header.php";
-require"../../connexiondb.php";
+require"../init.php";
+require"../header.php";
+require"../connexiondb.php";
+
+//la session
+session_start();
+
+if (!isset($_SESSION["userName"])){
+    header("location:../connexion.php");
+}
+else{$userName=$_SESSION["userName"];
+}
 
 //init month
-$month = ($_GET['month']);
+$month = (int)date('m');
 
 if (isset($_POST['month'])){
     $month = ($_POST['month']);
 };
 
-//connexion to db
 //id recup
-$idUser = (int)$_GET["id"];
+$id = $conn->query("SELECT id FROM users WHERE userName='".$userName . "'");
+if (mysqli_num_rows($id) > 0) {
+    while($rowData = mysqli_fetch_array($id)){
+        $idInt= (int)$rowData["id"];
+        }
+}
+$idUser = $idInt;
 
-//query to get user id and user name
+// type recu
+$type = $conn->query("SELECT type FROM users WHERE id=".$idUser."");
+if (mysqli_num_rows($type) > 0) {
+    while($rowData = mysqli_fetch_array($type)){
+          $typeStr=$rowData["type"];
+    } 
+}
+//query to get and user name
 $req="SELECT * FROM users WHERE id= ".$idUser."";
 $exec = mysqli_query($conn,$req);
 $res = mysqli_fetch_assoc($exec);
 $nom=$res["userName"];
 
-//query to get tech data
-$req="SELECT SUM(Rendez_vous + Sans_rendez_vous + Module + Detendeur) FROM comptegaz WHERE idUser= ".$idUser." AND month(dateInter)=". $month;
-$exec = mysqli_query($conn,$req);
-$res = mysqli_fetch_assoc($exec);
-$TotalCmpt =isset($res['SUM(Rendez_vous + Sans_rendez_vous + Module + Detendeur)']) ? $res['SUM(Rendez_vous + Sans_rendez_vous + Module + Detendeur)'] :0 ;
+//check if the tech was elec
+if($typeStr=="electricite"){
+    $tabletype= "comptelec";
+    $reqElec="SELECT SUM(Rendezvous + Accesible + Grip) FROM comptelec WHERE idUser= ".$idUser." AND month(dateInter)=". $month;
+    $exec = mysqli_query($conn,$reqElec);
+    $res = mysqli_fetch_assoc($exec);
+    $TotalCmpt =isset($res['SUM(Rendezvous + Accesible + Grip)']) ? $res['SUM(Rendezvous + Accesible + Grip)'] :0 ;
+}elseif($typeStr == "gaz"){
+    $tabletype= "comptegaz";
+    $req="SELECT SUM(Rendez_vous + Sans_rendez_vous + Module + Detendeur) FROM comptegaz WHERE idUser= ".$idUser." AND month(dateInter)=". $month;
+    $exec = mysqli_query($conn,$req);
+    $res = mysqli_fetch_assoc($exec);
+    $TotalCmpt =isset($res['SUM(Rendez_vous + Sans_rendez_vous + Module + Detendeur)']) ? $res['SUM(Rendez_vous + Sans_rendez_vous + Module + Detendeur)'] :0 ;
+}
 
 // Query to get number of days 
-$req = "SELECT * FROM comptegaz WHERE idUser =".$idUser." AND month(dateInter)=". $month.";" ;
+$req = "SELECT * FROM ".$tabletype." WHERE idUser =".$idUser." AND month(dateInter)=". $month.";" ;
 $exec = mysqli_query($conn,$req);
 $TotalDays = mysqli_num_rows($exec);
 
@@ -43,9 +73,9 @@ $avg= ($TotalDays == 0)? 0 : $TotalCmpt / $TotalDays;
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS files -->
-    <link rel="stylesheet" href="<?php echo"$srcGestionChiffres"?>css/bootstrap.min.css">
-    <link rel="stylesheet" href="<?php echo"$srcGestionChiffres"?>css/main.css">
-    <link rel="stylesheet" href="<?php echo"$srcGestionChiffres"?>css/chiffres-details/chiffres-details.css">
+    <link rel="stylesheet" href="<?php echo"$srcAdminTech"?>css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo"$srcAdminTech"?>css/main.css">
+    <link rel="stylesheet" href="<?php echo"$srcAdminTech"?>css/chiffres-details/chiffres-details.css">
     <title>Chiffres en détails</title>
 </head>
 <body>

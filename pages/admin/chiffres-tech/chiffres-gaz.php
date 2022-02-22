@@ -5,7 +5,8 @@ require"../../header.php";
 
 //connexion to db
 require"../../connexiondb.php";
-$month = 3;
+//init month
+$month = (int)date("m");
 if (isset($_POST['month'])){
     $month = ($_POST['month']);
 };
@@ -14,10 +15,10 @@ $req= "SELECT sum(Rendez_vous), sum(Sans_rendez_vous), sum(Module) , sum(Detende
 $exec = mysqli_query($conn,$req);
 $res=mysqli_fetch_assoc($exec);
 // output Variables
-$Rendez_vous = $res['sum(Rendez_vous)'];
-$Sans_rendez_vous = $res['sum(Sans_rendez_vous)'];
-$Module = $res['sum(Module)'];
-$Detendeur = $res['sum(Detendeur)'];
+$Rendez_vous = isset($res['sum(Rendez_vous)']) ? $res['sum(Rendez_vous)'] : 0;
+$Sans_rendez_vous = isset($res['sum(Sans_rendez_vous)']) ? $res['sum(Sans_rendez_vous)'] : 0;
+$Module = isset($res['sum(Module)']) ? $res['sum(Module)'] : 0;
+$Detendeur = isset($res['sum(Detendeur)']) ? $res['sum(Detendeur)'] : 0;
 $TotalCmpt = $Rendez_vous + $Sans_rendez_vous + $Module + $Detendeur ;
 ?>
 <!DOCTYPE html>
@@ -116,7 +117,7 @@ $TotalCmpt = $Rendez_vous + $Sans_rendez_vous + $Module + $Detendeur ;
                  echo"
               <tr>
                 <td>".$usersName[$x]."</td>
-                <td><a href='chiffres-gaz-details?id=".$id[$x]."'>voir</a></td>
+                <td><a href='chiffres-gaz-details?id=".$id[$x]."&month=".$month."'>voir</a></td>
               </tr>";
               }
               ?>

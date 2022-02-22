@@ -3,10 +3,9 @@ require "../header.php";
 require"../init.php";
 require"../connexiondb.php";
 session_start();
-if(!isset($_SESSION["userName"]) )
+if(!isset($_SESSION["userName"]) OR $_SESSION["type"] !== "admin" )
 {
     header("location:../connexion.php");
-    echo "testetes";
 }
 $userName=$_SESSION["userName"];
 ?>

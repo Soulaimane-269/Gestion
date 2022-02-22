@@ -3,11 +3,11 @@
 
 session_start();
 
-if(!isset($_SESSION["userName"]))
+if(!isset($_SESSION["userName"]) OR $_SESSION["type"] == "admin"  )
 {
     header("location:../connexion.php");
 }
-
+$userName=$_SESSION["userName"];
 ?>
 
 <!DOCTYPE html>
@@ -23,8 +23,9 @@ if(!isset($_SESSION["userName"]))
 </head>
 <body>
    <div class="container">
-       <a class="btn btn-primary" href="shift.php">mon shift</a>
-       <a class="btn btn-primary" href="journal.php">mon journal</a>
+       <a class="btn btn-primary" href="shift.php">Mon shift</a>
+       <a class="btn btn-primary" href="journal.php">Mon journal</a>
+       <a class="btn btn-primary" href="chiffres-mois.php" > Mes chiffres</a>
    </div> 
    <div>
    <a href="../deconnexion.php">Déconnexion</a>

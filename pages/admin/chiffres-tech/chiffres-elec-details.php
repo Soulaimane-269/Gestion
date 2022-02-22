@@ -1,4 +1,40 @@
-<?php require"../../init.php";  
+<?php 
+//init
+require"../../init.php";
+require"../../header.php";
+require"../../connexiondb.php";
+
+//init month
+$month = ($_GET['month']);
+
+if (isset($_POST['month'])){
+    $month = ($_POST['month']);
+};
+
+//connexion to db
+//id recup
+$idUser = (int)$_GET["id"];
+
+//query to get user id and user name
+$req="SELECT * FROM users WHERE id= ".$idUser."";
+$exec = mysqli_query($conn,$req);
+$res = mysqli_fetch_assoc($exec);
+$nom=$res["userName"];
+
+//query to get tech data
+$req="SELECT SUM(Rendezvous + Accesible + Grip) FROM comptelec WHERE idUser= ".$idUser." AND month(dateInter)=". $month;
+$exec = mysqli_query($conn,$req);
+$res = mysqli_fetch_assoc($exec);
+$TotalCmpt =isset($res['SUM(Rendezvous + Accesible + Grip)']) ? $res['SUM(Rendezvous + Accesible + Grip)'] :0 ;
+
+// Query to get number of days 
+$req = "SELECT * FROM comptelec WHERE idUser =".$idUser." AND month(dateInter)=". $month.";" ;
+$exec = mysqli_query($conn,$req);
+$TotalDays = mysqli_num_rows($exec);
+
+//avg per day
+$avg= ($TotalDays == 0)? 0 : $TotalCmpt / $TotalDays; 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,19 +51,37 @@
 <body>
     <!-- header -->
     <div class="container">
-        <div class="head">
-            <div><button class="btn btn-outline-success"><</button></div><h4>Janvier</h4><div><button class="btn btn-outline-success">></button></div>
-        </div>
+    <form method="post" action="">
+                <?php
+                $monthName = array(0,'Janvier','Février','Mars','Avril' ,'Mai' ,'Juin','Juillet','Aôut','Septembre','Octbre','Novembre','Décembre');
+                $monthOut=1;
+                if(isset($month)){ 
+                    echo'<select name="month" >';
+                    for($monthOut=1 ; $monthOut<= 12 ; $monthOut++){
+                    echo'
+                    <option ';
+                    if ($monthOut == $month)
+                    {
+                        print"selected ";
+                    };
+                    echo 'value="'.$monthOut.'" >'.$monthName[$monthOut].'</option>';                   
+                };
+                echo'</select>';
+                echo '<button class="btn btn-primary" type="submit" name="submit">submit</button>';
+                };
+                echo"<br> Pour le mois de ".$monthName[$month]."" 
+                ?>
+            </form>    
         <div class="body-wrapper">
             <div class="container">
-                <h1>Tech Nom</h1>
+                <h1><?php echo $nom?> </h1>
                 <div class="oval oval-1">
-                    <div class="fs-2 text">369</div>
+                    <div class="fs-2 text"><?php echo $TotalCmpt?></div>
                     <h6>Compteurs</h6>
                 </div>
                 <div class="oval oval-2">
-                    <div>19.3</div>
-                    <h6>par jours</h6>
+                    <div><?php echo number_format($avg, 2, '.', '') ?></div>
+                    <h6>Sur <?php echo $TotalDays ?> jour de travail</h6>
                 </div>
             </div>
         </div>
