@@ -1,8 +1,16 @@
+@import'../main/main.scss';
+.button1{
+    border-radius: 0;
+    border-bottom: solid 1px $cyan;
+    padding: 0;
+    text-align: center;
+}
 .head{
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
+//table
 .table{
     text-align: center;
     tbody{
@@ -13,20 +21,138 @@
         }
     }
 } 
+
+//container
+.container{
+    div{
+        min-width: 100%;
+        table{
+            min-width: 100%;
+        }
+    }
+}
+//flex
 .flex{
     display: flex;
-    justify-content:space-evenly;
+    justify-content:center;
     button{
+        font-size: 15px;
         position: relative;
         border: none;
+        width: 50%;
+        &:focus{
+            box-shadow: none;
+        }
+        &:hover{
+            color: $cyan;
+        }
        &::after{
             content: '';
             bottom: 0;
             left: 0;
             position: absolute;
-            height: 2px;
-            width: 110%;
-            background-color: rgba(0, 0, 255, 0.623);
+            height: 0px;
+            width: 100%;
+            background-color: $cyan;
+            z-index: 10;
+            transition: all .1s;
        }
     }
+    
+    }
+//form
+form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    select{
+        width: 50%;
+    }
+    button{
+        min-width: 150px ;
+    }
 }
+.form-control{
+    &:focus{
+        border: solid 1px $cyan;
+        box-shadow: none;}
+
+}
+.form-select:focus {
+    border: solid 1px black;
+    box-shadow: none;
+}
+
+//colomns
+.voir{
+    color:$cyan;
+    padding-top: 5px;
+    float: right;
+    margin-right: 20px;
+}
+.userName{
+    padding-top: 10px;
+    font-size:15px;
+    margin-left: 20px;
+    float: left;
+} 
+h6{
+    float: left;
+    font-weight: bold;
+}  
+
+
+// resuble classes
+.hidden{
+    display: none;
+}
+.activeBtn{
+    color: $cyan ;
+   &::after{
+        height: 2px !important;
+   }
+}
+.page1 {
+    min-width: 100%;
+    max-height: 600px;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+        width: 10px;
+      }
+       
+    &::-webkit-scrollbar-track {
+        box-shadow: none;
+      }
+       
+    &::-webkit-scrollbar-thumb {
+        background-color: rgb(194, 194, 194);
+        outline: 1px solid transparent;
+        
+      }
+    
+}
+.page1{
+    margin-top: 40px;
+}
+.page2 {
+    margin-top: 40px;
+    min-width: 100%;
+    max-height: 600px;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+        width: 10px;
+      }
+       
+    &::-webkit-scrollbar-track {
+        box-shadow: none;
+      }
+       
+    &::-webkit-scrollbar-thumb {
+        background-color: rgb(194, 194, 194);
+        outline: 1px solid transparent;
+        
+      }
+    
+}
+

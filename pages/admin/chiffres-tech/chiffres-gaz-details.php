@@ -67,7 +67,7 @@ $avg= ($TotalDays == 0)? 0 : $TotalCmpt / $TotalDays;
                     echo 'value="'.$monthOut.'" >'.$monthName[$monthOut].'</option>';                   
                 };
                 echo'</select>';
-                echo '<button class="btn btn-primary" type="submit" name="submit">submit</button>';
+                echo '<button class="button-green btn btn-primary" type="submit" name="submit">submit</button>';
                 };
                 echo"<br> Pour le mois de ".$monthName[$month]."" 
                 ?>

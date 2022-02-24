@@ -9,8 +9,7 @@
     if(isset($_POST["submit"])){
         $req ="DELETE FROM users WHERE id = ".$id."";
         $res = mysqli_query($conn,$req);
-        header("refresh:2;url=gestion.php");
-        echo 'succes';
+        header("refresh:1;url=gestion.php");
     }
     ?>
  <form method="post" >

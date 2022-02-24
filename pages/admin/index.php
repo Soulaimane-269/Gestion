@@ -18,31 +18,37 @@ $userName=$_SESSION["userName"];
         <title>Document</title>
         <link href="<?php echo"$srcAdminTech"?>css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="<?php echo"$srcPages"?>css/main/main.css">
-        <link href="<?php echo"$srcAdminTech"?>css/accueil/accueil.css" rel="stylesheet">
+        <link href="<?php echo"$srcAdminTech"?>css/techAdmin/techAdmin.css" rel="stylesheet">
         
     </head>
     <body>
-        <div class="container">
-            <!--premier boutton-->
-            <div class="button-holder1">
-                <div>
-                    <a href="gestion-tech/gestion.php" type="button" class="button-accueil btn btn-primary btn-lg">Gestion des profils</a>
-                </div>
-            </div>
-            <!--2eme boutton-->
-            <div class="button-holder2">
-                <div>
-                    <a type="button" class="button-gaz button-gaz-chiffres btn btn-primary btn-lg" href="chiffres-tech/chiffres-gaz.php">gaz</a>
-                    <a type="button" class="button-elec button-gaz-elec btn btn-secondary btn-lg" href="chiffres-tech/chiffres-elec.php">electicité</a>
-                </div>
-                <div>
-                    <button type="button" class="button-accueil btn btn-primary btn-lg" >Chiffres et statistiques</button>
-                </div>
-            </div>
-            <!--boutton deconnection-->
-            <div>
-            <a href="../deconnexion.php">Déconnexion</a>
-            </div>
-        </div>        
-    </body>
+   <div class="container">
+       <div class="logoContainer">
+           <img src="<?php echo"$srcAdminTech" ?>images/logo.svg" alt="">
+       </div>
+       <div class="linksContainer">
+       <a class="btn btn-primary button-green" href="gestion-tech/gestion.php">Gestion</a>
+       <div class="twoButtonsHolder">
+            <a type="button" class="button-gaz button-gaz-chiffres btn btn-primary btn-lg" href="chiffres-tech/chiffres-gaz.php">gaz</a>
+            <a type="button" class="button-elec button-gaz-elec btn btn-secondary btn-lg" href="chiffres-tech/chiffres-elec.php">electicité</a>
+        </div>
+       <button class="btn btn-primary button-green" id="chiffre" >Chiffres</button>
+       </div>
+       <div>
+       <a href="../deconnexion.php">Déconnexion</a>
+       </div>
+   </div> 
+</body>
+<script>
+   const chiffre = document.getElementById("chiffre");
+const btnGaz = document.querySelector(".button-gaz");
+const btnElec = document.querySelector(".button-elec");
+
+chiffre.addEventListener("click", function(){
+    chiffre.classList.toggle("chiffre");
+    btnGaz.classList.toggle("btn-gaz-active");
+    btnElec.classList.toggle("btn-elec-active");
+});
+
+</script>
 </html>

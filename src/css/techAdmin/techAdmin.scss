@@ -25,3 +25,54 @@
         }
     }
 }
+//admin
+
+  @mixin button-style($color) {
+      font-size: 15px;
+        background-color:$color;
+        border: none;
+        border-radius: 100%;
+        text-decoration : none;
+        width: 70px;
+        height:70px;
+        line-height: 70px;
+        text-align: center;
+        padding: 0;
+        position: absolute;
+        top: -15px;
+        pointer-events: none;
+        transition: ease-in-out .2s;
+        opacity: 0;        
+}
+.button-gaz{
+    @include button-style(rgb(255, 238, 0));
+    left: 0;
+    
+}
+.button-elec{
+    @include button-style(green);
+    right:0;
+    
+}
+#chiffre{transition: ease-in-out .3s;}
+.chiffre{
+    
+    transform: translateY(40px);
+}
+.twoButtonsHolder{
+    position: relative;   
+    
+}
+.btn-gaz-active{
+    transform: translate(24px, -21px);
+    pointer-events: all;
+    opacity: 1;
+    z-index: 10;
+
+}
+.btn-elec-active{ 
+    transform: translate(-24px, -21px);
+    pointer-events: all;
+    opacity: 1;
+    z-index: 10;
+}

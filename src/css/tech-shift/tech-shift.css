@@ -19,10 +19,24 @@
   border-radius: 20px;
   display: block;
   margin: 0 auto;
+  -webkit-transition: all .6s;
+  transition: all .6s;
+  -webkit-transform: translateY(0%);
+          transform: translateY(0%);
 }
 
 .button-green:hover {
   background-color: #0DA443;
+}
+
+.button-green:active {
+  -webkit-transform: translateY(20%);
+          transform: translateY(20%);
+}
+
+.button-green:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 .button-white {

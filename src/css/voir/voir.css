@@ -1,1 +1,158 @@
-/* No CSS *//*# sourceMappingURL=voir.css.map */
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.button-green {
+  background-color: #0DA443;
+  color: white;
+  border: none;
+  min-width: 200px;
+  border-radius: 20px;
+  display: block;
+  margin: 0 auto;
+  -webkit-transition: all .6s;
+  transition: all .6s;
+  -webkit-transform: translateY(0%);
+          transform: translateY(0%);
+}
+
+.button-green:hover {
+  background-color: #0DA443;
+}
+
+.button-green:active {
+  -webkit-transform: translateY(20%);
+          transform: translateY(20%);
+}
+
+.button-green:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.button-white {
+  color: #0DA443;
+  background: white;
+  border: none;
+  min-width: 200px;
+  border-radius: 20px;
+}
+
+.button-white:hover {
+  background-color: white;
+}
+
+.supprimer {
+  color: red;
+  text-decoration: underline;
+  border: none;
+  background-color: transparent;
+  margin-top: 5px;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.modifierBtn {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.linksHolder {
+  margin-top: 70px;
+  text-align: center;
+}
+
+.modifier {
+  margin: 10px auto;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+}
+
+.modal {
+  display: none;
+  background-color: rgba(0, 0, 0, 0.678);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.modal .modal-dialog .modal-content {
+  padding: 5px 10px;
+}
+
+.modal .modal-dialog .modal-content .btn-close {
+  position: relative;
+  left: 90%;
+}
+
+.modal .modal-dialog .modal-content .btn-close:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.button-green {
+  background-color: rgba(255, 0, 0, 0.535);
+  min-width: 150px;
+}
+
+.button-green:hover {
+  background-color: red;
+}
+
+.iconHolder {
+  text-align: center;
+  height: 170px;
+}
+
+.icon {
+  height: 250px;
+}
+
+.label {
+  font-weight: bold;
+  color: black;
+  margin-bottom: 15px;
+}
+
+span {
+  font-weight: lighter;
+  color: dimgray;
+  font-size: 20px;
+}
+
+.voirLeProfil {
+  margin-top: 20px;
+  margin-left: 30px;
+}
+
+.headerHolder {
+  text-align: center;
+}
+
+.userName {
+  font-weight: 700;
+  text-align: center;
+}
+/*# sourceMappingURL=voir.css.map */

@@ -30,94 +30,103 @@ $TotalCmpt = $Rendezvous + $Accesible + $Grip ;
     <link rel="stylesheet" href="<?php echo"$srcGestionChiffres"?>css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo"$srcGestionChiffres"?>css/main/main.css">
     <link rel="stylesheet" href="<?php echo"$srcGestionChiffres"?>css/chiffres/chiffres.css">
+    <script type="text/javascript" src="<?php echo "$srcGestionChiffres"?>js/toggle-page.js" defer ></script>
     <title>Chiffres Elec</title>
 </head>
 <body>
     <div class="container">
         <!-- header -->
         <div class="head">
-         <div>
-            <form method="post" action="">
-                <?php
-                $monthName = array(0,'Janvier','Février','Mars','Avril' ,'Mai' ,'Juin','Juillet','Aôut','Septembre','Octbre','Novembre','Décembre');
-                $monthOut=1;
-                if(isset($month)){ 
-                    echo'<select name="month" >';
-                    for($monthOut=1 ; $monthOut<= 12 ; $monthOut++){
-                    echo'
-                    <option ';
-                    if ($monthOut == $month)
-                    {
-                        print"selected ";
+            <div>
+                <form method="post" action="">
+                    <?php
+                    $monthName = array(0,'Janvier','Février','Mars','Avril' ,'Mai' ,'Juin','Juillet','Aôut','Septembre','Octbre','Novembre','Décembre');
+                    $monthOut=1;
+                    if(isset($month)){ 
+                        echo'<select name="month" >';
+                        for($monthOut=1 ; $monthOut<= 12 ; $monthOut++){
+                        echo'
+                        <option ';
+                        if ($monthOut == $month)
+                        {
+                            print"selected ";
+                        };
+                        echo 'value="'.$monthOut.'" >'.$monthName[$monthOut].'</option>';                   
                     };
-                    echo 'value="'.$monthOut.'" >'.$monthName[$monthOut].'</option>';                   
-                };
-                echo'</select>';
-                echo '<button class="btn btn-primary" type="submit" name="submit">submit</button>';
-                };
-                echo"<br> Pour le mois de ".$monthName[$month]."" ;
-                ?>
-            </form>    
-            </div>
-            
+                    echo'</select>';
+                    echo '<button class="button-green btn btn-primary" type="submit" name="submit">rechercher</button>';
+                    }; 
+                    ?>
+                </form> 
+            </div>   
+        </div>
+        <div>                
+                <?php 
+                 echo"<h6> <br> Pour le mois de ".$monthName[$month]."<h6/>"?>
+        </div>
+        <div class="flex">
+            <button class="button1 btn btn-lg col-5 activeBtn">Tous</button>
+            <button class="button2 btn btn-lg col-5">Par tech</button>
         </div>
         <!-- Main Table -->
-        <table class="table table-striped">
-        <div class="flex">
-        <button class="btn  btn-lg col-5">Tous</button>
-        <button class="btn  btn-lg col-5">Chiffre par technicien</button>
-        </div>
-            <tbody>
-                <tr>
-                <th scope="row">Totale des Compteures</th>
-                <td><?php echo $TotalCmpt?></td>
-                </tr>
-                <tr>
-                <th scope="row">Avec rendez-vous</th>
-                <td><?php echo $Rendezvous?></td>
-                </tr>
-                <tr>
-                <th scope="row">Accesible</th>
-                <td><?php echo $Accesible?></td>
-                </tr>
-                <tr>
-                <th scope="row">Grip</th>
-                <td ><?php echo $Grip?></td>
-                </tr>
-            </tbody>
+        <div  class="page1">
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                    <th scope="row"> <h6> Totale des Compteures</h6></th>
+                    <td><?php echo $TotalCmpt?></td>
+                    </tr>
+                    <tr>
+                    <th scope="row"><h6>Avec rendez-vous</h6></th>
+                    <td><?php echo $Rendezvous?></td>
+                    </tr>
+                    <tr>
+                    <th scope="row"><h6>Accesible</h6></th>
+                    <td><?php echo $Accesible?></td>
+                    </tr>
+                    <tr>
+                    <th scope="row"><h6>Grip</h6></th>
+                    <td ><?php echo $Grip?></td>
+                    </tr>
+                </tbody>    
+            </table>
+        </div>    
             <!-- Tbody Tech page 2-->
-            <tbody>
-              <?php
+        <div class="page2 hidden">   
+            <table class="table table-hover">   
+                <tbody>
+                <?php
 
-              //la table
-               $dbTable = "users";
-               // tghe req to select the ids and the usernames
-               $req = "SELECT id , userName FROM ".$dbTable." WHERE type='electricite'" ;
+                //la table
+                $dbTable = "users";
+                // tghe req to select the ids and the usernames
+                $req = "SELECT id , userName FROM ".$dbTable." WHERE type='electricite'" ;
 
-               // query execution
-               $results = mysqli_query($conn,$req);
-               
-               // array to store usersName
-               $usersName = array();
+                // query execution
+                $results = mysqli_query($conn,$req);
+                
+                // array to store usersName
+                $usersName = array();
 
-               while( $row = mysqli_fetch_array($results) ){
-                 //storing the username
-                $usersName[] = $row['userName'];
-                //sroring the id
-                $id[]= $row['id'];
-               };
-                  
-               // the loop
-               for($x = 0 ; $x < count($usersName) ; $x++){
-                 echo"
-              <tr>
-                <td>".$usersName[$x]."</td>
-                <td><a href='chiffres-elec-details?id=".$id[$x]."&month=".$month."'>voir</a></td>
-              </tr>";
-              }
-              ?>
-            </tbody>
-        </table>
+                while( $row = mysqli_fetch_array($results) ){
+                    //storing the username
+                    $usersName[] = $row['userName'];
+                    //sroring the id
+                    $id[]= $row['id'];
+                };
+                    
+                // the loop
+                for($x = 0 ; $x < count($usersName) ; $x++){
+                    echo"
+                <tr>
+                    <td><h4 class='userName'>".$usersName[$x]."</h4></td>
+                    <td><a class='voir' href='chiffres-elec-details?id=".$id[$x]."&month=".$month."'>chiffres</a></td>
+                </tr>";
+                }
+                ?>
+                </tbody>
+            </table>
+        </div> 
     </div>
 </body>
 </html>

@@ -22,10 +22,8 @@ $passWord="123".sha1($passWord);
 
 //requete insert
 $req ="INSERT INTO users (id,name,firstName,type,userName, passWord ,secret) VALUES (id,'$name','$firstName' ,'$secteur','$userName','$passWord','$secret')";
-echo $passWord.' '. $secret;
 $res = mysqli_query($conn,$req);
 }
-
 
 ?>
 <!DOCTYPE html>
@@ -39,21 +37,22 @@ $res = mysqli_query($conn,$req);
         <link rel="stylesheet" href="<?php echo"$srcGestionChiffres"?>css/main/main.css">
         <link href="<?php echo "$srcGestionChiffres"?>css/gestion/gestion.css" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="<?php echo "$srcGestionChiffres"?>js/toggle-page.js" ></script>
+        <script type="text/javascript" src="<?php echo "$srcGestionChiffres"?>js/toggle-page.js" defer ></script>
         
     </head>
     <body>
       <!---->
       <div class="container">
         
-        <div class="page1">
-          <table class="table table-striped">
+        <!--slider-->
           <div class="flex">
-            <button class="btn btn-lg col-5">Tous</button>
-            <button class="btn btn-lg col-5">créer un profil</button>
+            <button class="button1 btn btn-lg col-5 activeBtn">Tous</button>
+            <button class="button2 btn btn-lg col-5">créer un profil</button>
           </div>
         <!--premiere page-->
-            <tbody>
+        <div class="page1">
+          <table class="table table-hover ">
+            <tbody >
               <?php
               //la table
                $dbTable = "users";
@@ -77,8 +76,8 @@ $res = mysqli_query($conn,$req);
                for($x = 0 ; $x < count($usersName) ; $x++){
                  echo"
               <tr>
-                <td>".$usersName[$x]."</td>
-                <td><a href='voir.php?id=".$id[$x]."'>voir le profil</a></td>
+                <td><h2 class='userName'>".$usersName[$x]."</h2></td>
+                <td><a class='voirLeProfil' href='voir.php?id=".$id[$x]."'>voir le profil</a></td>
               </tr>";
               }
               ?>
@@ -86,45 +85,45 @@ $res = mysqli_query($conn,$req);
           </table> 
         </div> 
         <!--deuzieme page-->
-        <div class="page2">
+        <div class="page2 hidden">
           <!--le formulaire-->
-          <form method="post" action="gestion.php" class=" row g-3 needs-validation" novalidate>
-                <div class="">
-                    <label for="validationCustom01" class="form-label">Nom</label>
-                    <input name="name" type="text" class="form-control" id="validationCustom01" value="" required>
-                </div>
-                <div class="">
-                    <label for="validationCustom02" class="form-label">prenom</label>
-                    <input name="firstName" type="text" class="form-control" id="validationCustom02" value="" required>
-                </div>
-                <div class="">
-                    <label for="validationCustom04" class="form-label">Secteur</label>
-                    <select name="secteur" class="form-select" id="validationCustom04" required>
-                        <option  value="Gaz">Gaz</option>
-                        <option value="Electricite">Electricite</option>
-                    </select>
+          <div class="formulaire">
+            <form method="post" action="gestion.php" class=" row g-3 needs-validation" novalidate>
+                  <div class="input">
+                      <label for="validationCustom01" class="form-label">Nom</label>
+                      <input name="name" type="text" class="form-control" id="validationCustom01" value="" required>
+                  </div>
+                  <div class="input">
+                      <label for="validationCustom02" class="form-label">Prénom</label>
+                      <input name="firstName" type="text" class="form-control" id="validationCustom02" value="" required>
+                  </div>
+                  <div class="input">
+                      <label for="validationCustom04" class="input form-label">Secteur</label>
+                      <select name="secteur" class="form-select" id="validationCustom04" required>
+                          <option  value="Gaz">Gaz</option>
+                          <option value="Electricite">Electricite</option>
+                      </select>
 
-                </div>
-                <div class="">
-                    <label for="validationCustomUsername" class="form-label">Identifiant</label>
-                    <div class="input-group has-validation">
-                    <span class="input-group-text" id="inputGroupPrepend">@</span>
-                    <input name="userName" type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
-                    </div>
-                </div>
-                <div class="">
-                    <label for="validationCustom02" class="form-label">mot de passe</label>
-                    <input name="passWord" type="text" class="form-control" id="validationCustom02" value="" required>
-                </div>
-                <div class="col-12">
-                    <input class="btn btn-primary" type="submit" value="Enregister">
-                </div>
-          </form>
-        </div>
-        <!--bouton de deconnexion-->
-        <div>
+                  </div>
+                  <div class="input">
+                      <label for="validationCustomUsername" class="form-label">Identifiant</label>
+                      <div class="input-group has-validation">
+                      <input name="userName" type="text" class="input form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+                      </div>
+                  </div>
+                  <div class="button">
+                      <label for="validationCustom02" class="form-label">Mot de passe</label>
+                      <input name="passWord" type="text" class="input form-control" id="validationCustom02" value="" required>
+                  </div>
+                  <div class="col-12">
+                      <input class="button-green btn btn-primary" type="submit" value="Enregister">
+                  </div>
+              </form>
+            </div>
+            <!--bouton de deconnexion-->
+            <div>
           
-        </div>
+            </div>
       </div>   
     </body>
 </html>        

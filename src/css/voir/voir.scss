@@ -1,0 +1,82 @@
+@import '../main/main.scss';
+.supprimer{
+    color:red;
+    text-decoration: underline;
+    border: none;
+    background-color: transparent;
+    margin-top: 5px;
+    
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.modifierBtn{
+    color: $gris;
+}
+//links
+.linksHolder{
+    margin-top: 70px;
+    text-align: center;
+
+}
+//out put
+.modifier{
+    margin: 10px auto;
+    max-width: fit-content;
+}
+.modal{
+    display: none;
+    background-color: rgba(0, 0, 0, 0.678);
+    align-items: center;
+    justify-content: center;
+    .modal-dialog{
+        .modal-content{
+           padding: 5px 10px;
+           .btn-close{
+            position: relative;
+            left: 90%;
+            &:focus{
+                box-shadow: none;
+            }
+           }
+        }
+    }
+}
+.button-green{
+    background-color: rgba(255, 0, 0, 0.535);
+    min-width: 150px;
+    &:hover{
+        background-color: red;
+    }
+}
+.iconHolder{
+    text-align: center;
+    height: 170px;
+
+}
+.icon{
+    height: 250px;
+}
+.label{
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    margin-bottom: 15px;
+}
+span{
+    font-weight:lighter;
+    color: rgb(105, 105, 105);
+    font-size: 20px;
+}
+.voirLeProfil{
+    margin-top: 20px;
+    margin-left: 30px;
+}
+.headerHolder{
+    text-align: center;
+}
+.userName{
+    font-weight: 700;
+    text-align: center;
+}

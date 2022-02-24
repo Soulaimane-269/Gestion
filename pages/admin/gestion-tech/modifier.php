@@ -5,7 +5,7 @@
     //id 
     $id=$_GET["id"];
     //conditionn
-    if(!empty($_POST['name']) && !empty($_POST['firstName']) && !empty($_POST['secteur']) && !empty($_POST['userName']) && !empty($_POST['passWord']) ){
+    if(!empty($_POST['name']) && !empty($_POST['firstName']) && !empty($_POST['secteur']) && !empty($_POST['userName']) && !empty($_POST['passWord']) ){   
     //les variable
      $name= $_POST['name'];
      $firstName= $_POST['firstName'];
@@ -13,12 +13,14 @@
      $userName= $_POST['userName'];
      $passWord= $_POST['passWord'];
      $secret= "123".sha1($userName);
-    //  echo $secteur.' '. $secret .''.$name.$firstName.$userName.$passWord;
-     
+  
     
     //crypter le password                                
     $passWord="123".sha1($passWord);
-    
+    if (isset($_POST['submit'])  ){
+        header('Refresh:1 ; URL=voir.php?id='.$id.'');
+
+    }
     
     //requete modify
     $req ="UPDATE users SET name = '".$name."',firstName='".$firstName."',type='".$secteur."',userName='".$userName."', passWord='".$passWord."' ,secret='".$secret."' WHERE id =".$id." ";   
@@ -64,10 +66,9 @@
                 //exec
                 $exec = mysqli_query($conn,$req);
                 $res = mysqli_fetch_assoc($exec);
-                echo $res["type"];
                 ?>
-                <!--the form-->
-                    <form method="post" action="<?php echo"modifier.php?id=".$id.""?>"class="row g-3 needs-validation" novalidate>
+                <!--the form-->                    
+                <form method="post" action="" class="row g-3 needs-validation" novalidate>
                         <div class="">
                             <label for="validationCustom01" class="form-label">Nom</label>
                             <input name="name" type="text" class="form-control" id="validationCustom01" value="<?php echo $res["name"]?>" required>
@@ -95,17 +96,16 @@
                         <div class="">
                             <label for="validationCustomUsername" class="form-label">Identifiant</label>
                             <div class="input-group has-validation">
-                            <span class="input-group-text" id="inputGroupPrepend">@</span>
                             <input name="userName" value ="<?php echo $res["userName"]?>" type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
                             </div>
                         </div>
                         <div class="">
                             <label for="validationCustom02" class="form-label">mot de passe</label>
-                            <input name='passWord' value ="<?php echo $res["passWord"]?>" type="text" class="form-control" id="validationCustom02" required>
+                            <input placeHolder="Entrer un nouveau mots de passe" name='passWord' value ="" type="text" class="form-control" id="validationCustom02" required>
                         </div>
 
                         <div class="col-12">
-                            <button class="btn btn-primary" type="submit">Enregister</button>
+                            <button class=" button-green btn btn-primary" type="submit" name='submit'>Enregister les modifications</button>
                         </div>
                     </form>
                     
