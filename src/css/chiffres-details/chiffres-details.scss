@@ -1,4 +1,28 @@
+<<<<<<< Updated upstream
 @import'../main/main.scss';
+=======
+@import '../main/main.scss';
+.head{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.container{
+    form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+      
+    select{
+        width: 50% !important;
+    }
+    >button{
+        min-width: 150px;
+    }
+    }
+}
+>>>>>>> Stashed changes
 .body-wrapper{
     .container{
         margin-top: 4rem;

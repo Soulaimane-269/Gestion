@@ -86,7 +86,7 @@ $avg= ($TotalDays == 0)? 0 : $TotalCmpt / $TotalDays;
                 $monthName = array(0,'Janvier','Février','Mars','Avril' ,'Mai' ,'Juin','Juillet','Aôut','Septembre','Octbre','Novembre','Décembre');
                 $monthOut=1;
                 if(isset($month)){ 
-                    echo'<select name="month" >';
+                    echo'<select class="form-select" aria-label=".form-select-lg example" name="month" >';
                     for($monthOut=1 ; $monthOut<= 12 ; $monthOut++){
                     echo'
                     <option ';
@@ -97,11 +97,13 @@ $avg= ($TotalDays == 0)? 0 : $TotalCmpt / $TotalDays;
                     echo 'value="'.$monthOut.'" >'.$monthName[$monthOut].'</option>';                   
                 };
                 echo'</select>';
-                echo '<button class="btn btn-primary" type="submit" name="submit">submit</button>';
+                echo '<button class="btn btn-primary button-green" type="submit" name="submit">Rechercher</button>';
                 };
-                echo"<br> Pour le mois de ".$monthName[$month]."" 
                 ?>
             </form>    
+            <?php 
+                echo"<h5> <br> Pour le mois de ".$monthName[$month]."<h5/>" 
+                ?>
         <div class="body-wrapper">
             <div class="container">
                 <h1><?php echo $nom?> </h1>

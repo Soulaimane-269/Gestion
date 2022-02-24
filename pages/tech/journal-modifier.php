@@ -8,7 +8,6 @@
         header("location:../connexion.php");
       }
       else{$userName=$_SESSION["userName"];
-        echo $userName;
       }
 ?>
 
@@ -19,7 +18,7 @@
     if (mysqli_num_rows($id) > 0) {
         while($rowData = mysqli_fetch_array($id)){
             $idInt= (int)$rowData["id"];
-            echo $idInt;}
+        }
     }
     $idUser = $idInt;
     //le type
@@ -34,7 +33,6 @@
     //date
     $date = $_GET['date'];
     $dateInter= $date;
-    echo $dateInter;
 
     // mysql query to get columns name
     $req = "SHOW COLUMNS FROM " . $dbTable;
@@ -42,7 +40,6 @@
     $req1 ="select Rendezvous, Accesible , Grip FROM " . $dbTable . " WHERE dateInter ='".$dateInter."' AND idUser= " . $idUser;
     //if it's gaz
     if($typeStr=='gaz'){
-        echo 1;
         $dbTable = "comptegaz";
         $req1 ="select Rendez_vous, Sans_rendez_vous , Module , Detendeur FROM " . $dbTable . " WHERE dateInter ='".$dateInter."' AND idUser= " . $idUser;
         $req = "SHOW COLUMNS FROM " . $dbTable;
@@ -80,7 +77,7 @@
                 };
                 // Condition to check if there is data for the date
                 if( isset($results1Row) ){
-                    echo "le ".$date;
+                    echo " <h5>le ".$date."</h5>";
                 // $x for columns name index and $y for columns values index
                 for($x = 2 AND $y=0 ; $x < count($columnName) AND $y < count($results1Row); $x++ AND $y++){
 
@@ -92,7 +89,7 @@
                 }
                 echo"
                 <div >
-                    <button name 'submit' class='btn btn-primary' type='submit'>enregister les modifications</button>
+                    <button name='submit' class='btn btn-primary button-green' type='submit'>enregister les modifications</button>
                 </div>
                 ";
                 }
@@ -109,7 +106,7 @@
                         }
                         echo"
                         <div >
-                            <button name 'submit' class='btn btn-primary' type='submit'>enregister les modifications</button>
+                            <button name='submit' class='btn btn-primary button-green' type='submit'>enregister les modifications</button>
                         </div>
                         ";
                     }
