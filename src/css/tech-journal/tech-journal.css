@@ -6,9 +6,14 @@
 }
 
 .container {
-  max-width: 500px;
+  max-width: 400px;
   margin: 0 auto;
   min-height: 100vh;
+  background-color: white;
+}
+
+body {
+  background-color: beige;
 }
 
 .button-green {
@@ -32,11 +37,13 @@
 .button-green:active {
   -webkit-transform: translateY(20%);
           transform: translateY(20%);
+  background-color: #0DA443;
 }
 
 .button-green:focus {
   -webkit-box-shadow: none;
           box-shadow: none;
+  background-color: #0DA443;
 }
 
 .button-white {
@@ -51,8 +58,14 @@
   background-color: white;
 }
 
+.button-white:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  background-color: white;
+}
+
 .search {
-  margin-top: 60px;
+  padding-top: 60px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -70,7 +83,8 @@
 }
 
 form h5 {
-  margin: 10px auto;
+  margin: 0px auto 10px;
+  padding: 10px 0;
   max-width: -webkit-fit-content;
   max-width: -moz-fit-content;
   max-width: fit-content;

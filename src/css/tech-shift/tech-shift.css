@@ -6,9 +6,14 @@
 }
 
 .container {
-  max-width: 500px;
+  max-width: 400px;
   margin: 0 auto;
   min-height: 100vh;
+  background-color: white;
+}
+
+body {
+  background-color: beige;
 }
 
 .button-green {
@@ -32,11 +37,13 @@
 .button-green:active {
   -webkit-transform: translateY(20%);
           transform: translateY(20%);
+  background-color: #0DA443;
 }
 
 .button-green:focus {
   -webkit-box-shadow: none;
           box-shadow: none;
+  background-color: #0DA443;
 }
 
 .button-white {
@@ -51,15 +58,21 @@
   background-color: white;
 }
 
+.button-white:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  background-color: white;
+}
+
 h5 {
-  margin: 50px auto;
+  margin: 0px auto 50px;
   max-width: -webkit-fit-content;
   max-width: -moz-fit-content;
   max-width: fit-content;
 }
 
 form {
-  margin: 15px;
+  padding: 15px;
 }
 
 form div input {

@@ -1,6 +1,6 @@
 <?php
     require"../init.php";
-    require "../header.php";
+    require"../header.php";
     require"../connexiondb.php";
     session_start();
     //session
@@ -12,7 +12,7 @@
     }
     //les variable
     //date
-    $date= date("Y-m-d");
+    $date= date("j, n, Y");
     //id
     $id = $conn->query("SELECT id FROM users WHERE userName='".$userName . "'");
     if (mysqli_num_rows($id) > 0) {
@@ -176,8 +176,6 @@
                             4 => 0,
                             5 =>0,
                             );
-                            echo $values[2];
-
                     }
 
                                         
@@ -222,7 +220,7 @@
             </form>
         </div>
     </body>
-    <script  defer>
+    <script>
     closeBtn = document.querySelector('.btn-close');
     modal = document.querySelector('.modal');
     closeBtn.addEventListener("click", function(){modal.style.display='none';});

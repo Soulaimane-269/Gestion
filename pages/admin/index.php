@@ -27,12 +27,12 @@ $userName=$_SESSION["userName"];
            <img src="<?php echo"$srcAdminTech" ?>images/logo.svg" alt="">
        </div>
        <div class="linksContainer">
-       <a class="btn btn-primary button-green" href="gestion-tech/gestion.php">Gestion</a>
-       <div class="twoButtonsHolder">
-            <a type="button" class="button-gaz button-gaz-chiffres btn btn-primary btn-lg" href="chiffres-tech/chiffres-gaz.php">gaz</a>
-            <a type="button" class="button-elec button-gaz-elec btn btn-secondary btn-lg" href="chiffres-tech/chiffres-elec.php">electicité</a>
-        </div>
-       <button class="btn btn-primary button-green" id="chiffre" >Chiffres</button>
+           <button class="btn btn-primary button-green" id="chiffre" >Chiffres</button>
+           <div class="twoButtonsHolder">
+               <a type="button" class="button-gaz button-gaz-chiffres btn btn-primary btn-lg" href="chiffres-tech/chiffres-gaz.php">Gaz</a>
+               <a type="button" class="button-elec button-gaz-elec btn btn-secondary btn-lg" href="chiffres-tech/chiffres-elec.php">Électricité</a>
+            </div>
+            <a class="btn btn-primary button-green" href="gestion-tech/gestion.php">Gestion</a>
        </div>
        <div>
        <a href="../deconnexion.php">Déconnexion</a>

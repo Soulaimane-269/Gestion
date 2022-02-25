@@ -4,9 +4,13 @@
     box-sizing: border-box;
 }
 .container{
-    max-width: 500px;
+    max-width: 400px;
     margin: 0 auto;
     min-height: 100vh;
+    background-color: white;
+}
+body{
+    background-color: beige;
 }
 //les couleures
 $green:#0DA443;
@@ -17,29 +21,45 @@ $cyan:#00A3FF;
     background-color: $green;
     color: white;
     border: none;
-    min-width: 200px;
+    min-width: 150px;
     border-radius: 20px;
     display: block;
     margin: 0 auto;
+    transition: all .6s;
+    transform: translateY(0%);
     &:hover{
         background-color: $green;
     }
-    transition: all .6s;
-    transform: translateY(0%);
     &:active{
         transform: translateY(20%);
+        background-color: $green;
     }
     &:focus{
         box-shadow: none;
+        background-color: $green;
     }
 }
 .button-white{
     color: $green;
     background: white;
     border: none;
-    min-width: 200px;
-    border-radius: 20px;  
+    min-width: 150px;
+    border-radius: 20px;
+    display: block;
+    margin: 0 auto;
+    transition: all .6s;
+    transform: translateY(0%);
+    margin-top: 50px;
+    &:active{
+        transform: translateY(20%);
+        background-color: white;
+    }
+    &:focus{
+        box-shadow: none;
+        background-color: white;
+    }
     &:hover{
         background-color: white;
+        color: $green;
     }
 }

@@ -6,9 +6,14 @@
 }
 
 .container {
-  max-width: 500px;
+  max-width: 400px;
   margin: 0 auto;
   min-height: 100vh;
+  background-color: white;
+}
+
+body {
+  background-color: beige;
 }
 
 .button-green {
@@ -32,11 +37,13 @@
 .button-green:active {
   -webkit-transform: translateY(20%);
           transform: translateY(20%);
+  background-color: #0DA443;
 }
 
 .button-green:focus {
   -webkit-box-shadow: none;
           box-shadow: none;
+  background-color: #0DA443;
 }
 
 .button-white {
@@ -48,6 +55,12 @@
 }
 
 .button-white:hover {
+  background-color: white;
+}
+
+.button-white:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
   background-color: white;
 }
 
@@ -99,7 +112,7 @@
 
 .button-gaz {
   font-size: 15px;
-  background-color: #ffee00;
+  background-color: #ffd000;
   border: none;
   border-radius: 100%;
   text-decoration: none;
@@ -109,7 +122,7 @@
   text-align: center;
   padding: 0;
   position: absolute;
-  top: -15px;
+  top: -70px;
   pointer-events: none;
   -webkit-transition: ease-in-out .2s;
   transition: ease-in-out .2s;
@@ -117,9 +130,13 @@
   left: 0;
 }
 
+.button-gaz:hover {
+  background-color: #ffd000;
+}
+
 .button-elec {
   font-size: 15px;
-  background-color: green;
+  background-color: #0DA443;
   border: none;
   border-radius: 100%;
   text-decoration: none;
@@ -129,12 +146,16 @@
   text-align: center;
   padding: 0;
   position: absolute;
-  top: -15px;
+  top: -70px;
   pointer-events: none;
   -webkit-transition: ease-in-out .2s;
   transition: ease-in-out .2s;
   opacity: 0;
   right: 0;
+}
+
+.button-elec:hover {
+  background-color: #0DA443;
 }
 
 #chiffre {
@@ -143,8 +164,8 @@
 }
 
 .chiffre {
-  -webkit-transform: translateY(40px);
-          transform: translateY(40px);
+  -webkit-transform: translateY(2px);
+          transform: translateY(2px);
 }
 
 .twoButtonsHolder {
@@ -152,16 +173,16 @@
 }
 
 .btn-gaz-active {
-  -webkit-transform: translate(24px, -21px);
-          transform: translate(24px, -21px);
+  -webkit-transform: translate(54px, -50px);
+          transform: translate(54px, -50px);
   pointer-events: all;
   opacity: 1;
   z-index: 10;
 }
 
 .btn-elec-active {
-  -webkit-transform: translate(-24px, -21px);
-          transform: translate(-24px, -21px);
+  -webkit-transform: translate(-54px, -50px);
+          transform: translate(-54px, -50px);
   pointer-events: all;
   opacity: 1;
   z-index: 10;

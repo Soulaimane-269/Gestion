@@ -42,12 +42,17 @@
             header("location:tech/index.php");
            }
         }else{
-            echo "Erreur de pseudo ou de mot de passe.";
-          
+            echo '<div class="modal" style="display:block; background: rgba(0,0,O,0.5)">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-body">
+                  <p> Erreur Mot de passe ou Identifiant .</p>
+                </div>
+              </div>
+            </div>
+          </div>';        
         }
-
-
-
 } 
  
 
@@ -68,13 +73,12 @@
     
 </head>
 <body>
-    <div class="test">
-        <div class="container">
+    <div class="container">
             <!--image1-->  
-            <div class="container"  >
+            <div class=""  >
                 <img  src="<?php echo"$srcPages"?>images/logo.svg" alt="">
             </div>
-            <div calss="container">
+            <div calss="">
                 <form method='post' action='connexion.php' > 
                 <!--image2-->    
                 <img  src="<?php echo"$srcPages"?>images/User_icon.png"> 
@@ -84,16 +88,15 @@
                 <div class="mb-3">
                     <input name="passWord" type="password" class="styled-input form-control" placeholder="Mot de pass" >
                 </div>
-                <div class="mb-3 form-check" id="input3">
-                    <input id="input3" type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1 text-lowercase"> Se souvener de moi</label>
-                </div>
-                <button id="button" type="submit" class="btn  mx-auto d-block">Se connecter</button>
+                <button type="submit" class="btn  btn-primary button-white">Se connecter</button>
                 </form>
             </div>
-        </div> 
     </div>
     <script src="/application-master/src/js/bootstrap.min.js"></script>     
 </body>
-
+<script>
+    closeBtn = document.querySelector('.btn-close');
+    modal = document.querySelector('.modal');
+    closeBtn.addEventListener("click", function(){modal.style.display='none';});
+</script>
 </html>

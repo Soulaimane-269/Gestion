@@ -1,7 +1,5 @@
-
 @import'../main/main.scss';
 
-@import '../main/main.scss';
 .head{
     display: flex;
     align-items: center;
@@ -12,7 +10,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 20px 0;
+    padding: 20px 0;
       
     select{
         width: 50% !important;
@@ -55,9 +53,14 @@
                 width: 70px;
                 height: 70px; 
                 line-height: 70px;
+                margin: 0 auto;
             }
         }
     }
+}
+h6{
+    position: relative;
+    left: 20px;
 }
 .head{
     display: flex;
@@ -69,7 +72,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 20px 0;
+    padding: 20px 0;
     select{
         width: 50%;
     }
