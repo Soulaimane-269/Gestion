@@ -4,61 +4,31 @@ require"../init.php";
 require"../header.php";
 require"../connexiondb.php";
 
-//la session
-session_start();
-
-if (!isset($_SESSION["userName"])){
-    header("location:../connexion.php");
-}
-else{$userName=$_SESSION["userName"];
-}
-
 //init month
-$month = (int)date('m');
+$month = ($_GET['month']);
 
 if (isset($_POST['month'])){
     $month = ($_POST['month']);
 };
 
+//connexion to db
 //id recup
-$id = $conn->query("SELECT id FROM users WHERE userName='".$userName . "'");
-if (mysqli_num_rows($id) > 0) {
-    while($rowData = mysqli_fetch_array($id)){
-        $idInt= (int)$rowData["id"];
-        }
-}
-$idUser = $idInt;
+$idUser = (int)$_GET["id"];
 
-// type recu
-$type = $conn->query("SELECT type FROM users WHERE id=".$idUser."");
-if (mysqli_num_rows($type) > 0) {
-    while($rowData = mysqli_fetch_array($type)){
-          $typeStr=$rowData["type"];
-    } 
-}
-//query to get and user name
+//query to get user id and user name
 $req="SELECT * FROM users WHERE id= ".$idUser."";
 $exec = mysqli_query($conn,$req);
 $res = mysqli_fetch_assoc($exec);
 $nom=$res["userName"];
 
-//check if the tech was elec
-if($typeStr=="electricite"){
-    $tabletype= "comptelec";
-    $reqElec="SELECT SUM(Rendezvous + Accesible + Grip) FROM comptelec WHERE idUser= ".$idUser." AND month(dateInter)=". $month;
-    $exec = mysqli_query($conn,$reqElec);
-    $res = mysqli_fetch_assoc($exec);
-    $TotalCmpt =isset($res['SUM(Rendezvous + Accesible + Grip)']) ? $res['SUM(Rendezvous + Accesible + Grip)'] :0 ;
-}elseif($typeStr == "gaz"){
-    $tabletype= "comptegaz";
-    $req="SELECT SUM(Rendez_vous + Sans_rendez_vous + Module + Detendeur) FROM comptegaz WHERE idUser= ".$idUser." AND month(dateInter)=". $month;
-    $exec = mysqli_query($conn,$req);
-    $res = mysqli_fetch_assoc($exec);
-    $TotalCmpt =isset($res['SUM(Rendez_vous + Sans_rendez_vous + Module + Detendeur)']) ? $res['SUM(Rendez_vous + Sans_rendez_vous + Module + Detendeur)'] :0 ;
-}
+//query to get tech data
+$req="SELECT SUM(Rendez_vous + Sans_rendez_vous + Module + Detendeur) FROM comptegaz WHERE idUser= ".$idUser." AND month(dateInter)=". $month;
+$exec = mysqli_query($conn,$req);
+$res = mysqli_fetch_assoc($exec);
+$TotalCmpt =isset($res['SUM(Rendez_vous + Sans_rendez_vous + Module + Detendeur)']) ? $res['SUM(Rendez_vous + Sans_rendez_vous + Module + Detendeur)'] :0 ;
 
 // Query to get number of days 
-$req = "SELECT * FROM ".$tabletype." WHERE idUser =".$idUser." AND month(dateInter)=". $month.";" ;
+$req = "SELECT * FROM comptegaz WHERE idUser =".$idUser." AND month(dateInter)=". $month.";" ;
 $exec = mysqli_query($conn,$req);
 $TotalDays = mysqli_num_rows($exec);
 
@@ -86,7 +56,7 @@ $avg= ($TotalDays == 0)? 0 : $TotalCmpt / $TotalDays;
                 $monthName = array(0,'Janvier','Février','Mars','Avril' ,'Mai' ,'Juin','Juillet','Aôut','Septembre','Octbre','Novembre','Décembre');
                 $monthOut=1;
                 if(isset($month)){ 
-                    echo'<select class="form-select" aria-label=".form-select-lg example" name="month" >';
+                    echo'<select name="month" >';
                     for($monthOut=1 ; $monthOut<= 12 ; $monthOut++){
                     echo'
                     <option ';
@@ -97,13 +67,13 @@ $avg= ($TotalDays == 0)? 0 : $TotalCmpt / $TotalDays;
                     echo 'value="'.$monthOut.'" >'.$monthName[$monthOut].'</option>';                   
                 };
                 echo'</select>';
-                echo '<button class="btn btn-primary button-green" type="submit" name="submit">Rechercher</button>';
+                echo '<button class="button-green btn btn-primary" type="submit" name="submit">submit</button>';
                 };
                 ?>
-            </form>    
+            </form>  
             <?php 
             if($monthName[$month]=== 'Avril' OR $monthName[$month]=== 'Aôut' ) echo"<h5> Pour le mois d'".$monthName[$month]."<h5/>";
-            else echo"<h5> Pour le mois de ".$monthName[$month]."<h5/>"; ?>
+            else echo"<h5> Pour le mois de ".$monthName[$month]."<h5/>"; ?>  
         <div class="body-wrapper">
             <div class="container">
                 <h1><?php echo $nom?> </h1>

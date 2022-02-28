@@ -20,7 +20,7 @@ body {
   background-color: #0DA443;
   color: white;
   border: none;
-  min-width: 200px;
+  min-width: 150px;
   border-radius: 20px;
   display: block;
   margin: 0 auto;
@@ -50,11 +50,20 @@ body {
   color: #0DA443;
   background: white;
   border: none;
-  min-width: 200px;
+  min-width: 150px;
   border-radius: 20px;
+  display: block;
+  margin: 0 auto;
+  -webkit-transition: all .6s;
+  transition: all .6s;
+  -webkit-transform: translateY(0%);
+          transform: translateY(0%);
+  margin-top: 50px;
 }
 
-.button-white:hover {
+.button-white:active {
+  -webkit-transform: translateY(20%);
+          transform: translateY(20%);
   background-color: white;
 }
 
@@ -62,6 +71,11 @@ body {
   -webkit-box-shadow: none;
           box-shadow: none;
   background-color: white;
+}
+
+.button-white:hover {
+  background-color: white;
+  color: #0DA443;
 }
 
 .search {

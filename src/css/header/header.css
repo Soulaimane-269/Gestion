@@ -6,9 +6,9 @@
 }
 
 .container {
-  max-width: 400px;
+  max-width: 500px;
   margin: 0 auto;
-  min-height: 100vh;
+  min-height: 87vh;
   background-color: white;
 }
 
@@ -17,45 +17,45 @@ body {
 }
 
 .button-green {
-  background-color: #0DA443;
+  background-color: #0da443;
   color: white;
   border: none;
   min-width: 150px;
   border-radius: 20px;
   display: block;
   margin: 0 auto;
-  -webkit-transition: all .6s;
-  transition: all .6s;
+  -webkit-transition: all 0.6s;
+  transition: all 0.6s;
   -webkit-transform: translateY(0%);
           transform: translateY(0%);
 }
 
 .button-green:hover {
-  background-color: #0DA443;
+  background-color: #0da443;
 }
 
 .button-green:active {
   -webkit-transform: translateY(20%);
           transform: translateY(20%);
-  background-color: #0DA443;
+  background-color: #0da443;
 }
 
 .button-green:focus {
   -webkit-box-shadow: none;
           box-shadow: none;
-  background-color: #0DA443;
+  background-color: #0da443;
 }
 
 .button-white {
-  color: #0DA443;
+  color: #0da443;
   background: white;
   border: none;
   min-width: 150px;
   border-radius: 20px;
   display: block;
   margin: 0 auto;
-  -webkit-transition: all .6s;
-  transition: all .6s;
+  -webkit-transition: all 0.6s;
+  transition: all 0.6s;
   -webkit-transform: translateY(0%);
           transform: translateY(0%);
   margin-top: 50px;
@@ -75,26 +75,24 @@ body {
 
 .button-white:hover {
   background-color: white;
-  color: #0DA443;
+  color: #0da443;
 }
 
-.button-green {
-  margin-top: 30px;
+.container1 {
+  max-width: 400px;
+  margin: 0 auto;
+  min-height: 13vh;
+  background-color: #64ff3d;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.container {
-  margin-top: 40px;
+.menu {
+  padding: 0;
+  float: right;
 }
-
-.form-control:focus {
-  border: solid 1px #00A3FF;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-
-.form-select:focus {
-  border: solid 1px black;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-/*# sourceMappingURL=modifier.css.map */
+/*# sourceMappingURL=header.css.map */

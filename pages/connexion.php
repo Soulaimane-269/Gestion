@@ -1,8 +1,7 @@
 <?php
 
 
-//requiered files
- require"header.php"; 
+//requiered files 
  require"init.php" ;
  require"connexiondb.php";
  //

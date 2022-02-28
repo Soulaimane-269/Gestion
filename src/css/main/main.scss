@@ -1,65 +1,65 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
-.container{
-    max-width: 400px;
-    margin: 0 auto;
-    min-height: 100vh;
-    background-color: white;
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  min-height: 87vh;
+  background-color: white;
 }
-body{
-    background-color: beige;
+body {
+  background-color: beige;
 }
 //les couleures
-$green:#0DA443;
-$gris:rgba(0, 0, 0, 0.4);
-$cyan:#00A3FF;
+$green: #0da443;
+$gris: rgba(0, 0, 0, 0.4);
+$cyan: #00a3ff;
 
-.button-green{
+.button-green {
+  background-color: $green;
+  color: white;
+  border: none;
+  min-width: 150px;
+  border-radius: 20px;
+  display: block;
+  margin: 0 auto;
+  transition: all 0.6s;
+  transform: translateY(0%);
+  &:hover {
     background-color: $green;
-    color: white;
-    border: none;
-    min-width: 150px;
-    border-radius: 20px;
-    display: block;
-    margin: 0 auto;
-    transition: all .6s;
-    transform: translateY(0%);
-    &:hover{
-        background-color: $green;
-    }
-    &:active{
-        transform: translateY(20%);
-        background-color: $green;
-    }
-    &:focus{
-        box-shadow: none;
-        background-color: $green;
-    }
+  }
+  &:active {
+    transform: translateY(20%);
+    background-color: $green;
+  }
+  &:focus {
+    box-shadow: none;
+    background-color: $green;
+  }
 }
-.button-white{
+.button-white {
+  color: $green;
+  background: white;
+  border: none;
+  min-width: 150px;
+  border-radius: 20px;
+  display: block;
+  margin: 0 auto;
+  transition: all 0.6s;
+  transform: translateY(0%);
+  margin-top: 50px;
+  &:active {
+    transform: translateY(20%);
+    background-color: white;
+  }
+  &:focus {
+    box-shadow: none;
+    background-color: white;
+  }
+  &:hover {
+    background-color: white;
     color: $green;
-    background: white;
-    border: none;
-    min-width: 150px;
-    border-radius: 20px;
-    display: block;
-    margin: 0 auto;
-    transition: all .6s;
-    transform: translateY(0%);
-    margin-top: 50px;
-    &:active{
-        transform: translateY(20%);
-        background-color: white;
-    }
-    &:focus{
-        box-shadow: none;
-        background-color: white;
-    }
-    &:hover{
-        background-color: white;
-        color: $green;
-    }
+  }
 }

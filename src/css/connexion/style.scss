@@ -1,249 +1,70 @@
-
-
-*{
-    margin: 0 auto
+* {
+  margin: 0 auto;
 }
-body{
-    background-color: beige;
-    div{
-            div{
-               >img{
-                    width: 70%;
-                    display: block;
-                    margin: 0 auto;
-                    padding: 20px 0;
-                }
-            }
-        }
-        div{
-            form{
-                img{
-                    display: block;
-                    margin: auto;
-                    height: 50px;
-                    width: 50px;
-                    margin-bottom: 30px;
-                }
-            }
-        }
-}
-.styled-input{
-    font-size: 20px;
-    color: white;
-    border: none;
-    border-radius: 0%;
-    background-color: transparent;
-    border-bottom: solid rgb(255, 255, 255) 1px;
-    &:focus{
-        background-color: transparent;
-        color: white;
-        box-shadow: none;
-    border-bottom: solid rgb(255, 255, 255) 1px;
-
+body {
+  background-color: beige;
+  div {
+    div {
+      > img {
+        width: 70%;
+        display: block;
+        margin: 0 auto;
+        padding: 20px 0;
+      }
     }
-    &::placeholder {
-        color: rgb(255, 255, 255);
+  }
+  div {
+    form {
+      img {
+        display: block;
+        margin: auto;
+        height: 50px;
+        width: 50px;
+        margin-bottom: 30px;
       }
+    }
+  }
 }
-.styled-input{
-    font-size: 20px;
-    color: white;
-    border: none;
-    border-radius: 0%;
+.styled-input {
+  font-size: 20px;
+  color: white;
+  border: none;
+  border-radius: 0%;
+  background-color: transparent;
+  border-bottom: solid rgb(255, 255, 255) 1px;
+  &:focus {
     background-color: transparent;
-    border-bottom: solid rgb(255, 255, 255) 1px;
-    &::placeholder {
-        color: rgb(255, 255, 255);
-      }
-}
-#input3 label{
-    font-size: 15px;
     color: white;
-
+    box-shadow: none;
+    border-bottom: solid rgb(255, 255, 255) 1px;
+  }
+  &::placeholder {
+    color: rgb(255, 255, 255);
+  }
 }
-#input3 input{
-        font-size: 15px;
-        margin-top: 5px;
-        
-    
- }
- .container{
-     background: linear-gradient(rgb(176, 179, 0), rgb(0, 100, 17));
-     padding-top: 20px;
-     padding-right: 20px;
-     padding-left: 20px; 
- }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.styled-input {
+  font-size: 20px;
+  color: white;
+  border: none;
+  border-radius: 0%;
+  background-color: transparent;
+  border-bottom: solid rgb(255, 255, 255) 1px;
+  &::placeholder {
+    color: rgb(255, 255, 255);
+  }
+}
+#input3 label {
+  font-size: 15px;
+  color: white;
+}
+#input3 input {
+  font-size: 15px;
+  margin-top: 5px;
+}
+.container {
+  background: linear-gradient(rgb(176, 179, 0), rgb(0, 100, 17));
+  padding-top: 20px;
+  padding-right: 20px;
+  padding-left: 20px;
+  min-height: 100vh;
+}

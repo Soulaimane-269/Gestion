@@ -1,4 +1,10 @@
 <?php
+
+//variables
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbName ='gestion';
 // connection a la bdd
 $conn = new mysqli($servername, $username, $password,$dbName);
 
@@ -6,7 +12,7 @@ $conn = new mysqli($servername, $username, $password,$dbName);
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
-// $id = mysqli_connect("localhost", "root", "", "gestion");
+
 
 
 
