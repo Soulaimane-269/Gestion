@@ -8,7 +8,7 @@
 .container {
   max-width: 400px;
   margin: 0 auto;
-  min-height: 100vh;
+  min-height: 90vh;
   background-color: white;
 }
 
@@ -17,45 +17,45 @@ body {
 }
 
 .button-green {
-  background-color: #0DA443;
+  background-color: #0da443;
   color: white;
   border: none;
   min-width: 150px;
   border-radius: 20px;
   display: block;
   margin: 0 auto;
-  -webkit-transition: all .6s;
-  transition: all .6s;
+  -webkit-transition: all 0.6s;
+  transition: all 0.6s;
   -webkit-transform: translateY(0%);
           transform: translateY(0%);
 }
 
 .button-green:hover {
-  background-color: #0DA443;
+  background-color: #0da443;
 }
 
 .button-green:active {
   -webkit-transform: translateY(20%);
           transform: translateY(20%);
-  background-color: #0DA443;
+  background-color: #0da443;
 }
 
 .button-green:focus {
   -webkit-box-shadow: none;
           box-shadow: none;
-  background-color: #0DA443;
+  background-color: #0da443;
 }
 
 .button-white {
-  color: #0DA443;
+  color: #0da443;
   background: white;
   border: none;
   min-width: 150px;
   border-radius: 20px;
   display: block;
   margin: 0 auto;
-  -webkit-transition: all .6s;
-  transition: all .6s;
+  -webkit-transition: all 0.6s;
+  transition: all 0.6s;
   -webkit-transform: translateY(0%);
           transform: translateY(0%);
   margin-top: 50px;
@@ -75,11 +75,11 @@ body {
 
 .button-white:hover {
   background-color: white;
-  color: #0DA443;
+  color: #0da443;
 }
 
 .container {
-  min-height: 100vh;
+  min-height: 90vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -138,8 +138,8 @@ body {
   position: absolute;
   top: -70px;
   pointer-events: none;
-  -webkit-transition: ease-in-out .2s;
-  transition: ease-in-out .2s;
+  -webkit-transition: ease-in-out 0.2s;
+  transition: ease-in-out 0.2s;
   opacity: 0;
   left: 0;
 }
@@ -150,7 +150,7 @@ body {
 
 .button-elec {
   font-size: 15px;
-  background-color: #0DA443;
+  background-color: #0da443;
   border: none;
   border-radius: 100%;
   text-decoration: none;
@@ -162,19 +162,19 @@ body {
   position: absolute;
   top: -70px;
   pointer-events: none;
-  -webkit-transition: ease-in-out .2s;
-  transition: ease-in-out .2s;
+  -webkit-transition: ease-in-out 0.2s;
+  transition: ease-in-out 0.2s;
   opacity: 0;
   right: 0;
 }
 
 .button-elec:hover {
-  background-color: #0DA443;
+  background-color: #0da443;
 }
 
 #chiffre {
-  -webkit-transition: ease-in-out .3s;
-  transition: ease-in-out .3s;
+  -webkit-transition: ease-in-out 0.3s;
+  transition: ease-in-out 0.3s;
 }
 
 .chiffre {

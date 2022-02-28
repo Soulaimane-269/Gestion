@@ -1,82 +1,81 @@
-@import '../main/main.scss';
-.container{
-    min-height: 100vh;
+@import "../main/main.scss";
+.container {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  .logoContainer {
+    text-align: center;
+    img {
+      max-width: 80%;
+    }
+  }
+  .linksContainer {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    .logoContainer{
-        text-align: center;
-        img{
-            max-width: 80%;
-        }
+    align-items: center;
+    a.btn {
+      margin: 10px 0;
     }
-    .linksContainer{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        a.btn{
-            margin: 10px 0;
-        }
+  }
+  div:last-child {
+    text-align: center;
+    a {
+      color: rgba(0, 0, 0, 0.4);
     }
-    div:last-child {
-        text-align: center;
-        a{
-            color: rgba(0, 0, 0, .40);
-        }
-    }
+  }
 }
 //admin
 
-  @mixin button-style($color) {
-      font-size: 15px;
-        background-color:$color;
-        border: none;
-        border-radius: 100%;
-        text-decoration : none;
-        width: 70px;
-        height:70px;
-        line-height: 70px;
-        text-align: center;
-        padding: 0;
-        position: absolute;
-        top: -70px;
-        pointer-events: none;
-        transition: ease-in-out .2s;
-        opacity: 0;        
+@mixin button-style($color) {
+  font-size: 15px;
+  background-color: $color;
+  border: none;
+  border-radius: 100%;
+  text-decoration: none;
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  text-align: center;
+  padding: 0;
+  position: absolute;
+  top: -70px;
+  pointer-events: none;
+  transition: ease-in-out 0.2s;
+  opacity: 0;
 }
-.button-gaz{
-    @include button-style(#ffd000);
-    left: 0;
-    &:hover{
-        background-color: #ffd000
-    }
+.button-gaz {
+  @include button-style(#ffd000);
+  left: 0;
+  &:hover {
+    background-color: #ffd000;
+  }
 }
-.button-elec{
-    @include button-style($green);
-    right:0;
-    &:hover{
-        background-color: $green;
-    }
+.button-elec {
+  @include button-style($green);
+  right: 0;
+  &:hover {
+    background-color: $green;
+  }
 }
-#chiffre{transition: ease-in-out .3s;}
-.chiffre{
-    
-    transform: translateY(2px);
+#chiffre {
+  transition: ease-in-out 0.3s;
 }
-.twoButtonsHolder{
-    position: relative;   
-    
+.chiffre {
+  transform: translateY(2px);
 }
-.btn-gaz-active{
-    transform: translate(54px, -50px);
-    pointer-events: all;
-    opacity: 1;
-    z-index: 10;
-
+.twoButtonsHolder {
+  position: relative;
 }
-.btn-elec-active{ 
-    transform: translate(-54px, -50px);
-    pointer-events: all;
-    opacity: 1;
-    z-index: 10;
+.btn-gaz-active {
+  transform: translate(54px, -50px);
+  pointer-events: all;
+  opacity: 1;
+  z-index: 10;
+}
+.btn-elec-active {
+  transform: translate(-54px, -50px);
+  pointer-events: all;
+  opacity: 1;
+  z-index: 10;
 }

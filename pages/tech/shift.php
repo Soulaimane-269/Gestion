@@ -12,7 +12,7 @@
     }
     //les variable
     //date
-    $date= date("j, n, Y");
+    $date= date("Y-m-d");
     //id
     $id = $conn->query("SELECT id FROM users WHERE userName='".$userName . "'");
     if (mysqli_num_rows($id) > 0) {

@@ -31,7 +31,7 @@ $TotalCmpt = $Rendez_vous + $Sans_rendez_vous + $Module + $Detendeur ;
     <link rel="stylesheet" href="<?php echo"$srcAdminTech"?>css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo"$srcAdminTech"?>css/main/main.css">
     <link rel="stylesheet" href="<?php echo"$srcAdminTech"?>css/chiffres/chiffres.css">
-    <script type="text/javascript" src="<?php echo "$srcGestionChiffres"?>js/toggle-page.js" defer ></script>
+    <script type="text/javascript" src="<?php echo "$srcAdminTech"?>js/toggle-page.js" defer ></script>
     <title>Chiffres Gaz</title>
 </head>
 <body>

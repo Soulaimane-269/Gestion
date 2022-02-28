@@ -30,7 +30,7 @@ $TotalCmpt = $Rendezvous + $Accesible + $Grip ;
     <link rel="stylesheet" href="<?php echo"$srcAdminTech"?>css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo"$srcAdminTech"?>css/main/main.css">
     <link rel="stylesheet" href="<?php echo"$srcAdminTech"?>css/chiffres/chiffres.css">
-    <script type="text/javascript" src="<?php echo "$srcGestionChiffres"?>js/toggle-page.js" defer ></script>
+    <script type="text/javascript" src="<?php echo "$srcAdminTech"?>js/toggle-page.js" defer ></script>
     <title>Chiffres Elec</title>
 </head>
 <body>
@@ -54,7 +54,7 @@ $TotalCmpt = $Rendezvous + $Accesible + $Grip ;
                         echo 'value="'.$monthOut.'" >'.$monthName[$monthOut].'</option>';                   
                     };
                     echo'</select>';
-                    echo '<button class="button-green btn btn-primary" type="submit" name="submit">rechercher</button>';
+                    echo '<button class="button-green btn btn-primary" type="submit" name="submit"><i class="fa-solid fa-magnifying-glass"></i></button>';
                     }; 
                     ?>
                 </form> 

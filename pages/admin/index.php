@@ -37,7 +37,7 @@ $userName=$_SESSION["userName"];
        <div>
        <a href="../deconnexion.php">Déconnexion</a>
        </div>
-   </div> 
+   </div>
 </body>
 <script>
    const chiffre = document.getElementById("chiffre");

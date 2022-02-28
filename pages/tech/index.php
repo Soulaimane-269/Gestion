@@ -1,5 +1,5 @@
-<?php require"../init.php" ?>
 <?php require"../init.php"; 
+    require"../header.php";
 
 session_start();
 

@@ -6,9 +6,9 @@
 }
 
 .container {
-  max-width: 500px;
+  max-width: 400px;
   margin: 0 auto;
-  min-height: 87vh;
+  min-height: 90vh;
   background-color: white;
 }
 
@@ -81,18 +81,110 @@ body {
 .container1 {
   max-width: 400px;
   margin: 0 auto;
-  min-height: 13vh;
-  background-color: #64ff3d;
+  min-height: 10vh;
+  background: linear-gradient(45deg, #0da443, #ffd42a);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: relative;
+  overflow-y: visible;
+  overflow-x: clip;
 }
 
 .menu {
-  padding: 0;
-  float: right;
+  padding: 0 20px;
+}
+
+.menu i {
+  width: 100%;
+  height: 100%;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.home {
+  padding: 0 20px;
+}
+
+.home i {
+  width: 100%;
+  height: 100%;
+  color: white;
+  font-size: 25px;
+}
+
+.navBar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: black;
+  height: 100vh;
+  min-width: 300px;
+  z-index: -1;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.navBar i {
+  color: white;
+  position: absolute;
+  left: 85%;
+  top: 4%;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.navBar ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  height: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 40vh 0;
+}
+
+.navBar ul li {
+  list-style: none;
+  margin-top: 20px;
+}
+
+.navBar ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.navBar ul li a:hover {
+  color: #0da443;
+}
+
+.hideNav {
+  opacity: 0;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+}
+
+.showNav {
+  opacity: 1;
+  z-index: 100;
+  -webkit-transform: translateX(0%);
+          transform: translateX(0%);
 }
 /*# sourceMappingURL=header.css.map */
