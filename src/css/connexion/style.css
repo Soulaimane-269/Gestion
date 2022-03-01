@@ -90,11 +90,21 @@ body div form img {
 }
 
 .container {
-  background: -webkit-gradient(linear, left top, left bottom, from(#b0b300), to(#006411));
-  background: linear-gradient(#b0b300, #006411);
-  padding-top: 20px;
-  padding-right: 20px;
-  padding-left: 20px;
   min-height: 100vh;
+  background: url(../../images/background.svg) no-repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  min-width: 100%;
+  z-index: 1;
 }
 /*# sourceMappingURL=style.css.map */

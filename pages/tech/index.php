@@ -29,15 +29,14 @@ $userName=$_SESSION["userName"];
            <img src="<?php echo"$srcAdminTech" ?>images/logo.svg" alt="">
        </div>
        <div class="linksContainer">
-       <a class="btn btn-primary button-green" href="shift.php">Mon shift</a>
-       <a class="btn btn-primary button-green" href="journal.php">Mon journal</a>
-       <a class="btn btn-primary button-green" href="chiffres-mois.php" > Mes chiffres</a>
+            <a class="btn btn-primary button-green" href="shift.php">Mon shift</a>
+            <a class="btn btn-primary button-green" href="journal.php">Mon journal</a>
+            <a class="btn btn-primary button-green" href="chiffres-mois.php" > Mes chiffres</a>
        </div>
        <div>
-       <a href="../deconnexion.php">Déconnexion</a>
+            <a href="../deconnexion.php">Déconnexion</a>
        </div>
-   </div> 
-   <?php
+       <?php
        if(isset($_GET['succes'])){
         echo'
         <div class="modal">
@@ -52,12 +51,11 @@ $userName=$_SESSION["userName"];
         </div>';
         }
        ?>
-
    </div> 
-   <script>
-    closeBtn = document.querySelector('.btn-close');
-    modal = document.querySelector('.modal');
-    closeBtn.addEventListener("click", function(){modal.style.display='none';});
-    modal.addEventListener("click", function(){modal.style.display='none';});
-    </script>
+<script>
+closeBtn = document.querySelector('.btn-close');
+modal = document.querySelector('.modal');
+closeBtn.addEventListener("click", function(){modal.style.display='none';});
+modal.addEventListener("click", function(){modal.style.display='none';});
+</script>
 </body>

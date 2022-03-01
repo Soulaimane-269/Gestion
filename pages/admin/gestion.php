@@ -6,6 +6,7 @@
 
 //connection de la base de données 
  require"../connexiondb.php";
+ $verifier=0;
 
 //conditionn
  if(!empty($_POST['name']) && !empty($_POST['firstName']) && !empty($_POST['secteur']) && !empty($_POST['userName']) && !empty($_POST['passWord']) ){
@@ -20,12 +21,25 @@
  //crypter le password                                
 $passWord="123".sha1($passWord);
 
-
-
-//requete insert
-$req ="INSERT INTO users (id,name,firstName,type,userName, passWord ,secret) VALUES (id,'$name','$firstName' ,'$secteur','$userName','$passWord','$secret')";
-$res = mysqli_query($conn,$req);
+//userName check
+$req="SELECT * FROM users WHERE userName='".$userName."'";
+$res=mysqli_query($conn,$req);
+if(mysqli_num_rows($res)>0){
+  $verifier= 1;
 }
+
+  //requete insert
+  if($verifier==0){
+  $req ="INSERT INTO users (id,name,firstName,type,userName, passWord ,secret) VALUES (id,'$name','$firstName' ,'$secteur','$userName','$passWord','$secret')";
+  $res = mysqli_query($conn,$req);
+  }
+}
+else{
+  if(isset($_POST['submit']))
+  $verifier=1;
+
+}
+
 
 ?>
 <!DOCTYPE html>
@@ -118,7 +132,7 @@ $res = mysqli_query($conn,$req);
                       <input name="passWord" type="text" class="input form-control" id="validationCustom02" value="" required>
                   </div>
                   <div class="col-12">
-                      <input class="button-green btn btn-primary" type="submit" value="Enregister">
+                      <input name="submit" class="button-green btn btn-primary" type="submit" value="Enregister">
                   </div>
               </form>
             </div>
@@ -126,6 +140,29 @@ $res = mysqli_query($conn,$req);
             <div>
           
             </div>
-      </div>   
+      </div> 
+      <?php
+        if($verifier==1){
+          echo'
+           <div class="modal">
+               <div class="modal-dialog">
+                 <div class="modal-content">
+                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                   <div class="modal-body">
+                     <p>Cet identifiant est deja utilisé.</p>
+                   </div>
+                 </div>
+               </div>
+           </div>';
+          }
+          ?>
+   
+      </div> 
+      <script>
+       closeBtn = document.querySelector('.btn-close');
+       modal = document.querySelector('.modal');
+       closeBtn.addEventListener("click", function(){modal.style.display='none';});
+       modal.addEventListener("click", function(){modal.style.display='none';});
+       </script>
     </body>
 </html>        

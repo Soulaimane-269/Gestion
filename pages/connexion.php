@@ -73,11 +73,12 @@
 </head>
 <body>
     <div class="container">
-            <!--image1-->  
-            <div class=""  >
+        <div class="overlay">
+        <!--image1-->  
+        <div>
                 <img  src="<?php echo"$srcPages"?>images/logo.svg" alt="">
-            </div>
-            <div calss="">
+        </div>
+        <div>
                 <form method='post' action='connexion.php' > 
                 <!--image2-->    
                 <img  src="<?php echo"$srcPages"?>images/User_icon.png"> 
@@ -89,7 +90,8 @@
                 </div>
                 <button type="submit" class="btn  btn-primary button-white">Se connecter</button>
                 </form>
-            </div>
+        </div>
+        </div>
     </div>
     <script src="/application-master/src/js/bootstrap.min.js"></script>     
 </body>
