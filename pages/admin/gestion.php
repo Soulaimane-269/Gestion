@@ -20,6 +20,8 @@
  //crypter le password                                
 $passWord="123".sha1($passWord);
 
+
+
 //requete insert
 $req ="INSERT INTO users (id,name,firstName,type,userName, passWord ,secret) VALUES (id,'$name','$firstName' ,'$secteur','$userName','$passWord','$secret')";
 $res = mysqli_query($conn,$req);

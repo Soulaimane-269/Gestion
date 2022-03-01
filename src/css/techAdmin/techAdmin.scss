@@ -79,3 +79,20 @@
   opacity: 1;
   z-index: 10;
 }
+.modal{
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.383);
+  align-items: center;
+  .modal-dialog{
+      .modal-content{
+         padding: 5px 10px;
+         .btn-close{
+          position: relative;
+          left: 90%;
+          &:focus{
+              box-shadow: none;
+          }
+         }
+      }
+  }
+}

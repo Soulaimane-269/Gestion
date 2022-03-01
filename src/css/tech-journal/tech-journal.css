@@ -125,4 +125,43 @@ form div input {
 form div input:focus {
   outline: none;
 }
+
+.modal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.383);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.modal .modal-dialog .modal-content {
+  padding: 5px 10px;
+}
+
+.modal .modal-dialog .modal-content .btn-close {
+  position: relative;
+  left: 90%;
+}
+
+.modal .modal-dialog .modal-content .btn-close:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+a#returnBtn {
+  color: rgba(0, 0, 0, 0.4);
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+}
+
+a {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+a :hover {
+  color: rgba(0, 0, 0, 0.4);
+}
 /*# sourceMappingURL=tech-journal.css.map */

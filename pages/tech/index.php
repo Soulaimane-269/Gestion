@@ -37,4 +37,27 @@ $userName=$_SESSION["userName"];
        <a href="../deconnexion.php">Déconnexion</a>
        </div>
    </div> 
+   <?php
+       if(isset($_GET['succes'])){
+        echo'
+        <div class="modal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-body">
+                  <p>Vos données ont été bien sauvegardées.</p>
+                </div>
+              </div>
+            </div>
+        </div>';
+        }
+       ?>
+
+   </div> 
+   <script>
+    closeBtn = document.querySelector('.btn-close');
+    modal = document.querySelector('.modal');
+    closeBtn.addEventListener("click", function(){modal.style.display='none';});
+    modal.addEventListener("click", function(){modal.style.display='none';});
+    </script>
 </body>

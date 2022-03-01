@@ -36,3 +36,33 @@ form{
         }
     }
 }
+//modal
+.modal{
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.383);
+    align-items: center;
+    .modal-dialog{
+        .modal-content{
+           padding: 5px 10px;
+           .btn-close{
+            position: relative;
+            left: 90%;
+            &:focus{
+                box-shadow: none;
+            }
+           }
+        }
+    }
+}
+a#returnBtn {
+    color:$gris;
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    }
+a{
+    color:$gris;
+    :hover{
+        color: $gris;
+    }
+}

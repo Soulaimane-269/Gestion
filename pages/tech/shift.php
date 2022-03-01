@@ -197,22 +197,19 @@
                                         }
                                 
                     }
-                    if($verifier==1){
-                        echo'
-                    <div class="modal">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            <div class="modal-body">
-                              <p>Vous avez déja enregistrer vos chiffres pour aujourd\'hui. Mais vous pouvez toujours les modifier.</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>';
-                    }  
-
-                
-
+                    // if($verifier==1){
+                    //     echo'
+                    // <div class="modal">
+                    //     <div class="modal-dialog">
+                    //       <div class="modal-content">
+                    //           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    //         <div class="modal-body">
+                    //           <p>Vous avez déja enregistrer vos chiffres pour aujourd\'hui. Mais vous pouvez toujours les modifier.</p>
+                    //         </div>
+                    //       </div>
+                    //     </div>
+                    //   </div>';
+                    // }  
                 ?>
                 <div class="submit">
                     <button class="btn btn-primary button-green" type="submit"><?php echo $button?></button>

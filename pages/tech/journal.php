@@ -114,7 +114,7 @@
                  echo"il n'existe pas de chiffre pour ce jour" ;
                     echo"
                     <div ><span>voulez vous le </span>
-                        <a href='journal-modifier.php?date=".$date."' type='submit'>modifier</a>
+                        <a id='modifierBtn' href='journal-modifier.php?date=".$date."' type='submit'>modifier</a>
                     </div>
                     "; 
                 }     

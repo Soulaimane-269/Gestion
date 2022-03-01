@@ -95,7 +95,7 @@
                 ";
                 }
                 // if there is no data print an empty form
-                else {echo"il n'existe pas de chiffre pour ce jour" ;
+                else {echo"<h5>il n'existe pas de chiffre pour ce jour</h5>" ;
                 for($x = 2 ; $x < count($columnName) ; $x++ ){
 
                     echo    "<div>
@@ -111,7 +111,7 @@
                         </div>
                         ";
                     }
-                echo"<a href='journal.php?date=".$date."'>retour au journale</a>";        
+                echo"<a id='returnBtn' href='journal.php?date=".$date."'>retour au journale</a>";        
                 ?> 
             </form>
         </div>
