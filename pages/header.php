@@ -41,7 +41,7 @@
                     }else{
                     echo' <li><a href="shift.php">Mon shift</a> </li>
                     <li><a href="journal.php">Mon journal</a></li>
-                    <li><a href="chiffres-mois.php">Me chiffres</a></li>';
+                    <li><a href="chiffres-mois.php">Mes chiffres</a></li>';
                     } 
                     ?>
                     <li><a href="../deconnexion.php">Déconnexion</a></li>
