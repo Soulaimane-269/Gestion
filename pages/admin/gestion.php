@@ -49,7 +49,7 @@ $res = mysqli_query($conn,$req);
         <!--slider-->
           <div class="flex">
             <button class="button1 btn btn-lg col-5 activeBtn">Tous</button>
-            <button class="button2 btn btn-lg col-5">créer un profil</button>
+            <button class="button2 btn btn-lg col-5">Créer un profil</button>
           </div>
         <!--premiere page-->
         <div class="page1">

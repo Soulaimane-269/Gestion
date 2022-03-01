@@ -73,7 +73,7 @@
             <!-- Form de recherche -->
             <form action="" method="post" class="search">
                 <input type="date" name="date" value="<?php echo $dateInter?>">
-                <input type="submit" name="submit" class="btn btn-primary button-green" value="Rechercher">
+                <button class="button-green btn btn-primary" type="submit" name="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
             <form action="formexec.php" method="post">               
                 <?php          

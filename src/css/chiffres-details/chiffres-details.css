@@ -103,11 +103,15 @@ body {
 }
 
 .container form select {
-  width: 50% !important;
+  width: 80% !important;
+  text-align: center;
 }
 
 .container form > button {
-  min-width: 150px;
+  min-width: 10%;
+  background-color: transparent;
+  color: #0da443;
+  margin: 0;
 }
 
 .body-wrapper .container {

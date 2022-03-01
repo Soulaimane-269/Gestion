@@ -13,10 +13,14 @@
     padding: 20px 0;
       
     select{
-        width: 50% !important;
+        width: 80% !important;
+        text-align: center;
     }
     >button{
-        min-width: 150px;
+            min-width: 10%;
+            background-color: transparent;
+            color: $green;
+            margin: 0;
     }
     }
 }

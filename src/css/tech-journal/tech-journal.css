@@ -79,7 +79,7 @@ body {
 }
 
 .search {
-  padding-top: 60px;
+  padding-top: 40px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -93,7 +93,13 @@ body {
 
 .search input {
   display: block;
-  margin: 0 auto 20px auto;
+  width: 80%;
+}
+
+.search button {
+  min-width: 10%;
+  background-color: transparent;
+  color: #0da443;
 }
 
 form h5 {
@@ -126,6 +132,7 @@ form div input:focus {
   outline: none;
 }
 
+<<<<<<< Updated upstream
 .modal {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -163,5 +170,13 @@ a {
 
 a :hover {
   color: rgba(0, 0, 0, 0.4);
+=======
+a {
+  color: #0da443;
+}
+
+a:hover {
+  color: #0da443;
+>>>>>>> Stashed changes
 }
 /*# sourceMappingURL=tech-journal.css.map */

@@ -1,13 +1,18 @@
 @import'../main/main.scss';
 .search{
-    padding-top: 60px;
+    padding-top: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     input{
         display: block;
-        margin: 0 auto 20px auto;
+        width: 80%;
     }
+    button{
+        min-width: 10%;
+        background-color: transparent;
+        color: $green;
+}
 }
 form{
     h5{
@@ -36,6 +41,7 @@ form{
         }
     }
 }
+<<<<<<< Updated upstream
 //modal
 .modal{
     display: flex;
@@ -64,5 +70,11 @@ a{
     color:$gris;
     :hover{
         color: $gris;
+=======
+a{
+    color:$green;
+    &:hover{
+        color: $green;
+>>>>>>> Stashed changes
     }
 }

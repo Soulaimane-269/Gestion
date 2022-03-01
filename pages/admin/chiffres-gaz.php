@@ -55,7 +55,7 @@ $TotalCmpt = $Rendez_vous + $Sans_rendez_vous + $Module + $Detendeur ;
                         echo 'value="'.$monthOut.'" >'.$monthName[$monthOut].'</option>';                   
                     };
                     echo'</select>';
-                    echo '<button class="button-green btn btn-primary" type="submit" name="submit">rechercher</button>';
+                    echo '<button class="button-green btn btn-primary" type="submit" name="submit"><i class="fa-solid fa-magnifying-glass"></i></button>';
                     }; 
                     ?>
                 </form> 

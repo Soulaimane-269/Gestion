@@ -1,7 +1,7 @@
 @import "../main/main.scss";
 .button1 {
   border-radius: 0;
-  border-bottom: solid 1px $cyan;
+  border-bottom: solid 1px $green;
   padding: 0;
   text-align: center;
 }
@@ -44,7 +44,7 @@
       box-shadow: none;
     }
     &:hover {
-      color: $cyan;
+      color: $green;
     }
     &::after {
       content: "";
@@ -53,7 +53,7 @@
       position: absolute;
       height: 0px;
       width: 100%;
-      background-color: $cyan;
+      background-color: $green;
       z-index: 10;
       transition: all 0.1s;
     }
@@ -66,15 +66,18 @@ form {
   justify-content: center;
   margin: 20px 0;
   select {
-    width: 50%;
+    width: 80%;
+    text-align: center;
   }
-  button {
-    min-width: 150px;
+  button.button-green {
+    min-width: 10%;
+    background: transparent;
+    color: $green;
   }
 }
 .form-control {
   &:focus {
-    border: solid 1px $cyan;
+    border: solid 1px $green;
     box-shadow: none;
   }
 }
@@ -85,7 +88,7 @@ form {
 
 //colomns
 .voir {
-  color: $cyan;
+  color: $green;
   padding-top: 5px;
   float: right;
   margin-right: 20px;
@@ -106,7 +109,7 @@ h6 {
   display: none;
 }
 .activeBtn {
-  color: $cyan;
+  color: $green;
   font-weight: bold;
   &::after {
     height: 2px !important;
