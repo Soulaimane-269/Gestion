@@ -3,6 +3,12 @@
  require"init.php" ;
  require"connexiondb.php";
  //type user
+ $type = $conn->query("SELECT type FROM users WHERE userName='".$_SESSION["userName"] . "'");
+    if (mysqli_num_rows($type) > 0) {
+        while($rowData = mysqli_fetch_array($type)){
+              $typeStr=$rowData["type"];
+        }
+      }
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,9 +33,17 @@
             <span class='close' ><i class="fa-solid fa-xmark"></i></span>
                 <ul>
                     <li><a href="index.php">Accueil</a> </li>
-                    <li><a href="gestion.php">Gestion</a> </li>
-                    <li><a href="chiffres-gaz.php">Chiffres Gaz</a></li>
-                    <li><a href="chiffres-elec.php">Chiffres Electricité</a></li>
+                    <?php 
+                    if($typeStr ==='admin'){
+                    echo' <li><a href="gestion.php">Gérer les profiles</a> </li>
+                    <li><a href="chiffres-gaz.php">Chiffres gaz</a></li>
+                    <li><a href="chiffres-elec.php">Chiffres électricité</a></li>';
+                    }else{
+                    echo' <li><a href="shift.php">Mon shift</a> </li>
+                    <li><a href="journal.php">Mon journal</a></li>
+                    <li><a href="chiffres-mois.php">Me chiffres</a></li>';
+                    } 
+                    ?>
                     <li><a href="../deconnexion.php">Déconnexion</a></li>
                 </ul>
             </nav>

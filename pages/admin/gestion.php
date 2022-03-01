@@ -2,12 +2,12 @@
 
 //init
  require"../init.php";
- require"../header.php";
 
 //connection de la base de données 
  require"../connexiondb.php";
  $verifier=0;
 
+ session_start();
 //conditionn
  if(!empty($_POST['name']) && !empty($_POST['firstName']) && !empty($_POST['secteur']) && !empty($_POST['userName']) && !empty($_POST['passWord']) ){
 //les variable
@@ -57,6 +57,7 @@ else{
         
     </head>
     <body>
+    <?php require"../header.php";?>
       <!---->
       <div class="container">
         

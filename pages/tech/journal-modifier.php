@@ -1,5 +1,4 @@
 <?php require"../init.php" ;
-      require"../header.php";
       require"../connexiondb.php";
       //la session
       session_start();
@@ -59,6 +58,7 @@
         
     </head>
     <body>
+        <?php require"../header.php";?>
         <div class="container">
             <form action="" method="post">               
                 <?php  

@@ -1,8 +1,8 @@
 <?php require"../init.php" ;
-      require"../header.php";
       require"../connexiondb.php";
+      session_start();
 $date = $_GET['date'];
-header('Refresh:3 ; URL=journal-modifier.php?date='.$date.'&succes=1'); 
+header('Refresh:2 ; URL=journal-modifier.php?date='.$date.'&succes=1'); 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,6 +16,7 @@ header('Refresh:3 ; URL=journal-modifier.php?date='.$date.'&succes=1');
       <link href="<?php echo"$srcAdminTech"?>css/rederiger/rederiger.css" rel="stylesheet">  
 </head>
 <body>
+<?php require"../header.php";?>
       <div class="container">
             <div class="loader">
                   <div class="inner one"></div>

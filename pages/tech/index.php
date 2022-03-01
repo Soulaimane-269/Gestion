@@ -1,5 +1,5 @@
 <?php require"../init.php"; 
-    require"../header.php";
+    
 
 session_start();
 
@@ -24,6 +24,7 @@ $userName=$_SESSION["userName"];
     <title>Chiffres en détails</title>
 </head>
 <body>
+    <?php require"../header.php";?>
    <div class="container">
        <div class="logoContainer">
            <img src="<?php echo"$srcAdminTech" ?>images/logo.svg" alt="">
