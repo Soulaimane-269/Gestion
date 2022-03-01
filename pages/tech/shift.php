@@ -1,6 +1,5 @@
 <?php
     require"../init.php";
-    require"../header.php";
     require"../connexiondb.php";
     session_start();
     //session
@@ -78,6 +77,7 @@
         
     </head>
     <body>
+        <?php require"../header.php";?>
         <div class="container">
             <form action="<?php echo $destination?>" method="post">
                 <div>

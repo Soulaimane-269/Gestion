@@ -1,10 +1,10 @@
 <?php
 //init
 require"../init.php";
-require"../header.php";
 
 //connexion to db
 require"../connexiondb.php";
+session_start();
 //init month
 $month = (int)date("m");
 if (isset($_POST['month'])){
@@ -35,6 +35,7 @@ $TotalCmpt = $Rendez_vous + $Sans_rendez_vous + $Module + $Detendeur ;
     <title>Chiffres Gaz</title>
 </head>
 <body>
+    <?php require"../header.php";?>
     <div class="container">
         <!-- header -->
         <div class="head">

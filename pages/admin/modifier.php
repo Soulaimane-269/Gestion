@@ -1,7 +1,7 @@
 <?php require"../init.php" ;
-      require"../header.php";
       //connection de la base de données 
       require"../connexiondb.php";
+session_start();
     //id 
     $id=$_GET["id"];
     //conditionn
@@ -47,6 +47,7 @@
         
     </head>
     <body>
+        <?php require"../header.php"; ?>
         <div class="container">
             <?php
             

@@ -1,7 +1,6 @@
 <?php 
 //init
 require"../init.php";
-require"../header.php";
 require"../connexiondb.php";
 
 //la session
@@ -79,6 +78,7 @@ $avg= ($TotalDays == 0)? 0 : $TotalCmpt / $TotalDays;
     <title>Chiffres en détails</title>
 </head>
 <body>
+    <?php require"../header.php"; ?>
     <!-- header -->
     <div class="container">
     <form method="post" action="">

@@ -1,5 +1,4 @@
 <?php 
-require "../header.php";
 require"../init.php";
 require"../connexiondb.php";
 session_start();
@@ -22,6 +21,7 @@ $userName=$_SESSION["userName"];
         
     </head>
     <body>
+<?php require "../header.php"; ?>
    <div class="container">
        <div class="logoContainer">
            <img src="<?php echo"$srcAdminTech" ?>images/logo.svg" alt="">

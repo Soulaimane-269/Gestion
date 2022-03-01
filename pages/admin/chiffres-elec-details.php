@@ -1,9 +1,8 @@
 <?php 
 //init
 require"../init.php";
-require"../header.php";
 require"../connexiondb.php";
-
+session_start();
 //init month
 $month = ($_GET['month']);
 
@@ -49,6 +48,7 @@ $avg= ($TotalDays == 0)? 0 : $TotalCmpt / $TotalDays;
     <title>Chiffres en détails</title>
 </head>
 <body>
+    <?php require"../header.php";?>
     <!-- header -->
     <div class="container">
     <form method="post" action="">

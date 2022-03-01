@@ -1,10 +1,20 @@
 <?php require"../init.php";
-  require"../header.php";
 
  //connection de la base de données 
    require"../connexiondb.php"; 
 
+   session_start();
+   
+?>
+<?php
+    //id
+$id=$_GET["id"];
 
+if(isset($_POST["submit"])){
+    $req ="DELETE FROM users WHERE id = ".$id."";
+    $res = mysqli_query($conn,$req);
+    header("refresh:1;url=gestion.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,6 +29,7 @@
         
     </head>
     <body>
+    <?php require"../header.php";?>
         <?php
         //the id
         $id=$_GET["id"];
@@ -31,7 +42,7 @@
         <div class="container">
             <div class="headerHolder">
                 <div class="iconHolder">
-                    <img class="icon" src="<?php echo"$srcGestionChiffres"?>images/iconUserBlack" alt="">
+                    <img class="icon" src="<?php echo"$srcAdminTech"?>images/iconUserBlack.svg" alt="">
                 </div>
                 <h1 class="userName"><?php echo $res["userName"] ?></h1>
                 <hr>
@@ -49,7 +60,7 @@
             <div class="linksHolder">
                 <div>
                     <?php
-                    //modify boutton
+                    // modify boutton
                         echo
                         "<a class='modifierBtn' href='modifier.php?id=".$id."'>modifier ce profil</a> ";
                     ?>
@@ -59,7 +70,7 @@
                           <div class="modal-content">
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 <div class="modal-body">
-                                <p>Voulez-vous vraiment supprimer ce profil</p>
+                                <p>Voulez-vous vraiment supprimer ce profil?</p>
                                 </div>
                                 <form method="post" action="" >
                                 <button name="submit" class="btn btn-primary button-green" type="submit">confirmer</button>   
@@ -67,18 +78,8 @@
                           </div>
                         </div>
                 </div>
-                <?php
-                    //id
-                $id=$_GET["id"];
-
-                if(isset($_POST["submit"])){
-                    $req ="DELETE FROM users WHERE id = ".$id."";
-                    $res = mysqli_query($conn,$req);
-                    header("refresh:1;url=gestion.php");
-                }
-                ?>
                 <div class="col-12">
-                    <button class="supprimer" href="<?php echo"supprimer.php?id=".$id.""?>">supprimer ce profil</button>
+                    <button class="supprimer">supprimer ce profil</button>
                 </div>
             </div>
         </div>
