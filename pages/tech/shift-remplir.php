@@ -9,6 +9,7 @@ require"shift.php";
                         $module = $_POST[$columnName[4]];
                         $detendeur = $_POST[$columnName[5]]; 
                         if(isset($date) && isset($rdv) && isset($sansRdv) && isset($module) && isset($detendeur)){
+                            $verifier=1;
                             //msyql query to insert values
                             $req2= "insert into ". $dbTable. " values ( ".$idUser.", '" . $date . "', '" . $rdv . "', '" . $sansRdv . "', '" . $module . "', '" . $detendeur . "')";
                             $results = mysqli_query($conn,$req2);
@@ -24,6 +25,7 @@ require"shift.php";
                         $accSans = $_POST[$columnName[3]];
                         $gripMod = $_POST[$columnName[4]]; 
                         if(isset($date) && isset($rdv) && isset($accSans) && isset($gripMod) ){
+                            $verifier=1;
                             //msyql query to insert values
                             $req2= "insert into ". $dbTable. " values ( ".$idUser.", '" . $date . "', '" . $rdv . "', '" . $accSans . "', '" . $gripMod . "')";
                             $results = mysqli_query($conn,$req2);

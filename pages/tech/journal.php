@@ -98,7 +98,7 @@
 
                 echo    "<div>
                             <label for=''> ". $columnName[$x] ."</label>
-                            <input type='number' min='0' max='100' value=".$results1Row[$y]." name = " .$columnName[$x].">
+                            <input class='inputDisab' type='number' min='0' max='100' value=".$results1Row[$y]." name = " .$columnName[$x].">
                         </div>
                         <hr>" ;
                 }

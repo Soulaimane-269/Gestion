@@ -2,16 +2,15 @@
       require"../connexiondb.php";
       //la session
       session_start();
+      $verifier=0;
 
       if (!isset($_SESSION["userName"])){
         header("location:../connexion.php");
       }
       else{$userName=$_SESSION["userName"];
-      }
-?>
+      };
 
-<!-- recuperation des données -->
-<?php  
+    //recuperation des données
     //id
     $id = $conn->query("SELECT id FROM users WHERE userName='".$userName . "'");
     if (mysqli_num_rows($id) > 0) {
@@ -59,7 +58,7 @@
     </head>
     <body>
         <?php require"../header.php";?>
-        <div class="container">
+        <div class="container" style="position:relative">
             <form action="" method="post">               
                 <?php  
                         
@@ -114,20 +113,16 @@
                 echo"<a id='returnBtn' href='journal.php?date=".$date."'>retour au journale</a>";        
                 ?> 
             </form>
-        </div>
-    </body>
-    <?php
+            <?php
+            // ****************Form Submition **********************
     if($typeStr=='gaz'){
 
-        if(isset($_POST['Rendez_vous']) && isset($_POST['Sans_rendez_vous']) && isset($_POST['Module']) && isset($_POST['Detendeur']) ){
+        if(isset($_POST['submit']) && isset($_POST['Rendez_vous']) && isset($_POST['Sans_rendez_vous']) && isset($_POST['Module']) && isset($_POST['Detendeur']) ){
             //storing in variables
             $rendezVous = $_POST['Rendez_vous'];
             $sansRendezVous = $_POST['Sans_rendez_vous'];
             $module = $_POST['Module'];
             $detendeur= $_POST['Detendeur'];
-            echo 'het';
-
-            echo $rendezVous . $sansRendezVous . $module . $detendeur;
 
             //requete modify
             $req ="UPDATE " . $dbTable . " SET Rendez_vous = ".$rendezVous.", Sans_rendez_vous=".$sansRendezVous.", Module=".$module.",Detendeur=".$detendeur." WHERE idUser =".$idUser." AND dateInter='".$dateInter."' ";
@@ -136,19 +131,17 @@
                 $req ="INSERT INTO comptegaz VALUES (".$idUser.", '".$dateInter."',".$rendezVous.",".$sansRendezVous.",".$module." , ".$detendeur." ) ";
             }        
             $res = mysqli_query($conn,$req);
-            header('Refresh:0 ; URL=rederiger-journal-modifier.php?date='.$date.'');
-            
-
+            // load variable
+            $verifier=1;
+            header('Refresh:2 ; URL=journal-modifier.php?date='.$date.'&succes=1');
         }
     }elseif($typeStr=='electricite'){
-        if(isset($_POST['Rendezvous']) && isset($_POST['Accesible']) && isset($_POST['Grip'])){
+        if(isset($_POST['submit']) && isset($_POST['Rendezvous']) && isset($_POST['Accesible']) && isset($_POST['Grip'])){
             //storing in variables
             $rendezVous = $_POST['Rendezvous'];
             $accesible = $_POST['Accesible'];
             $grip = $_POST['Grip'];
-            echo 'het';
 
-            //
             //requete modify
             if(!isset($results1Row)){
                 $req ="INSERT INTO comptelec(idUser, dateInter, Rendezvous,Accesible,Grip) VALUES (".$idUser.", '".$dateInter."',".$rendezVous.",".$accesible.",".$grip.") ";
@@ -157,7 +150,9 @@
 
             };  
             $res = mysqli_query($conn,$req);
-            header('Refresh:0 ; URL=rederiger-journal-modifier.php?date='.$date.'');
+            // load variable
+            $verifier=1;
+            header('Refresh:2 ; URL=journal-modifier.php?date='.$date.'&succes=1');
     
 
     } 
@@ -167,4 +162,8 @@
 };
 
     ?>
+            <?php require"../load.php"?>
+        </div>
+    </body>
+    
 </html>   

@@ -1,6 +1,7 @@
 @import'../main/main.scss';
+@import'../load/load.scss';
 .search{
-    padding-top: 40px;
+    padding-top: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -29,19 +30,22 @@ form{
         input[type=number] {
             -moz-appearance: textfield;
           }
-        input{
-            float: right;
-            border: solid 1px rgba(0, 0, 0, 0.37);
-            border-radius: 60PX ;
-            width:60px;
-            text-align: center;    
-            &:focus{
-                outline: none;
-            }      
-        }
+          input{
+              float: right;
+              border: solid 1px rgba(0, 0, 0, 0.37);
+              border-radius: 60PX ;
+              width:60px;
+              text-align: center;    
+              &:focus{
+                  outline: none;
+                }      
+            }
+            .inputDisab{
+              border: none;
+              pointer-events: none;
+            }
     }
 }
-<<<<<<< Updated upstream
 //modal
 .modal{
     display: flex;
@@ -66,15 +70,11 @@ a#returnBtn {
     text-align: center;
     margin: 0 auto;
     }
-a{
+div {
+    a{
     color:$gris;
     :hover{
         color: $gris;
-=======
-a{
-    color:$green;
-    &:hover{
-        color: $green;
->>>>>>> Stashed changes
     }
+}
 }

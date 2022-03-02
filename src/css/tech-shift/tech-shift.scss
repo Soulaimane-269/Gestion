@@ -1,7 +1,11 @@
 @import'../main/main.scss';
+@import'../load/load.scss';
 h5{margin: 0px auto 50px; max-width: fit-content;}
 form{
-    padding: 15px;
+    padding: 35px 0 0;
+    .lineHolder{
+        margin: 40px 0;
+    }
     div{
         input{
             float: right;

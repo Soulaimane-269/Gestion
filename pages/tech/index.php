@@ -34,7 +34,7 @@ $userName=$_SESSION["userName"];
             <a class="btn btn-primary button-green" href="journal.php">Mon journal</a>
             <a class="btn btn-primary button-green" href="chiffres-mois.php" > Mes chiffres</a>
        </div>
-       <div>
+       <div class="linkHolder">
             <a href="../deconnexion.php">Déconnexion</a>
        </div>
        <?php

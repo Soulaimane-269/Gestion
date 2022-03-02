@@ -176,17 +176,12 @@ h6 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   padding: 20px 0;
 }
 
 .container form select {
-  width: 50%;
-}
-
-.container form button {
-  min-width: 150px;
+  width: 80%;
 }
 /*# sourceMappingURL=chiffres-details.css.map */

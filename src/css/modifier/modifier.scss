@@ -1,12 +1,15 @@
 @import'../main/main.scss';
-
+@import'../load/load.scss';
 .button-green{
   margin-top: 30px;
 }
 
 .container{
-  margin-top: 40px;
-
+  margin-top: 20px;
+  form{
+  padding-top: 30px;
+  margin: 0;
+  }
 }
 .form-control{
     &:focus{

@@ -2,6 +2,8 @@
       //connection de la base de données 
       require"../connexiondb.php";
 session_start();
+// load variable
+$verifier=0;
     //id 
     $id=$_GET["id"];
     //conditionn
@@ -18,7 +20,9 @@ session_start();
     //crypter le password                                
     $passWord="123".sha1($passWord);
     if (isset($_POST['submit'])  ){
-        header('Refresh:1 ; URL=voir.php?id='.$id.'');
+        // load variable
+        $verifier=1;
+        header('Refresh:2 ; URL=voir.php?id='.$id.'');
 
     }
     
@@ -69,7 +73,7 @@ session_start();
                 $res = mysqli_fetch_assoc($exec);
                 ?>
                 <!--the form-->                    
-                <form method="post" action="" class="row g-3 needs-validation" novalidate>
+                <form method="post" action="" class="row g-3 needs-validation">
                         <div class="">
                             <label for="validationCustom01" class="form-label">Nom</label>
                             <input name="name" type="text" class="form-control" id="validationCustom01" value="<?php echo $res["name"]?>" required>
@@ -110,7 +114,7 @@ session_start();
                         </div>
                     </form>
                     
-            
+            <?php require"../load.php";?>
         </div>
     </body>    
 </html>    

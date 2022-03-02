@@ -123,6 +123,15 @@ body {
           justify-content: center;
 }
 
+.flex .activeBtn {
+  color: #0da443;
+  font-weight: bold;
+}
+
+.flex .activeBtn::after {
+  height: 2px !important;
+}
+
 .flex button {
   font-size: 15px;
   position: relative;
@@ -209,15 +218,6 @@ h6 {
 
 .hidden {
   display: none;
-}
-
-.activeBtn {
-  color: #0da443;
-  font-weight: bold;
-}
-
-.activeBtn::after {
-  height: 2px !important;
 }
 
 .page1 {

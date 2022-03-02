@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 .container {
+  position: relative;
   max-width: 400px;
   margin: 0 auto;
   min-height: 90vh;
@@ -12,7 +13,7 @@
 body {
   background-color: beige;
 }
-//les couleures
+//colors
 $green: #0da443;
 $gris: rgba(0, 0, 0, 0.4);
 $cyan: #00a3ff;

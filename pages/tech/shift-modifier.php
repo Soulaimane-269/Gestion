@@ -1,4 +1,5 @@
 <?php
+header('Refresh:2 ; URL=index.php');
 require"shift.php";
 if($typeStr=='gaz'){
     if(isset($_POST['Rendez_vous']) && isset($_POST['Sans_rendez_vous']) && isset($_POST['Module']) && isset($_POST['Detendeur']) ){
@@ -10,7 +11,6 @@ if($typeStr=='gaz'){
         //requete modify
         $req ="UPDATE " . $dbTable . " SET Rendez_vous = ".$rendezVous.", Sans_rendez_vous=".$sansRendezVous.", Module=".$module.",Detendeur=".$detendeur." WHERE idUser =".$idUser." AND dateInter='".$date."' ";          
         $res = mysqli_query($conn,$req);
-        header('Refresh:0 ; URL=rederiger-shift-modifier.php');;
         
     }
 }elseif($typeStr=='electricite'){
@@ -20,12 +20,8 @@ if($typeStr=='gaz'){
         $rendezVous = $_POST['Rendezvous'];
         $accesible = $_POST['Accesible'];
         $grip = $_POST['Grip'];
-
         //requete modify
         $req ="UPDATE comptelec SET Rendezvous = ".$rendezVous.", Accesible=".$accesible.", Grip=".$grip." WHERE idUser =".$idUser." AND dateInter='".$date."' ";          
         $res = mysqli_query($conn,$req);
-        header('Refresh:0 ; URL=rederiger-shift-modifier.php');
-
-
 } 
 }

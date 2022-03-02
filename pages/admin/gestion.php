@@ -5,7 +5,7 @@
 
 //connection de la base de données 
  require"../connexiondb.php";
- $verifier=0;
+ $verifierUserName=0;
 
  session_start();
 //conditionn
@@ -25,18 +25,18 @@ $passWord="123".sha1($passWord);
 $req="SELECT * FROM users WHERE userName='".$userName."'";
 $res=mysqli_query($conn,$req);
 if(mysqli_num_rows($res)>0){
-  $verifier= 1;
+  $verifierUserName= 1;
 }
 
   //requete insert
-  if($verifier==0){
+  if($verifierUserName==0){
   $req ="INSERT INTO users (id,name,firstName,type,userName, passWord ,secret) VALUES (id,'$name','$firstName' ,'$secteur','$userName','$passWord','$secret')";
   $res = mysqli_query($conn,$req);
   }
 }
 else{
   if(isset($_POST['submit']))
-  $verifier=1;
+  $verifierUserName=1;
 
 }
 
@@ -105,7 +105,7 @@ else{
         <div class="page2 hidden">
           <!--le formulaire-->
           <div class="formulaire">
-            <form method="post" action="gestion.php" class=" row g-3 needs-validation" novalidate>
+            <form method="post" action="gestion.php?created=1" class=" row g-3 needs-validation">
                   <div class="input">
                       <label for="validationCustom01" class="form-label">Nom</label>
                       <input name="name" type="text" class="form-control" id="validationCustom01" value="" required>
@@ -143,21 +143,40 @@ else{
             </div>
       </div> 
       <?php
-        if($verifier==1){
+      // ********modals**********
+      // delete
+      $deleted = (isset($_GET['deleted'])) ? $_GET['deleted']  : 0;
+      if($deleted){
+        echo'
+        <div class="modal" style="display:block;">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-body">
+                  <p>Utilisateur supprimer.</p>
+                </div>
+              </div>
+            </div>
+        </div>';
+       };
+      
+      // ************* username already taken ***********
+      $created = (isset($_GET['created'])) ? $_GET['created']  : 0;
+      $modalContent = ($verifierUserName==1) ? "Cet identifiant est deja utilisé." : "Utilisateur créer avec succès";
+      if($verifierUserName==1 or $created == 1){
           echo'
-           <div class="modal">
+           <div class="modal" style="display:block;" >
                <div class="modal-dialog">
                  <div class="modal-content">
                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                    <div class="modal-body">
-                     <p>Cet identifiant est deja utilisé.</p>
+                     <p> '.$modalContent.'</p>
                    </div>
                  </div>
                </div>
            </div>';
           }
-          ?>
-   
+          ?> 
       </div> 
       <script>
        closeBtn = document.querySelector('.btn-close');

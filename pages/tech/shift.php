@@ -3,7 +3,8 @@
     require"../connexiondb.php";
     session_start();
     //session
-
+    //load variable
+$verifier = 0;
     if (!isset($_SESSION["userName"])){
         header("location:../connexion.php");
     }
@@ -32,7 +33,7 @@
 
     $idUser = $idInt;
 //valeur int
-    $verifier = 0 ; 
+    $verifierData = 0 ; 
 //si il y'a des donnes deja enregister ce jour la 
     //if elec
     if($typeStr=='electricite'){
@@ -40,7 +41,7 @@
         $req = "select * from ".$dbTable." where idUser = '".$idUser."' and dateInter ='".$date."'";
         $res = mysqli_query($conn, $req);
         if(mysqli_num_rows($res)>0){
-            $verifier= 1;
+            $verifierData= 1;
 
         }
     }
@@ -50,12 +51,12 @@
         $req = "select * from ".$dbTable." where idUser = '".$idUser."' and dateInter ='".$date."'";
         $res = mysqli_query($conn, $req);
         if(mysqli_num_rows($res)>0){
-            $verifier= 1;
+            $verifierData= 1;
         }
     }
     $destination='shift-remplir.php';
     $button='Enregister';
-    if($verifier==1){
+    if($verifierData==1){
         $destination='shift-modifier.php';
         $button='Enregistre les modification';
     }
@@ -87,7 +88,7 @@
             //si c'est elec
             if($typeStr=='electricite'){
                 //valeur int
-                $verifier = 0 ;    
+                $verifierData = 0 ;    
                 //table     
                  $dbTable = "comptelec";
                  // mysql query to get columns name
@@ -98,10 +99,10 @@
                  $req = "select * from ".$dbTable." where idUser = '".$idUser."' and dateInter ='".$date."'";
                  $res = mysqli_query($conn, $req);
                  if(mysqli_num_rows($res)>0){
-                     $verifier= 1;
+                     $verifierData= 1;
                  }
 
-                 if($verifier==1){
+                 if($verifierData==1){
                      //requete pour aficher les chiffres du jour 
                      $req1="SELECT RendezVous, Accesible, Grip FROM `".$dbTable."` WHERE idUser=".$idUser." AND dateInter='".$date."'";
                      $exec = mysqli_query($conn,$req1);
@@ -142,7 +143,7 @@
             //si c'est pour gaz
                     if($typeStr=='gaz'){
                    //valeur int
-                   $verifier = 0 ;    
+                   $verifierData = 0 ;    
                    //table     
                     $dbTable = "comptegaz";
                     // mysql query to get columns name
@@ -153,10 +154,10 @@
                     $req = "select * from ".$dbTable." where idUser = '".$idUser."' and dateInter ='".$date."'";
                     $res = mysqli_query($conn, $req);
                     if(mysqli_num_rows($res)>0){
-                        $verifier= 1;
+                        $verifierData= 1;
                     }
 
-                    if($verifier==1){
+                    if($verifierData==1){
                         //requete pour aficher les chiffres du jour 
                         $req1="SELECT Rendez_vous, Sans_rendez_vous, Module , Detendeur FROM `".$dbTable."` WHERE idUser=".$idUser." AND dateInter='".$date."'";
                         $exec = mysqli_query($conn,$req1);
@@ -191,13 +192,13 @@
                     
                     echo    "<div>
                             <label for=''> ". $columnName[$x] ."</label>
-                            <input type='number' min='0' max='100' value='".$values[$x]."' name = " .$columnName[$x].">
+                            <input type='number' min='0' max='100' required value='".$values[$x]."' name = " .$columnName[$x].">
                             </div>
                             <hr>" ;
                                         }
                                 
                     }
-                    // if($verifier==1){
+                    // if($verifierData==1){
                     //     echo'
                     // <div class="modal">
                     //     <div class="modal-dialog">
@@ -212,9 +213,13 @@
                     // }  
                 ?>
                 <div class="submit">
-                    <button class="btn btn-primary button-green" type="submit"><?php echo $button?></button>
+                    <button class="btn btn-primary button-green" name="submit"  type="submit"><?php echo $button?></button>
                 </div>
             </form>
+            <?php
+            if(isset($_POST['submit'])) $verifier =1;
+                require"../load.php" ;
+             ?>
         </div>
     </body>
     <script>

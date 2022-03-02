@@ -6,8 +6,9 @@
  require"connexiondb.php";
  //
  session_start(); 
-
- if (!empty($_POST['userName']) && !empty($_POST['passWord'])){
+  $verifier= 0;
+ if (isset($_POST['submit']) && !empty($_POST['userName']) && !empty($_POST['passWord'])){
+  
 
     //les variables
     $userName=$_POST['userName'];
@@ -27,18 +28,20 @@
     $req = "select * from users where userName = '".$userName."' and passWord ='".$passWord."'";
     $res = mysqli_query($conn, $req);
      if(mysqli_num_rows($res)>0){
+      $verifier= 1;
          if($typeStr=='admin'){
+           
              //admin
              $_SESSION["userName"] = $userName;
              $_SESSION["type"] = $typeStr;
-             header("location:admin/index.php");
+             header('Refresh:2 ; URL=admin/index.php');
            }
            //tech
            elseif($typeStr=='gaz' or $typeStr=='electricite'){
             $_SESSION["userName"] = $userName;
             $_SESSION["type"] = $typeStr;
 
-            header("location:tech/index.php");
+            header('Refresh:2 ; URL=tech/index.php');
            }
         }else{
             echo '<div class="modal" style="display:block; background: rgba(0,0,O,0.5)">
@@ -72,28 +75,28 @@
     
 </head>
 <body>
-    <div class="container">
-        <div class="overlay">
-        <!--image1-->  
-        <div>
-                <img  src="<?php echo"$srcPages"?>images/logo.svg" alt="">
-        </div>
-        <div>
-                <form method='post' action='connexion.php' > 
-                <!--image2-->    
-                <img  src="<?php echo"$srcPages"?>images/User_icon.png"> 
-                <!--le formulaire-->
-                <div class="mb-3">
-                    <input name="userName"  type="text" class=" styled-input form-control " placeholder="Identifiant" >     
-                <div class="mb-3">
-                    <input name="passWord" type="password" class="styled-input form-control" placeholder="Mot de pass" >
-                </div>
-                <button type="submit" class="btn  btn-primary button-white">Se connecter</button>
-                </form>
-        </div>
-        </div>
+  <div class="container">
+    <div class="overlay">
+      <!--image1-->  
+      <div>
+              <img  src="<?php echo"$srcPages"?>images/logo.svg" alt="">
+      </div>
+      <div>
+          <form method='post' action='connexion.php' > 
+            <!--image2-->    
+            <img  src="<?php echo"$srcPages"?>images/User_icon.png"> 
+            <!--le formulaire-->
+            <div>
+                <input name="userName"  type="text" class=" styled-input form-control " placeholder="Identifiant" >     
+                <input name="passWord" type="password" class="styled-input form-control" placeholder="Mot de pass" >
+            </div>
+            <button type="submit" name='submit' class="btn  btn-primary button-white">Se connecter</button>
+          </form>
+      </div>
+      <?php require"load.php"?>
     </div>
-    <script src="/application-master/src/js/bootstrap.min.js"></script>     
+  </div>
+  <script src="/application-master/src/js/bootstrap.min.js"></script>     
 </body>
 <script>
     closeBtn = document.querySelector('.btn-close');

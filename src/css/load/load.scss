@@ -1,5 +1,18 @@
 @import'../main/main.scss';
-  
+.container{
+  position: relative;
+}
+.loaderContainer{
+    background-color: rgba(0,0,0,0.4) ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
   .loader {
     position: absolute;
     top: calc(50% - 32px);
@@ -8,6 +21,7 @@
     height: 64px;
     border-radius: 50%;
     perspective: 800px;
+    
   }
   
   .inner {
@@ -22,21 +36,21 @@
     left: 0%;
     top: 0%;
     animation: rotate-one 1s linear infinite;
-    border-bottom: 5px solid $green;
+    border-bottom: 7px solid $green;
   }
   
   .inner.two {
     right: 0%;
     top: 0%;
     animation: rotate-two 1s linear infinite;
-    border-right: 5px solid #000000;
+    border-right: 7px solid #ffffff;
   }
   
   .inner.three {
     right: 0%;
     bottom: 0%;
     animation: rotate-three 1s linear infinite;
-    border-top: 5px solid $yellow;
+    border-top: 7px solid $yellow;
   }
   
   @keyframes rotate-one {

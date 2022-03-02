@@ -1,3 +1,5 @@
+@import'../main/main.scss';
+@import'../load/load.scss';
 * {
   margin: 0 auto;
 }
@@ -8,13 +10,14 @@ body {
       > img {
         width: 70%;
         display: block;
-        margin: 0 auto;
+        margin: 20px auto;
         padding: 20px 0;
       }
     }
   }
   div {
     form {
+      margin: 30% 21px;
       img {
         display: block;
         margin: auto;

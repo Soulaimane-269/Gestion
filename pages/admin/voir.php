@@ -4,18 +4,10 @@
    require"../connexiondb.php"; 
 
    session_start();
-   
-?>
-<?php
     //id
-$id=$_GET["id"];
-
-if(isset($_POST["submit"])){
-    $req ="DELETE FROM users WHERE id = ".$id."";
-    $res = mysqli_query($conn,$req);
-    header("refresh:1;url=gestion.php");
-}
+    $id=$_GET["id"];
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -57,6 +49,16 @@ if(isset($_POST["submit"])){
                     ';
                 ?>
             </div>
+            
+            <?php
+            // *************** delete request *******************
+
+            if(isset($_POST["submit"])){
+                $req ="DELETE FROM users WHERE id = ".$id."";
+                $res = mysqli_query($conn,$req);
+                header("refresh:2;url=gestion.php?deleted=1");
+            }
+            ?>
             <div class="linksHolder">
                 <div>
                     <?php
@@ -82,7 +84,12 @@ if(isset($_POST["submit"])){
                     <button class="supprimer">supprimer ce profil</button>
                 </div>
             </div>
+            <?php
+            $verifier = (isset($_POST['submit']) ) ? 1 : 0;
+            require"../load.php";
+            ?>
         </div>
+      
     </body> 
     <script  defer>
     supprimerBtn = document.querySelector('.supprimer');   

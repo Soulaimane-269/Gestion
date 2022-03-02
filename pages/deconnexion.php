@@ -17,16 +17,18 @@ header("refresh:2;url=connexion.php");
       <title>Document</title>
       <link href="<?php echo"$srcPages"?>css/bootstrap.min.css" rel="stylesheet">
       <link rel="stylesheet" href="<?php echo"$srcPages"?>css/main/main.css">
-      <link href="<?php echo"$srcPages"?>css/rederiger/rederiger.css" rel="stylesheet"> 
+      <link href="<?php echo"$srcPages"?>css/load/load.css" rel="stylesheet"> 
 </head>
 <body>
       <div class="container" style="min-height:100vh">
+      <div class="loaderContainer">
             <div class="loader">
                   <div class="inner one"></div>
                   <div class="inner two"></div>
                   <div class="inner three"></div>
             </div>
-      </div>  
+      </div> 
+      </div> 
       
 </body>
 </html>

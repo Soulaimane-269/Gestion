@@ -35,6 +35,13 @@
 .flex {
   display: flex;
   justify-content: center;
+  .activeBtn {
+    color: $green;
+    font-weight: bold;
+    &::after {
+      height: 2px !important;
+    }
+  }
   button {
     font-size: 15px;
     position: relative;
@@ -86,7 +93,7 @@ form {
   box-shadow: none;
 }
 
-//colomns
+//columns
 .voir {
   color: $green;
   padding-top: 5px;
@@ -104,17 +111,11 @@ h6 {
   font-weight: bold;
 }
 
-// resuble classes
+// reusable classes
 .hidden {
   display: none;
 }
-.activeBtn {
-  color: $green;
-  font-weight: bold;
-  &::after {
-    height: 2px !important;
-  }
-}
+
 .page1 {
   min-width: 100%;
   max-height: 600px;

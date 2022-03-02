@@ -9,6 +9,10 @@
               $typeStr=$rowData["type"];
         }
       }
+  // condition to check URL 
+  function linkCheck( $section ,$link){
+   if($_SERVER['REQUEST_URI']==='/Gestion/pages/'.$section.'/'.$link) echo "activeLink";
+  };
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,20 +35,22 @@
         </div>
         <nav class="navBar hideNav">
             <span class='close' ><i class="fa-solid fa-xmark"></i></span>
+            <!-- dynamic nav bar with dynamic active links -->
                 <ul>
-                    <li><a href="index.php">Accueil</a> </li>
+                    <li><a href="index.php" class="<?php if($_SERVER['REQUEST_URI']==='/Gestion/pages/admin/index.php' or $_SERVER['REQUEST_URI']==='/Gestion/pages/tech/index.php') echo "activeLink"; ?>">Accueil</a> </li>
                     <?php 
                     if($typeStr ==='admin'){
-                    echo' <li><a href="gestion.php">Gérer les profiles</a> </li>
-                    <li><a href="chiffres-gaz.php">Chiffres gaz</a></li>
-                    <li><a href="chiffres-elec.php">Chiffres électricité</a></li>';
+                    echo' <li><a class="' ;
+                    echo linkCheck('admin','gestion.php').'" href="gestion.php" >Gérer les profiles</a> </li>
+                    <li><a class="'; echo linkCheck('admin','chiffres-gaz.php').' " href="chiffres-gaz.php">Chiffres gaz</a></li>
+                    <li><a class="'; echo linkCheck('admin','chiffres-elec.php').' " href="chiffres-elec.php">Chiffres électricité</a></li>';
                     }else{
-                    echo' <li><a href="shift.php">Mon shift</a> </li>
-                    <li><a href="journal.php">Mon journal</a></li>
-                    <li><a href="chiffres-mois.php">Me chiffres</a></li>';
+                    echo' <li><a class="'; echo linkCheck('tech','shift.php').' " href="shift.php">Mon shift</a> </li>
+                    <li><a class="'; echo linkCheck('tech','journal.php').'"  href="journal.php">Mon journal</a></li>
+                    <li><a class="'; echo linkCheck('tech','chiffres-mois.php').' " href="chiffres-mois.php">Me chiffres</a></li>';
                     } 
                     ?>
-                    <li><a href="../deconnexion.php">Déconnexion</a></li>
+                    <li><a class=" btn btn-primary button-white" href="../deconnexion.php">Déconnexion</a></li>
                 </ul>
             </nav>
     </div>
