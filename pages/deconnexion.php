@@ -20,7 +20,7 @@ header("refresh:2;url=connexion.php");
       <link href="<?php echo"$srcPages"?>css/rederiger/rederiger.css" rel="stylesheet"> 
 </head>
 <body>
-      <div class="container">
+      <div class="container" style="min-height:100vh">
             <div class="loader">
                   <div class="inner one"></div>
                   <div class="inner two"></div>

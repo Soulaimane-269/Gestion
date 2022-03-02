@@ -126,13 +126,13 @@ body {
 
 .button-gaz {
   font-size: 15px;
-  background-color: #ffd000;
+  background-color: #FFD42A;
   border: none;
   border-radius: 100%;
   text-decoration: none;
   width: 70px;
   height: 70px;
-  line-height: 70px;
+  line-height: 63px;
   text-align: center;
   padding: 0;
   position: absolute;
@@ -141,11 +141,16 @@ body {
   -webkit-transition: ease-in-out 0.2s;
   transition: ease-in-out 0.2s;
   opacity: 0;
+  color: white;
+  border: 2px solid #FFD42A;
   left: 0;
 }
 
 .button-gaz:hover {
-  background-color: #ffd000;
+  color: #FFD42A;
+  background-color: white;
+  border-color: #FFD42A;
+  font-weight: 600;
 }
 
 .button-elec {
@@ -156,7 +161,7 @@ body {
   text-decoration: none;
   width: 70px;
   height: 70px;
-  line-height: 70px;
+  line-height: 63px;
   text-align: center;
   padding: 0;
   position: absolute;
@@ -165,11 +170,16 @@ body {
   -webkit-transition: ease-in-out 0.2s;
   transition: ease-in-out 0.2s;
   opacity: 0;
+  color: white;
+  border: 2px solid #0da443;
   right: 0;
 }
 
 .button-elec:hover {
-  background-color: #0da443;
+  background-color: white;
+  color: #0da443;
+  border-color: #0da443;
+  font-weight: 600;
 }
 
 #chiffre {

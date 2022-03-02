@@ -29,8 +29,8 @@ $userName=$_SESSION["userName"];
        <div class="linksContainer">
            <button class="btn btn-primary button-green" id="chiffre" >Chiffres</button>
            <div class="twoButtonsHolder">
-               <a type="button" class="button-gaz button-gaz-chiffres btn btn-primary btn-lg" href="chiffres-gaz.php">Gaz</a>
-               <a type="button" class="button-elec button-gaz-elec btn btn-secondary btn-lg" href="chiffres-elec.php">Électricité</a>
+               <a type="button" class="button-gaz button-gaz-chiffres" href="chiffres-gaz.php">Gaz</a>
+               <a type="button" class="button-elec button-gaz-elec" href="chiffres-elec.php">Électricité</a>
             </div>
             <a class="btn btn-primary button-green" href="gestion.php">Gestion</a>
        </div>
