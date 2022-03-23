@@ -5,7 +5,7 @@ session_start();
 
 if(!isset($_SESSION["userName"]) OR $_SESSION["type"] == "admin"  )
 {
-    header("location:../connexion.php");
+    header("location:../index.php");
 }
 $userName=$_SESSION["userName"];
 ?>
@@ -16,12 +16,13 @@ $userName=$_SESSION["userName"];
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="<?php echo $srcAdminTech ?>images/favicon.png"/>
     <!-- CSS files -->
-    <link rel="stylesheet" href="<?php echo"$srcAdminTech"?>css/bootstrap.min.css">
-    <link rel="stylesheet" href="<?php echo"$srcAdminTech"?>css/main/main.css">
-    <link rel="stylesheet" href="<?php echo"$srcAdminTech"?>css/techAdmin/techAdmin.css">
+    <link rel="stylesheet" href="<?php echo $srcAdminTech?>css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo $srcAdminTech?>css/main/main.css">
+    <link rel="stylesheet" href="<?php echo $srcAdminTech?>css/techAdmin/techAdmin.css">
 
-    <title>Chiffres en détails</title>
+    <title>Accueil</title>
 </head>
 <body>
     <?php require"../header.php";?>

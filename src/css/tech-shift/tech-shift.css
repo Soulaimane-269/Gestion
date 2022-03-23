@@ -6,6 +6,7 @@
 }
 
 .container {
+  position: relative;
   max-width: 400px;
   margin: 0 auto;
   min-height: 90vh;
@@ -86,6 +87,7 @@ body {
 }
 
 .container {
+  position: relative;
   max-width: 400px;
   margin: 0 auto;
   min-height: 90vh;
@@ -290,15 +292,15 @@ body {
   }
 }
 
-h5 {
-  margin: 0px auto 50px;
+form {
+  padding: 35px 0 0;
+}
+
+form h5 {
+  margin: 0px auto 40px !important;
   max-width: -webkit-fit-content;
   max-width: -moz-fit-content;
   max-width: fit-content;
-}
-
-form {
-  padding: 35px 0 0;
 }
 
 form .lineHolder {
@@ -322,34 +324,14 @@ form div input:focus-visible {
   outline-color: #0da443;
 }
 
+form .submit {
+  margin-top: 30px;
+}
+
 form .modifier {
   margin: 10px auto;
   max-width: -webkit-fit-content;
   max-width: -moz-fit-content;
   max-width: fit-content;
-}
-
-form .modal {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  background-color: rgba(0, 0, 0, 0.383);
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-form .modal .modal-dialog .modal-content {
-  padding: 5px 10px;
-}
-
-form .modal .modal-dialog .modal-content .btn-close {
-  position: relative;
-  left: 90%;
-}
-
-form .modal .modal-dialog .modal-content .btn-close:focus {
-  -webkit-box-shadow: none;
-          box-shadow: none;
 }
 /*# sourceMappingURL=tech-shift.css.map */

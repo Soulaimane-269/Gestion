@@ -2,6 +2,9 @@
       //connection de la base de données 
       require"../connexiondb.php";
 session_start();
+if (!isset($_SESSION["userName"])){
+    header("location:../index.php");
+}
 // load variable
 $verifier=0;
     //id 
@@ -44,7 +47,8 @@ $verifier=0;
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <link rel="icon" href="<?php echo $srcAdminTech ?>images/favicon.png"/>
+        <title>Modifier</title>
         <link href="<?php echo "$srcAdminTech"?>css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="<?php echo"$srcAdminTech"?>css/main/main.css">
         <link href="<?php echo "$srcAdminTech"?>css/modifier/modifier.css" rel="stylesheet">

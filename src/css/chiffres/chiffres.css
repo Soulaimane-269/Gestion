@@ -6,6 +6,7 @@
 }
 
 .container {
+  position: relative;
   max-width: 400px;
   margin: 0 auto;
   min-height: 90vh;
@@ -214,6 +215,7 @@ form button.button-green {
 h6 {
   float: left;
   font-weight: bold;
+  text-align: left;
 }
 
 .hidden {

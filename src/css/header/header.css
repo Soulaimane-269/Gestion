@@ -146,6 +146,7 @@ body {
       -ms-flex-align: center;
           align-items: center;
   padding: 40vh 0;
+  min-width: 100%;
 }
 
 .navBar ul li {

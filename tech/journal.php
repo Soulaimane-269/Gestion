@@ -5,7 +5,7 @@
       session_start();
 
     if (!isset($_SESSION["userName"])){
-        header("location:../connexion.php");
+        header("location:../index.php");
     }
     else{$userName=$_SESSION["userName"];}
 ?>
@@ -47,12 +47,19 @@
     // mysql query to get columns name
     $req = "SHOW COLUMNS FROM " . $dbTable;
     // mysql query to get columns values
-    $req1 ="select Rendezvous, Accesible , Grip FROM " . $dbTable . " WHERE dateInter ='".$dateInter."' AND idUser= " . $idUser;
+    $req1 ="select `Rendez-vous`, `Accessible`, `Grip` FROM " . $dbTable . " WHERE dateInter ='".$dateInter."' AND idUser= " . $idUser;
     //if gaz
     if($typeStr=='gaz'){
         $dbTable = "comptegaz";
-        $req1 ="select Rendez_vous, sans_rendez_vous , Module , Detendeur FROM " . $dbTable . " WHERE dateInter ='".$dateInter."' AND idUser= " . $idUser;
         $req = "SHOW COLUMNS FROM " . $dbTable;
+        $results = mysqli_query($conn,$req);
+        // array to store columns names to make query dynamic
+        $columnName = array();
+
+        while( $row = mysqli_fetch_array($results) ){
+            $columnName[] = $row['Field'] ;
+        };
+        $req1 ="SELECT `" .$columnName[2]. "` , `".$columnName[3]."` , `".$columnName[4]."` , `".$columnName[5]."` , `".$columnName[6]."` , `".$columnName[7]."` , `".$columnName[8]."` , `".$columnName[9]."` FROM `".$dbTable."` WHERE idUser=".$idUser." AND dateInter='".$date."'";
     }
 ?>
 <!DOCTYPE html>
@@ -61,7 +68,8 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <link rel="icon" href="<?php echo $srcAdminTech ?>images/favicon.png"/>
+        <title>Mon Journal</title>
         <link href="<?php echo"$srcAdminTech"?>css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="<?php echo"$srcAdminTech"?>css/main/main.css">
         <link href="<?php echo"$srcAdminTech"?>css/tech-journal/tech-journal.css" rel="stylesheet">

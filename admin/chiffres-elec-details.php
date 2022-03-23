@@ -3,6 +3,9 @@
 require"../init.php";
 require"../connexiondb.php";
 session_start();
+if (!isset($_SESSION["userName"])){
+    header("location:../index.php");
+}
 //init month
 $month = ($_GET['month']);
 
@@ -10,7 +13,17 @@ if (isset($_POST['month'])){
     $month = ($_POST['month']);
 };
 
-//connexion to db
+//get columns names
+$req = "SHOW COLUMNS FROM comptelec" ;
+// query execution
+$results = mysqli_query($conn,$req);
+// array to store columns names
+$columnName = array();
+                
+while( $row = mysqli_fetch_array($results) ){
+    $columnName[] = $row['Field'] ;
+    };
+
 //id recup
 $idUser = (int)$_GET["id"];
 
@@ -21,11 +34,15 @@ $res = mysqli_fetch_assoc($exec);
 $nom=$res["userName"];
 
 //query to get tech data
-$req="SELECT SUM(Rendezvous + Accesible + Grip) FROM comptelec WHERE idUser= ".$idUser." AND month(dateInter)=". $month;
+$req="SELECT  SUM(`".$columnName[2]."`) as champ1, SUM(`".$columnName[3]."`) as champ2, SUM(`".$columnName[4]."`) as champ3  FROM comptelec WHERE idUser= ".$idUser." AND month(dateInter)=". $month;
+
 $exec = mysqli_query($conn,$req);
 $res = mysqli_fetch_assoc($exec);
-$TotalCmpt =isset($res['SUM(Rendezvous + Accesible + Grip)']) ? $res['SUM(Rendezvous + Accesible + Grip)'] :0 ;
-
+$champ1 = isset($res['champ1']) ? $res['champ1'] : 0; 
+$champ2 = isset($res['champ2']) ? $res['champ2'] : 0; 
+$champ3 = isset($res['champ3']) ? $res['champ3'] : 0; 
+$TotalCmpt = $champ1 + $champ2 + $champ3;
+ 
 // Query to get number of days 
 $req = "SELECT * FROM comptelec WHERE idUser =".$idUser." AND month(dateInter)=". $month.";" ;
 $exec = mysqli_query($conn,$req);
@@ -41,10 +58,11 @@ $avg= ($TotalDays == 0)? 0 : $TotalCmpt / $TotalDays;
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="<?php echo $srcAdminTech ?>images/favicon.png"/>
     <!-- CSS files -->
     <link rel="stylesheet" href="<?php echo"$srcAdminTech"?>css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo"$srcAdminTech"?>css/main/main.css">
-    <link rel="stylesheet" href="<?php echo"$srcAdminTech"?>css/chiffres-details/chiffres-details.css">
+    <link rel="stylesheet" href="<?php echo"$srcAdminTech"?>css/chiffres-details-admin/chiffres-details-admin.css">
     <title>Chiffres en détails</title>
 </head>
 <body>
@@ -68,24 +86,36 @@ $avg= ($TotalDays == 0)? 0 : $TotalCmpt / $TotalDays;
                 };
                 echo'</select>';
                 echo '<button class="button-green btn btn-primary" type="submit" name="submit"><i class="fa-solid fa-magnifying-glass"></i></button>';
-                }; 
+                };
                 ?>
-            </form>    
+            </form>  
             <?php 
-            if($monthName[$month]=== 'Avril' OR $monthName[$month]=== 'Aôut' ) echo"<h5> Pour le mois d'".$monthName[$month]."<h5/>";
-            else echo"<h5> Pour le mois de ".$monthName[$month]."<h5/>"; ?>
+            if($monthName[$month]=== 'Avril' OR $monthName[$month]=== 'Aôut' ) echo"<h5> Pour le mois d'".$monthName[$month]."</h5>";
+            else echo"<h5> Pour le mois de ".$monthName[$month]."</h5>"; ?>  
         <div class="body-wrapper">
+            <h3>Technicien: <?php echo $nom?> </h3>
             <div class="container">
-                <h1><?php echo $nom?> </h1>
-                <div class="oval oval-1">
-                    <div class="fs-2 text"><?php echo $TotalCmpt?></div>
-                    <h6>Compteurs</h6>
-                </div>
-                <div class="oval oval-2">
-                    <div><?php echo number_format($avg, 2, '.', '') ?></div>
-                    <h6>Sur <?php echo $TotalDays ?> jour de travail</h6>
-                </div>
-            </div>
+            <div class="page1">
+            <table class="table table-striped">
+                <tbody >
+                    <tr >
+                    <th scope="row"><h6>Totale des Compteures</h6></th>
+                    <td><h6><?php echo $TotalCmpt?></h6></td>
+                    </tr>
+                    <tr>
+                    <th scope="row"> <h6><?php echo $columnName[2]?></h6></th>
+                    <td><h6><?php echo $champ1?></h6></td>
+                    </tr>
+                    <tr>
+                    <th scope="row"><h6><?php echo $columnName[3]?></h6></th>
+                    <td><h6><?php echo $champ2?></h6></td>
+                    </tr>
+                    <tr>
+                    <th scope="row"><h6><?php echo $columnName[4]?></h6></th>
+                    <td ><h6><?php echo $champ3?></h6></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </body>

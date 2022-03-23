@@ -6,6 +6,7 @@
 }
 
 .container {
+  position: relative;
   max-width: 400px;
   margin: 0 auto;
   min-height: 90vh;
@@ -86,6 +87,7 @@ body {
 }
 
 .container {
+  position: relative;
   max-width: 400px;
   margin: 0 auto;
   min-height: 90vh;
@@ -158,6 +160,10 @@ body {
   color: #0da443;
 }
 
+.container {
+  position: relative;
+}
+
 .loaderContainer {
   background-color: rgba(0, 0, 0, 0.4);
   display: -webkit-box;
@@ -169,9 +175,10 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  height: 100vh;
+  min-height: 100%;
   position: absolute;
   top: 0;
+  left: 0;
   width: 100%;
 }
 

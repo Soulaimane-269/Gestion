@@ -1,0 +1,29 @@
+@import'../main/main.scss';
+
+.container{
+    form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;  
+    select{
+        width: 80% !important;
+        text-align: center;
+    }
+    >button{
+            min-width: 10%;
+            background-color: transparent;
+            color: $green;
+            margin: 0;
+    }
+    }
+}
+
+.body-wrapper{
+    margin-top: 30px;
+    .container{
+        margin-top: 20px;
+        padding: 0;
+    }
+}
+

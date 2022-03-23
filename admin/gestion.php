@@ -8,6 +8,9 @@
  $verifierUserName=0;
 
  session_start();
+ if (!isset($_SESSION["userName"])){
+  header("location:../index.php");
+}
 //conditionn
  if(!empty($_POST['name']) && !empty($_POST['firstName']) && !empty($_POST['secteur']) && !empty($_POST['userName']) && !empty($_POST['passWord']) ){
 //les variable
@@ -48,7 +51,8 @@ else{
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <link rel="icon" href="<?php echo $srcAdminTech ?>images/favicon.png"/>
+        <title>Gérer les Profils</title>
         <link href="<?php echo "$srcAdminTech"?>css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="<?php echo"$srcAdminTech"?>css/main/main.css">
         <link href="<?php echo "$srcAdminTech"?>css/gestion/gestion.css" rel="stylesheet">
@@ -73,30 +77,34 @@ else{
               <?php
               //la table
                $dbTable = "users";
-               // tghe req to select the ids and the usernames
-               $req = "SELECT id , userName FROM ".$dbTable;
+               //req to select the ids and the usernames
+               $req = "SELECT id , userName, type FROM ".$dbTable;
 
                // query execution
                $results = mysqli_query($conn,$req);
                
                // array to store usersName
                $usersName = array();
+               $type = array();
 
                while( $row = mysqli_fetch_array($results) ){
                  //storing the username
                 $usersName[] = $row['userName'];
+                $type[] = $row['type'];
                 //sroring the id
                 $id[]= $row['id'];
                };
                   
                // the loop
                for($x = 0 ; $x < count($usersName) ; $x++){
+                 if($type[$x] !== 'admin'){
                  echo"
               <tr>
                 <td><h2 class='userName'>".$usersName[$x]."</h2></td>
                 <td><a class='voirLeProfil' href='voir.php?id=".$id[$x]."'>voir le profil</a></td>
               </tr>";
               }
+            }
               ?>
             </tbody>
           </table> 
@@ -153,7 +161,7 @@ else{
               <div class="modal-content">
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 <div class="modal-body">
-                  <p>Utilisateur supprimer.</p>
+                  <p>Utilisateur supprimé.</p>
                 </div>
               </div>
             </div>

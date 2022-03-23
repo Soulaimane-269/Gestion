@@ -17,9 +17,14 @@
 }
 form{
     h5{
-        margin: 0px auto 10px ;
-        padding: 10px 0;
+        margin: 0px auto 0px ;
+        padding: 30px 0;
         max-width: fit-content;
+    }
+    div{
+        button[name=submit]{
+            margin-top: 30px;
+        }
     }
     div{
         input::-webkit-outer-spin-button,

@@ -17,6 +17,7 @@
      $passWord="123".sha1($passWord);
     //type
     $type = $conn->query("SELECT type FROM users WHERE userName='".$userName . "'");
+
     if (mysqli_num_rows($type) > 0) {
         while($rowData = mysqli_fetch_array($type)){
               $typeStr=$rowData["type"];
@@ -68,7 +69,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="icon" href="<?php echo $srcPages ?>images/favicon.png"/>
+    <title>Connexion</title>
     <link href="<?php echo"$srcPages"?>css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo"$srcPages"?>css/main/main.css">
     <link href="<?php echo"$srcPages"?>css/connexion/style.css" rel="stylesheet">
@@ -82,13 +84,13 @@
               <img  src="<?php echo"$srcPages"?>images/logo.svg" alt="">
       </div>
       <div>
-          <form method='post' action='connexion.php' > 
+          <form method='post' action='' > 
             <!--image2-->    
-            <img  src="<?php echo"$srcPages"?>images/User_icon.png"> 
+            <img  src="<?php echo"$srcPages"?>images/user.png"> 
             <!--le formulaire-->
             <div>
-                <input name="userName"  type="text" class=" styled-input form-control " placeholder="Identifiant" >     
-                <input name="passWord" type="password" class="styled-input form-control" placeholder="Mot de pass" >
+                <input name="userName"  type="text" autocomplete required class=" styled-input form-control " placeholder="Identifiant" >     
+                <input name="passWord" type="password" autocomplete required class="styled-input form-control" placeholder="Mot de pass" >
             </div>
             <button type="submit" name='submit' class="btn  btn-primary button-white">Se connecter</button>
           </form>

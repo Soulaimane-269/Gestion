@@ -5,7 +5,7 @@
       $verifier=0;
 
       if (!isset($_SESSION["userName"])){
-        header("location:../connexion.php");
+        header("location:../index.php");
       }
       else{$userName=$_SESSION["userName"];
       };
@@ -35,12 +35,19 @@
     // mysql query to get columns name
     $req = "SHOW COLUMNS FROM " . $dbTable;
     // mysql query to get columns values
-    $req1 ="select Rendezvous, Accesible , Grip FROM " . $dbTable . " WHERE dateInter ='".$dateInter."' AND idUser= " . $idUser;
+    $req1 ="select `Rendez-vous`, `Accessible`, `Grip` FROM " . $dbTable . " WHERE dateInter ='".$dateInter."' AND idUser= " . $idUser;
     //if it's gaz
     if($typeStr=='gaz'){
         $dbTable = "comptegaz";
-        $req1 ="select Rendez_vous, Sans_rendez_vous , Module , Detendeur FROM " . $dbTable . " WHERE dateInter ='".$dateInter."' AND idUser= " . $idUser;
         $req = "SHOW COLUMNS FROM " . $dbTable;
+        $results = mysqli_query($conn,$req);
+        // array to store columns names to make query dynamic
+        $columnName = array();
+
+        while( $row = mysqli_fetch_array($results) ){
+            $columnName[] = $row['Field'] ;
+        };
+        $req1 ="SELECT `" .$columnName[2]. "` , `".$columnName[3]."` , `".$columnName[4]."` , `".$columnName[5]."` , `".$columnName[6]."` , `".$columnName[7]."` , `".$columnName[8]."` , `".$columnName[9]."` FROM `".$dbTable."` WHERE idUser=".$idUser." AND dateInter='".$date."'";
     }
 ;
 ?>
@@ -50,18 +57,18 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <link rel="icon" href="<?php echo $srcAdminTech ?>images/favicon.png"/> 
+        <title>Modifier Mon Journal</title>
         <link href="<?php echo"$srcAdminTech"?>css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="<?php echo"$srcAdminTech"?>css/main/main.css">
         <link href="<?php echo"$srcAdminTech"?>css/tech-journal/tech-journal.css" rel="stylesheet">
-        
+
     </head>
     <body>
         <?php require"../header.php";?>
         <div class="container" style="position:relative">
             <form action="" method="post">               
-                <?php  
-                        
+            <?php  
                 // queries execution
                 $results1 = mysqli_query($conn,$req1);
                 $results = mysqli_query($conn,$req);
@@ -81,15 +88,11 @@
                 // $x for columns name index and $y for columns values index
                 for($x = 2 AND $y=0 ; $x < count($columnName) AND $y < count($results1Row); $x++ AND $y++){
 
-                echo    "<div>
-                            <label for=''> ". $columnName[$x] ."</label>
-                            <input type='number' min='0' max='100' value=".$results1Row[$y]." name = " .$columnName[$x].">
-                        </div>
-                        <hr>" ;
+                echo    "<div><label for=''> ". $columnName[$x] ."</label><input type='number' min='0' max='100' value=".$results1Row[$y]." name = 'champ".$x."'></div><hr>" ;
                 }
                 echo"
                 <div >
-                    <button name='submit' class='btn btn-primary button-green' type='submit'>enregister les modifications</button>
+                    <button name='submit' class='btn btn-primary button-green' type='submit'>Enregister les modifications</button>
                 </div>
                 ";
                 }
@@ -97,16 +100,11 @@
                 else {echo"<h5>il n'existe pas de chiffre pour ce jour</h5>" ;
                 for($x = 2 ; $x < count($columnName) ; $x++ ){
 
-                    echo    "<div>
-                                <label for=''> ". $columnName[$x] ."</label>
-                                <input type='number' min='0' max='100' value='0' name = " .$columnName[$x].">
-                            </div>
-                            <hr>" ;
-                    
+                    echo    "<div><label for=''> ". $columnName[$x] ."</label><input type='number' min='0' max='100' value='0' name = 'champ".$x."'></div><hr>";
                         }
                         echo"
                         <div >
-                            <button name='submit' class='btn btn-primary button-green' type='submit'>enregister les modifications</button>
+                            <button name='submit' class='btn btn-primary button-green' type='submit'>Enregister les modifications</button>
                         </div>
                         ";
                     }
@@ -116,51 +114,51 @@
             <?php
             // ****************Form Submition **********************
     if($typeStr=='gaz'){
-
-        if(isset($_POST['submit']) && isset($_POST['Rendez_vous']) && isset($_POST['Sans_rendez_vous']) && isset($_POST['Module']) && isset($_POST['Detendeur']) ){
+        if( isset($_POST['submit']) && isset($_POST['champ9']) && isset($_POST['champ2']) && isset($_POST['champ3']) && isset($_POST['champ4']) && isset($_POST['champ5']) && isset($_POST['champ6']) && isset($_POST['champ7']) && isset($_POST['champ8'])){
             //storing in variables
-            $rendezVous = $_POST['Rendez_vous'];
-            $sansRendezVous = $_POST['Sans_rendez_vous'];
-            $module = $_POST['Module'];
-            $detendeur= $_POST['Detendeur'];
+            $champ1 = $_POST['champ2'];
+            $champ2 = $_POST['champ3'];
+            $champ3 = $_POST['champ4'];
+            $champ4 = $_POST['champ5'];
+            $champ5 = $_POST['champ6'];
+            $champ6 = $_POST['champ7'];
+            $champ7 = $_POST['champ8'];
+            $champ8 = $_POST['champ9'];
 
-            //requete modify
-            $req ="UPDATE " . $dbTable . " SET Rendez_vous = ".$rendezVous.", Sans_rendez_vous=".$sansRendezVous.", Module=".$module.",Detendeur=".$detendeur." WHERE idUser =".$idUser." AND dateInter='".$dateInter."' ";
             //condition to check if data exist
             if(!isset($results1Row)){
-                $req ="INSERT INTO comptegaz VALUES (".$idUser.", '".$dateInter."',".$rendezVous.",".$sansRendezVous.",".$module." , ".$detendeur." ) ";
+                // query insert
+                $req ="INSERT INTO comptegaz VALUES (".$idUser.", '".$dateInter."',".$champ1.",".$champ2.",".$champ3." , ".$champ4.", ".$champ5.", ".$champ6." ,".$champ7.", ".$champ8." ) ";
+            }elseif(isset($results1Row)){
+                //query modify
+                $req ="UPDATE comptegaz SET `".$columnName[2]."` = ".$champ1.", `".$columnName[3]."` = ".$champ2.", `".$columnName[4]."` = ".$champ3.", `".$columnName[5]."` = ".$champ4.", `".$columnName[6]."` = ".$champ5.", `".$columnName[7]."` = ".$champ6.", `".$columnName[8]."` = ".$champ7.", `".$columnName[9]."` = ".$champ8."  WHERE idUser =".$idUser." AND dateInter='".$date."' ";  
             }        
             $res = mysqli_query($conn,$req);
             // load variable
             $verifier=1;
             header('Refresh:2 ; URL=journal-modifier.php?date='.$date.'&succes=1');
+
         }
     }elseif($typeStr=='electricite'){
-        if(isset($_POST['submit']) && isset($_POST['Rendezvous']) && isset($_POST['Accesible']) && isset($_POST['Grip'])){
+        if(isset($_POST['submit']) && isset($_POST['champ2']) && isset($_POST['champ3']) && isset($_POST['champ4'])){
             //storing in variables
-            $rendezVous = $_POST['Rendezvous'];
-            $accesible = $_POST['Accesible'];
-            $grip = $_POST['Grip'];
+            $rendezVous = $_POST['champ2'];
+            $accesible = $_POST['champ3'];
+            $grip = $_POST['champ4'];
 
             //requete modify
             if(!isset($results1Row)){
-                $req ="INSERT INTO comptelec(idUser, dateInter, Rendezvous,Accesible,Grip) VALUES (".$idUser.", '".$dateInter."',".$rendezVous.",".$accesible.",".$grip.") ";
+                $req ="INSERT INTO comptelec(idUser, dateInter, `Rendez-vous`, `Accessible`, `Grip`) VALUES (".$idUser.", '".$dateInter."',".$rendezVous.",".$accesible.",".$grip.") ";
             }elseif(isset($results1Row)){
-                $req ="UPDATE comptelec SET Rendezvous = ".$rendezVous.", Accesible=".$accesible.", Grip=".$grip." WHERE idUser =".$idUser." AND dateInter='".$dateInter."' ";  
+                $req ="UPDATE comptelec SET `Rendez-vous` = ".$rendezVous.", `Accessible`=".$accesible.", `Grip`=".$grip." WHERE idUser =".$idUser." AND dateInter='".$dateInter."' ";  
 
             };  
             $res = mysqli_query($conn,$req);
             // load variable
             $verifier=1;
             header('Refresh:2 ; URL=journal-modifier.php?date='.$date.'&succes=1');
-    
-
     } 
-    
-    
-
 };
-
     ?>
             <?php require"../load.php"?>
         </div>

@@ -6,6 +6,7 @@
 }
 
 .container {
+  position: relative;
   max-width: 400px;
   margin: 0 auto;
   min-height: 90vh;
@@ -86,6 +87,7 @@ body {
 }
 
 .container {
+  position: relative;
   max-width: 400px;
   margin: 0 auto;
   min-height: 90vh;
@@ -315,11 +317,15 @@ body {
 }
 
 form h5 {
-  margin: 0px auto 10px;
-  padding: 10px 0;
+  margin: 0px auto 0px;
+  padding: 30px 0;
   max-width: -webkit-fit-content;
   max-width: -moz-fit-content;
   max-width: fit-content;
+}
+
+form div button[name=submit] {
+  margin-top: 30px;
 }
 
 form div input::-webkit-outer-spin-button,

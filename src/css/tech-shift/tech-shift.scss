@@ -1,7 +1,7 @@
 @import'../main/main.scss';
 @import'../load/load.scss';
-h5{margin: 0px auto 50px; max-width: fit-content;}
 form{
+    h5{margin: 0px auto 40px !important; max-width: fit-content;}
     padding: 35px 0 0;
     .lineHolder{
         margin: 40px 0;
@@ -23,25 +23,11 @@ form{
             }
         }
     }
+    .submit{
+        margin-top: 30px;
+    }
     .modifier{
         margin: 10px auto;
         max-width: fit-content;
-    }
-    .modal{
-        display: flex;
-        background-color: rgba(0, 0, 0, 0.383);
-        align-items: center;
-        .modal-dialog{
-            .modal-content{
-               padding: 5px 10px;
-               .btn-close{
-                position: relative;
-                left: 90%;
-                &:focus{
-                    box-shadow: none;
-                }
-               }
-            }
-        }
     }
 }
