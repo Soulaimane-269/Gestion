@@ -12,7 +12,9 @@ $month = ($_GET['month']);
 if (isset($_POST['month'])){
     $month = ($_POST['month']);
 };
-
+// Dates
+$dateFrom= isset($_POST['dateFrom']) ? $_POST['dateFrom'] : date('Y-m-d');
+$dateTo= isset($_POST['dateTo']) ? $_POST['dateTo'] : date('Y-m-d');
 //get columns names
 $req = "SHOW COLUMNS FROM comptelec" ;
 // query execution
@@ -34,7 +36,7 @@ $res = mysqli_fetch_assoc($exec);
 $nom=$res["userName"];
 
 //query to get tech data
-$req="SELECT  SUM(`".$columnName[2]."`) as champ1, SUM(`".$columnName[3]."`) as champ2, SUM(`".$columnName[4]."`) as champ3  FROM comptelec WHERE idUser= ".$idUser." AND month(dateInter)=". $month;
+$req="SELECT  SUM(`".$columnName[2]."`) as champ1, SUM(`".$columnName[3]."`) as champ2, SUM(`".$columnName[4]."`) as champ3  FROM comptelec WHERE idUser= ".$idUser." AND dateInter >= '".$dateFrom."' AND dateInter <= '".$dateTo."'";
 
 $exec = mysqli_query($conn,$req);
 $res = mysqli_fetch_assoc($exec);
@@ -70,28 +72,30 @@ $avg= ($TotalDays == 0)? 0 : $TotalCmpt / $TotalDays;
     <!-- header -->
     <div class="container">
     <form method="post" action="">
-                <?php
-                $monthName = array(0,'Janvier','Février','Mars','Avril' ,'Mai' ,'Juin','Juillet','Aôut','Septembre','Octbre','Novembre','Décembre');
-                $monthOut=1;
-                if(isset($month)){ 
-                    echo'<select name="month" >';
-                    for($monthOut=1 ; $monthOut<= 12 ; $monthOut++){
-                    echo'
-                    <option ';
-                    if ($monthOut == $month)
-                    {
-                        print"selected ";
-                    };
-                    echo 'value="'.$monthOut.'" >'.$monthName[$monthOut].'</option>';                   
-                };
-                echo'</select>';
-                echo '<button class="button-green btn btn-primary" type="submit" name="submit"><i class="fa-solid fa-magnifying-glass"></i></button>';
-                };
-                ?>
-            </form>  
+                    <input type="date" name="dateFrom" value="<?php echo $dateFrom; ?>">
+                    <input type="date" name="dateTo" value="<?php echo $dateTo; ?>">
+                    <?php
+                    // $monthName = array(0,'Janvier','Février','Mars','Avril' ,'Mai' ,'Juin','Juillet','Aôut','Septembre','Octbre','Novembre','Décembre');
+                    // $monthOut=1;
+                    // if(isset($month)){ 
+                    //     echo'<select name="month" >';
+                    //     for($monthOut=1 ; $monthOut<= 12 ; $monthOut++){
+                    //     echo'
+                    //     <option ';
+                    //     if ($monthOut == $month)
+                    //     {
+                    //         print"selected ";
+                    //     };
+                    //     echo 'value="'.$monthOut.'" >'.$monthName[$monthOut].'</option>';                   
+                    // };
+                    // echo'</select>';
+                    echo '<button class="button-green btn btn-primary" type="submit" name="submit"><i class="fa-solid fa-magnifying-glass"></i></button>';
+                    
+                    ?>
+                </form>
             <?php 
-            if($monthName[$month]=== 'Avril' OR $monthName[$month]=== 'Aôut' ) echo"<h5> Pour le mois d'".$monthName[$month]."</h5>";
-            else echo"<h5> Pour le mois de ".$monthName[$month]."</h5>"; ?>  
+            // echo"<h5> ".$monthName[$month]."</h5>";
+            ?>  
         <div class="body-wrapper">
             <h3>Technicien: <?php echo $nom?> </h3>
             <div class="container">
@@ -99,7 +103,7 @@ $avg= ($TotalDays == 0)? 0 : $TotalCmpt / $TotalDays;
             <table class="table table-striped">
                 <tbody >
                     <tr >
-                    <th scope="row"><h6>Totale des Compteures</h6></th>
+                    <th scope="row"><h6>Total compteurs</h6></th>
                     <td><h6><?php echo $TotalCmpt?></h6></td>
                     </tr>
                     <tr>

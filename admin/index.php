@@ -28,7 +28,7 @@ $userName=$_SESSION["userName"];
            <img src="<?php echo"$srcAdminTech" ?>images/logo.svg" alt="">
        </div>
        <div class="linksContainer">
-           <button class="btn btn-primary button-green" id="chiffre" >Chiffres</button>
+           <button class="btn btn-primary button-green" id="chiffre" >Suivi</button>
            <div class="twoButtonsHolder">
                <a type="button" class="button-gaz button-gaz-chiffres" href="chiffres-gaz.php">Gaz</a>
                <a type="button" class="button-elec button-gaz-elec" href="chiffres-elec.php">Électricité</a>

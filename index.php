@@ -90,7 +90,7 @@
             <!--le formulaire-->
             <div>
                 <input name="userName"  type="text" autocomplete required class=" styled-input form-control " placeholder="Identifiant" >     
-                <input name="passWord" type="password" autocomplete required class="styled-input form-control" placeholder="Mot de pass" >
+                <input name="passWord" type="password" autocomplete required class="styled-input form-control" placeholder="Mot de passe" >
             </div>
             <button type="submit" name='submit' class="btn  btn-primary button-white">Se connecter</button>
           </form>

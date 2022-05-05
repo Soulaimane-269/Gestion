@@ -7,15 +7,11 @@
 }
 .container{
     form{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px 0;
-      
-    select{
-        width: 80% !important;
-        text-align: center;
-    }
+        display: flex;
+        padding: 20px 0;  
+        input{
+            margin-left: 5px;
+        }
     >button{
             min-width: 10%;
             background-color: transparent;

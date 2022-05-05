@@ -44,7 +44,7 @@ while( $row = mysqli_fetch_array($results) ){
     $columnName[] = $row['Field'] ;
 };
 
-//query to get and user name
+//query to get id and user name
 $req="SELECT * FROM users WHERE id= ".$idUser."";
 $exec = mysqli_query($conn,$req);
 $res = mysqli_fetch_assoc($exec);
@@ -112,9 +112,9 @@ $avg= ($TotalDays == 0)? 0 : $TotalCmpt / $TotalDays;
                 };
                 ?>
             </form>    
-            <?php 
-            if($monthName[$month]=== 'Avril' OR $monthName[$month]=== 'Aôut' ) echo"<h5> Pour le mois d'".$monthName[$month]."<h5/>";
-            else echo"<h5> Pour le mois de ".$monthName[$month]."<h5/>"; ?>
+             <?php 
+            echo"<h5> ".$monthName[$month]."</h5>";
+            ?> 
         <div class="body-wrapper">
             <div class="container">
                 <h1><?php echo $nom?> </h1>

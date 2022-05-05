@@ -41,13 +41,13 @@
               // dynamic nav bar with dynamic active links
                     if($typeStr ==='admin'){
                     echo' <li><a class="' ;
-                    echo linkCheck('admin','gestion.php').'" href="gestion.php" >Gérer les profils</a> </li>
-                    <li><a class="'; echo linkCheck('admin','chiffres-gaz.php').' " href="chiffres-gaz.php">Chiffres gaz</a></li>
-                    <li><a class="'; echo linkCheck('admin','chiffres-elec.php').' " href="chiffres-elec.php">Chiffres électricité</a></li>';
+                    echo linkCheck('admin','chiffres-gaz.php').'" href="chiffres-gaz.php" >Gaz</a> </li>
+                    <li><a class="'; echo linkCheck('admin','chiffres-elec.php').' " href="chiffres-elec.php">Électricité</a></li>
+                    <li><a class="'; echo linkCheck('admin','gestion.php').' " href="gestion.php">Gérer les profils</a></li>';
                     }else{
                     echo' <li><a class="'; echo linkCheck('tech','shift.php').' " href="shift.php">Mon shift</a> </li>
                     <li><a class="'; echo linkCheck('tech','journal.php').'"  href="journal.php">Mon journal</a></li>
-                    <li><a class="'; echo linkCheck('tech','chiffres-mois.php').' " href="chiffres-mois.php">Me chiffres</a></li>';
+                    <li><a class="'; echo linkCheck('tech','chiffres-mois.php').' " href="chiffres-mois.php">Mes chiffres</a></li>';
                     } 
                     ?>
                     <li><a class=" btn btn-primary button-white" href="../deconnexion.php">Déconnexion</a></li>

@@ -13,6 +13,9 @@ $month = (int)date("m");
 if (isset($_POST['month'])){
     $month = ($_POST['month']);
 };
+// Dates
+$dateFrom= isset($_POST['dateFrom']) ? $_POST['dateFrom'] : date('Y-m-d');
+$dateTo= isset($_POST['dateTo']) ? $_POST['dateTo'] : date('Y-m-d');
 //get columns names
 $req = "SHOW COLUMNS FROM comptegaz" ;
 // query execution
@@ -24,7 +27,7 @@ $req = "SHOW COLUMNS FROM comptegaz" ;
      $columnName[] = $row['Field'] ;
      };
 //queries
-$req= "SELECT SUM(`".$columnName[2]."`), SUM(`".$columnName[3]."`), SUM(`".$columnName[4]."`) , SUM(`".$columnName[5]."`), SUM(`".$columnName[6]."`), SUM(`".$columnName[7]."`), SUM(`".$columnName[8]."`), SUM(`".$columnName[9]."`) FROM comptegaz WHERE month(dateInter)=".$month."";
+$req= "SELECT SUM(`".$columnName[2]."`), SUM(`".$columnName[3]."`), SUM(`".$columnName[4]."`) , SUM(`".$columnName[5]."`), SUM(`".$columnName[6]."`), SUM(`".$columnName[7]."`), SUM(`".$columnName[8]."`), SUM(`".$columnName[9]."`) FROM comptegaz WHERE dateInter >= '".$dateFrom."' AND dateInter <= '".$dateTo."'";
 $exec = mysqli_query($conn,$req);
 $res=mysqli_fetch_assoc($exec);
 // output Variables
@@ -50,7 +53,7 @@ $TotalCmpt = $champ1 + $champ2 + $champ3 + $champ4 + $champ5 + $champ6 + $champ7
     <link rel="stylesheet" href="<?php echo"$srcAdminTech"?>css/main/main.css">
     <link rel="stylesheet" href="<?php echo"$srcAdminTech"?>css/chiffres/chiffres.css">
     <script type="text/javascript" src="<?php echo "$srcAdminTech"?>js/toggle-page.js" defer ></script>
-    <title>Chiffres Gaz</title>
+    <title>Gaz</title>
 </head>
 <body>
     <?php require"../header.php";?>
@@ -59,42 +62,44 @@ $TotalCmpt = $champ1 + $champ2 + $champ3 + $champ4 + $champ5 + $champ6 + $champ7
         <div class="head">
             <div>
                 <form method="post" action="">
+                    <input type="date" name="dateFrom" value="<?php echo $dateFrom; ?>">
+                    <input type="date" name="dateTo" value="<?php echo $dateTo; ?>">
                     <?php
-                    $monthName = array(0,'Janvier','Février','Mars','Avril' ,'Mai' ,'Juin','Juillet','Aôut','Septembre','Octbre','Novembre','Décembre');
-                    $monthOut=1;
-                    if(isset($month)){ 
-                        echo'<select name="month" >';
-                        for($monthOut=1 ; $monthOut<= 12 ; $monthOut++){
-                        echo'
-                        <option ';
-                        if ($monthOut == $month)
-                        {
-                            print"selected ";
-                        };
-                        echo 'value="'.$monthOut.'" >'.$monthName[$monthOut].'</option>';                   
-                    };
-                    echo'</select>';
+                    // $monthName = array(0,'Janvier','Février','Mars','Avril' ,'Mai' ,'Juin','Juillet','Aôut','Septembre','Octbre','Novembre','Décembre');
+                    // $monthOut=1;
+                    // if(isset($month)){ 
+                    //     echo'<select name="month" >';
+                    //     for($monthOut=1 ; $monthOut<= 12 ; $monthOut++){
+                    //     echo'
+                    //     <option ';
+                    //     if ($monthOut == $month)
+                    //     {
+                    //         print"selected ";
+                    //     };
+                    //     echo 'value="'.$monthOut.'" >'.$monthName[$monthOut].'</option>';                   
+                    // };
+                    // echo'</select>';
                     echo '<button class="button-green btn btn-primary" type="submit" name="submit"><i class="fa-solid fa-magnifying-glass"></i></button>';
-                    }; 
+                    
                     ?>
                 </form> 
             </div>   
         </div>
         <div>                
-        <?php 
-            if($monthName[$month]=== 'Avril' OR $monthName[$month]=== 'Aôut' ) echo"<h5> Pour le mois d'".$monthName[$month]."<h5/>";
-            else echo"<h5> Pour le mois de ".$monthName[$month]."<h5/>"; ?>
+         <?php 
+            // echo"<h5> ".$monthName[$month]."</h5>";
+            ?> 
         </div>
          <div class="flex">
             <button class="button1 btn btn-lg col-5 activeBtn">Tous</button>
-            <button class="button2 btn btn-lg col-5">Par tech</button>
+            <button class="button2 btn btn-lg col-5">Par technicien</button>
           </div>
         <!-- Main Table -->
         <div class="page1">
             <table class="table table-striped">
                 <tbody >
                     <tr >
-                    <th scope="row"><h6>Totale des Compteures</h6></th>
+                    <th scope="row"><h6>Total compteurs</h6></th>
                     <td><?php echo $TotalCmpt?></td>
                     </tr>
                     <tr>

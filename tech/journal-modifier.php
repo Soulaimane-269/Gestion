@@ -97,7 +97,7 @@
                 ";
                 }
                 // if there is no data print an empty form
-                else {echo"<h5>il n'existe pas de chiffre pour ce jour</h5>" ;
+                else {echo"<h5>il n'existe pas de chiffre pour le ".$date."</h5>" ;
                 for($x = 2 ; $x < count($columnName) ; $x++ ){
 
                     echo    "<div><label for=''> ". $columnName[$x] ."</label><input type='number' min='0' max='100' value='0' name = 'champ".$x."'></div><hr>";
