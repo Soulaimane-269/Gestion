@@ -34,7 +34,9 @@ $userName=$_SESSION["userName"];
                <a type="button" class="button-elec button-gaz-elec" href="chiffres-elec.php">Électricité</a>
             </div>
             <a class="btn btn-primary button-green" href="gestion.php">Gestion</a>
-       </div>
+            <?php if($_SESSION['idUser'] != 29) echo '<a class="btn btn-primary button-green" style="margin-top:0" href="depense.php">Dépenses</a>'?>    
+        </div>
+       
        <div class="linkHolder">
        <a href="../deconnexion.php">Déconnexion</a>
        </div>

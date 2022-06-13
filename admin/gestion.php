@@ -127,6 +127,7 @@ else{
                       <select name="secteur" class="form-select" id="validationCustom04" required>
                           <option  value="Gaz">Gaz</option>
                           <option value="Electricite">Electricite</option>
+                          <option value="Admin">Admin</option>
                       </select>
 
                   </div>

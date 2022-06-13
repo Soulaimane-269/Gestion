@@ -16,11 +16,12 @@
     //crypter le password                               
      $passWord="123".sha1($passWord);
     //type
-    $type = $conn->query("SELECT type FROM users WHERE userName='".$userName . "'");
+    $type = $conn->query("SELECT type, id FROM users WHERE userName='".$userName . "'");
 
     if (mysqli_num_rows($type) > 0) {
         while($rowData = mysqli_fetch_array($type)){
               $typeStr=$rowData["type"];
+              $idUser = $rowData["id"];
         }
 
     }
@@ -44,6 +45,7 @@
 
             header('Refresh:2 ; URL=tech/index.php');
            }
+           $_SESSION["idUser"]=$idUser;
         }else{
             echo '<div class="modal" style="display:block; background: rgba(0,0,O,0.5)">
             <div class="modal-dialog">
